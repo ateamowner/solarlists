@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-source-sans);
+  --font-heading: var(--font-source-serif);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: 0.3rem;
+  --radius-md: 0.4rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+}
+
+:root {
+  --background: #f6f1e6;
+  --foreground: #1a1d18;
+  --card: #fffdf8;
+  --card-foreground: #1a1d18;
+  --primary: #8a4b12;
+  --primary-foreground: #fff8ec;
+  --secondary: #ebe3d2;
+  --secondary-foreground: #1a1d18;
+  --muted: #ebe3d2;
+  --muted-foreground: #4a463c;
+  --accent: #f3d27a;
+  --accent-foreground: #3d2e0a;
+  --destructive: #8b1e1e;
+  --border: #cfc3aa;
+  --input: #cfc3aa;
+  --ring: #8a4b12;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+  html {
+    @apply font-sans;
+  }
+}
