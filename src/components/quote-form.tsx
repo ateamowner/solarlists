@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import {
   formBillRanges,
   formInterest,
@@ -352,9 +353,9 @@ export function QuoteForm({ city, service, compact }: QuoteFormProps) {
         />
         <span>
           I agree to the{" "}
-          <a href="/privacy/" className="underline underline-offset-2">
+          <Link href="/privacy/" className="underline underline-offset-2">
             privacy policy
-          </a>
+          </Link>
           . Required.
         </span>
       </label>
