@@ -38,6 +38,8 @@ This repository publishes its own Pages site from `main` via `.github/workflows/
 
 Required repo settings (once): **Settings → Pages → Source = GitHub Actions**. Custom domain: `solarlists.com`. `CNAME` is committed as `solarlists.com` (repo root and `public/CNAME`).
 
+Pages source was set to GitHub Actions and the custom domain to solarlists.com on 2026-08-28. HTTPS waits on Porkbun DNS.
+
 This workflow does **not** change [treelist.ai](https://treelist.ai) DNS or the TreeList repo.
 
 ## Porkbun DNS (solarlists.com only)
