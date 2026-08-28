@@ -382,6 +382,31 @@ export const cities: City[] = [
     localNote:
       "We do not invent a Springfield-only dollar figure. National published ranges are the only numbers on this site.",
   },
+  {
+    slug: "tipp-city-oh",
+    name: "Tipp City",
+    state: "Ohio",
+    stateAbbr: "OH",
+    status: "live",
+    nearbySlugs: [
+      "dayton-oh",
+      "vandalia-oh",
+      "huber-heights-oh",
+      "springfield-oh",
+      "fairborn-oh",
+    ],
+    setting:
+      "Tipp City sits in Miami County north of Dayton along the I-75 corridor, with a compact historic downtown and later subdivisions. AES Ohio is the usual electric utility.",
+    utility: "AES Ohio",
+    roofs:
+      "Older downtown pitches mixed with later subdivision architectural shingles; asphalt is common, and a few Main Street buildings still show aged covering.",
+    housing:
+      "Canal-era downtown two-stories plus 1970s–2000s ranches and colonials on wider lots than inner-city Dayton.",
+    winter:
+      "Ice and freeze–thaw hit older flashing downtown; open subdivision lots catch more wind-driven snow than a tree-lined Dayton street.",
+    localNote:
+      "A Main Street two-story is a different design problem than a later Tipp subdivision ranch, even when both sit on AES Ohio.",
+  },
 ];
 
 export const liveCitySlugs = cities

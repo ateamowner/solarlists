@@ -70,6 +70,13 @@ const copy: Record<string, string> = {
     "Older Springfield housing is exactly where a no-huge-loan TPO path matters. You may not want to finance panels on a roof that still has a decade of life questions. TPO keeps ownership with the provider if the roof and utility path qualify.",
   "springfield-oh:solar-panels":
     "Slate or very old asphalt in Springfield is a reason to pause module selection until the roof plan is honest. National published cost ranges are the only dollar figures we cite.",
+
+  "tipp-city-oh:solar-installation":
+    "Tipp City purchase jobs split between the historic downtown and later Miami County subdivisions north of Dayton. A written install still starts with remaining roof life, shade, and AES Ohio interconnection. We do not publish a Tipp-only price.",
+  "tipp-city-oh:tpo-solar":
+    "Tipp City owners who want bill relief without a large loan can ask for TPO first. $0-down still needs a sound deck and the utility path on an AES Ohio bill. The TPO provider owns the system; A Team Contracting still walks the roof.",
+  "tipp-city-oh:solar-panels":
+    "Downtown Tipp lots can fight tighter setbacks and older planes; later subdivision roofs are often simpler rectangles. Panel layout follows shade, pitch, and winter sun — not a brand ranking we invented for Miami County.",
 };
 
 export function uniqueLocalCopy(city: City, service: Service): string {

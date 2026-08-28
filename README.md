@@ -92,7 +92,7 @@ First Formsubmit delivery requires confirming `owner@ateamcontractings.com` when
 - `/` — homepage (TPO + purchase)
 - `/privacy/`
 - `/request-sent/`
-- City hubs: `/dayton-oh/`, `/kettering-oh/`, `/beavercreek-oh/`, `/centerville-oh/`, `/huber-heights-oh/`, `/fairborn-oh/`, `/miamisburg-oh/`, `/xenia-oh/`, `/vandalia-oh/`, `/springfield-oh/`
+- City hubs: `/dayton-oh/`, `/kettering-oh/`, `/beavercreek-oh/`, `/centerville-oh/`, `/huber-heights-oh/`, `/fairborn-oh/`, `/miamisburg-oh/`, `/xenia-oh/`, `/vandalia-oh/`, `/springfield-oh/`, `/tipp-city-oh/`
 - City × service: `solar-installation`, `tpo-solar`, `solar-panels` under each city (locked H1: `Best {Service} in {City} — 2026`)
 
 Cities, services, theme, and inbox live in `src/config/site.ts`. Unique local copy lives in `src/lib/local-copy.ts`.
