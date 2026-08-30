@@ -1,6 +1,6 @@
 # SolarLists
 
-Residential solar quote site for the Dayton / Miami Valley. Brand: **SolarLists**. Domain: [solarlists.com](https://solarlists.com).
+Residential solar quote site for Dayton, Columbus, Cincinnati, and nearby Ohio cities. Brand: **SolarLists**. Domain: [solarlists.com](https://solarlists.com).
 
 This is **A Team Contracting** in-house lead gen — not a contractor marketplace and not a utility. Every quote goes to `owner@ateamcontractings.com`. Third-party ownership (TPO / $0-down / no huge loan) and a standard purchase path.
 
@@ -92,7 +92,9 @@ First Formsubmit delivery requires confirming `owner@ateamcontractings.com` when
 - `/` — homepage (TPO + purchase)
 - `/privacy/`
 - `/request-sent/`
-- City hubs: `/dayton-oh/`, `/kettering-oh/`, `/beavercreek-oh/`, `/centerville-oh/`, `/huber-heights-oh/`, `/fairborn-oh/`, `/miamisburg-oh/`, `/xenia-oh/`, `/vandalia-oh/`, `/springfield-oh/`, `/tipp-city-oh/`, `/oakwood-oh/`, `/west-carrollton-oh/`, `/trotwood-oh/`, `/englewood-oh/`, `/riverside-oh/`, `/moraine-oh/`, `/bellbrook-oh/`, `/springboro-oh/`, `/troy-oh/`, `/clayton-oh/`, `/brookville-oh/`, `/germantown-oh/`, `/franklin-oh/`
+- City hubs (Dayton ring): `/dayton-oh/`, `/kettering-oh/`, `/beavercreek-oh/`, `/centerville-oh/`, `/huber-heights-oh/`, `/fairborn-oh/`, `/miamisburg-oh/`, `/xenia-oh/`, `/vandalia-oh/`, `/springfield-oh/`, `/tipp-city-oh/`, `/oakwood-oh/`, `/west-carrollton-oh/`, `/trotwood-oh/`, `/englewood-oh/`, `/riverside-oh/`, `/moraine-oh/`, `/bellbrook-oh/`, `/springboro-oh/`, `/troy-oh/`, `/clayton-oh/`, `/brookville-oh/`, `/germantown-oh/`, `/franklin-oh/`
+- City hubs (Columbus ring): `/columbus-oh/`, `/dublin-oh/`, `/westerville-oh/`, `/grove-city-oh/`, `/upper-arlington-oh/`, `/hilliard-oh/`, `/gahanna-oh/`, `/reynoldsburg-oh/`, `/pickerington-oh/`, `/powell-oh/`, `/delaware-oh/`, `/worthington-oh/`
+- City hubs (Cincinnati ring): `/cincinnati-oh/`, `/mason-oh/`, `/west-chester-oh/`, `/hamilton-oh/`, `/fairfield-oh/`, `/lebanon-oh/`, `/loveland-oh/`, `/blue-ash-oh/`, `/montgomery-oh/`, `/milford-oh/`, `/norwood-oh/`, `/forest-park-oh/`
 - City × service: `solar-installation`, `tpo-solar`, `solar-panels` under each city (locked H1: `Best {Service} in {City} — 2026`)
 
 Cities, services, theme, and inbox live in `src/config/site.ts`. Unique local copy lives in `src/lib/local-copy.ts`.
@@ -101,7 +103,7 @@ Cities, services, theme, and inbox live in `src/config/site.ts`. Unique local co
 
 The only dollar range on the site is national:
 
-U.S. residential solar marketplace quotes have recently clustered around about $2.50 per watt before incentives ([EnergySage, H2 2025](https://www.energysage.com/news/home-energy-market-h2-2025-highlights/)). Broader cash-purchase studies report higher national medians. Labeled as a national range, not a Dayton survey.
+U.S. residential solar marketplace quotes have recently clustered around about $2.50 per watt before incentives ([EnergySage, H2 2025](https://www.energysage.com/news/home-energy-market-h2-2025-highlights/)). Broader cash-purchase studies report higher national medians. Labeled as a national range, not a city survey.
 
 ## SEO
 

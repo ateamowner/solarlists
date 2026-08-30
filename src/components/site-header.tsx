@@ -10,7 +10,7 @@ export function SiteHeader() {
             {site.name}
           </p>
           <p className="text-xs text-muted-foreground sm:text-sm">
-            Dayton / Miami Valley solar
+            Dayton, Columbus, and Cincinnati solar
           </p>
         </Link>
         <nav

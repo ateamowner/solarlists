@@ -168,6 +168,174 @@ const copy: Record<string, string> = {
     "A Franklin owner who wants solar without a large loan can use TPO on a sound roof. $0-down does not skip a river-lot access check or an ice-season flashing review. The TPO provider owns the equipment. Confirm the utility on the statement — Warren County bills are not all the same.",
   "franklin-oh:solar-panels":
     "A mill-town two-story is a different panel layout than a Springboro HOA colonial. North planes hold ice; river-adjacent lots are not automatically a south-facing ideal. We do not assume every Franklin roof matches a subdivision rectangle just because both sit on I-75.",
+
+  "columbus-oh:solar-installation":
+    "A Columbus purchase install starts with the roof you already have: Clintonville bungalows, German Village brick, and two-stories on tight lots, plus asphalt that has seen ice and the occasional slate leftover. AEP Ohio interconnection is part of the written scope. We do not publish a Columbus-only price.",
+  "columbus-oh:tpo-solar":
+    "TPO is the first path we offer many Columbus owners who want solar without a large loan. Third-party ownership can put an array on a suitable AEP Ohio rooftop with $0 down. You use the power; the TPO provider owns the equipment. A Team Contracting still walks the roof and the bill first.",
+  "columbus-oh:solar-panels":
+    "Panel layout in Columbus is about remaining shingle life, street-tree shade after leaf-out, and how a low winter sun hits a bungalow plane — not a list of invented brands. Historic-district slate is a pause, not a catalog upsell.",
+
+  "dublin-oh:solar-installation":
+    "Dublin subdivisions along the Scioto and I-270 usually have larger, less-shaded roofs than Columbus city lots. A purchase install still runs through roof age, HOA rules, architectural shingles, and AEP Ohio interconnection. Wider lots do not create a local price list.",
+  "dublin-oh:tpo-solar":
+    "Newer Dublin roofs are often closer to TPO-ready because the shingles are younger. $0-down still requires a sound deck and a utility path on an AEP Ohio bill. We quote TPO first when the owner does not want a large loan. Historic Dublin is a tighter, older walk.",
+  "dublin-oh:solar-panels":
+    "Open HOA streets tend to fight fewer street trees than Clintonville. Panel layout here is usually orientation, inverter type, and whether an HOA limits visible planes — not alley shade. Downtown Dublin is a different access problem.",
+
+  "westerville-oh:solar-installation":
+    "Westerville purchase jobs split between an Uptown historic pitch and later Delaware County–edge colonials. Confirm Westerville Electric or the utility printed on your bill before interconnection talk — this is not an AEP Ohio default. We do not publish a Westerville-only price.",
+  "westerville-oh:tpo-solar":
+    "A later Westerville colonial can still go TPO if the south or west planes are sound. You are not buying the array. $0-down does not skip a roof inspection or a check of the city-electric vs AEP path on the statement.",
+  "westerville-oh:solar-panels":
+    "More facets on a township-edge colonial mean we talk which planes are worth a string or microinverter layout. An Uptown north valley that holds ice is not a panel plane just because the house is in Westerville.",
+
+  "grove-city-oh:solar-installation":
+    "Grove City purchase jobs mix later I-71-edge colonials with an older Broadway core. A written install still names which planes get modules, how flashing is protected through ice season, and how AEP Ohio interconnection is filed. Later subdivisions do not create a local price list.",
+  "grove-city-oh:tpo-solar":
+    "Newer Grove City roofs are often closer to TPO-ready because the shingles are younger. $0-down still requires a sound deck and a utility path on an AEP Ohio bill. We quote TPO first when the owner does not want a large loan.",
+  "grove-city-oh:solar-panels":
+    "South-of-I-270 lots tend to fight fewer street trees than Upper Arlington. Panel layout here is usually orientation, inverter type, and whether an HOA limits visible planes — not alley shade on a Columbus bungalow.",
+
+  "upper-arlington-oh:solar-installation":
+    "An Upper Arlington purchase install starts with the roof you already have: Tudor and foursquare stock on tree-lined streets, leftover slate that is not a standard rack, and shade that a Hilliard subdivision does not fight. AEP Ohio interconnection is part of the written scope. We do not publish an Upper Arlington-only price.",
+  "upper-arlington-oh:tpo-solar":
+    "TPO can put an array on a suitable Upper Arlington rooftop with $0 down if the deck and covering pass. Older inner-ring housing is exactly where a no-huge-loan path matters — you may not want to finance panels on a roof that still has slate or life questions. The TPO provider owns the equipment; AEP Ohio still interconnects.",
+  "upper-arlington-oh:solar-panels":
+    "Panel layout in Upper Arlington is about remaining covering life, leaf-out shade after May, and how a low winter sun hits a two-story plane behind maples — not a list of invented brands. Historic slate is a pause, not a catalog upsell.",
+
+  "hilliard-oh:solar-installation":
+    "Hilliard purchase jobs mix later I-270-edge colonials with Old Hilliard’s tighter core. A written install still starts with remaining roof life, HOA rules, and AEP Ohio interconnection. We do not invent a Hilliard survey price.",
+  "hilliard-oh:tpo-solar":
+    "A later Hilliard colonial can still go TPO if the south or west planes are sound. You are not buying the array. $0-down does not skip an HOA check or a roof inspection before A Team sends a quote. Old Hilliard is a different roof-first conversation.",
+  "hilliard-oh:solar-panels":
+    "Open west-side lots tend to fight fewer street trees than Upper Arlington. Panel layout here is usually orientation, inverter type, and whether an HOA limits visible planes — not a village-green shade problem.",
+
+  "gahanna-oh:solar-installation":
+    "Gahanna purchase jobs split between a Creekside older pitch and later I-270-edge colonials. A written install still starts with remaining roof life, which planes get modules, and AEP Ohio interconnection. We do not publish a Gahanna-only price.",
+  "gahanna-oh:tpo-solar":
+    "A later Gahanna colonial can still go TPO if the south or west planes are sound. $0-down still needs a sound deck and the utility path on an AEP Ohio bill. The TPO provider owns the system; A Team Contracting still walks the roof.",
+  "gahanna-oh:solar-panels":
+    "Creek-adjacent lots can fight tighter setbacks and older planes; later I-270-edge roofs are often simpler rectangles. Panel layout follows shade, pitch, and winter sun — not a brand ranking we invented for northeast Franklin County.",
+
+  "reynoldsburg-oh:solar-installation":
+    "Reynoldsburg purchase installs are usually 1960s–90s asphalt on wider lots than a Columbus bungalow block. AEP Ohio is the usual bill. Open I-70 streets help staging; remaining shingle life and ice at the eaves still come first. We will not invent a Reynoldsburg-only dollar figure.",
+  "reynoldsburg-oh:tpo-solar":
+    "TPO fits many Reynoldsburg owners who want solar without a loan on a mid-century house. The TPO provider owns the system; you keep the bill conversation with AEP Ohio. A long ranch plane can host $0-down if the deck and shingles pass.",
+  "reynoldsburg-oh:solar-panels":
+    "Shade in Reynoldsburg is less about Clintonville maples and more about open east-side lots and neighboring additions. Low-pitch asphalt sheds snow differently than a steep German Village Victorian. Panel spacing follows that geometry — not a brand catalog.",
+
+  "pickerington-oh:solar-installation":
+    "Pickerington subdivisions usually have larger, less-shaded roofs than Columbus city lots. A purchase install still runs through roof age, HOA rules, and interconnection on South Central Power or AEP Ohio — confirm the name on the bill. Wider Fairfield County lots do not create a local price list.",
+  "pickerington-oh:tpo-solar":
+    "Newer Pickerington roofs are often closer to TPO-ready because the shingles are younger. $0-down still requires a sound deck and a utility path on the bill. We quote TPO first when the owner does not want a large loan. Do not assume AEP Ohio on every Pickerington statement.",
+  "pickerington-oh:solar-panels":
+    "Open HOA streets tend to fight fewer street trees than Gahanna’s Creekside core. Panel layout here is usually orientation, inverter type, and whether an HOA limits visible planes — not alley shade. Downtown Pickerington is a tighter, older walk.",
+
+  "powell-oh:solar-installation":
+    "Powell purchase jobs split between a compact downtown pitch and later Delaware County subdivisions north of Dublin. A written install still starts with remaining roof life, HOA rules, and AEP Ohio interconnection. We do not publish a Powell-only price.",
+  "powell-oh:tpo-solar":
+    "Newer Powell roofs are often closer to TPO-ready because the shingles are younger. $0-down still requires a sound deck and a utility path on an AEP Ohio bill. We quote TPO first when the owner does not want a large loan. Downtown Powell is a different access problem.",
+  "powell-oh:solar-panels":
+    "Open HOA streets tend to fight fewer street trees than Worthington’s village green. Panel layout here is usually orientation, inverter type, and whether an HOA limits visible planes — not a downtown two-story shade walk.",
+
+  "delaware-oh:solar-installation":
+    "Delaware purchase jobs split between public-square two-stories and later county-edge housing north of Powell. A written install still starts with remaining roof life, shade, and AEP Ohio interconnection. We do not publish a Delaware-only price.",
+  "delaware-oh:tpo-solar":
+    "Older Delaware downtown housing is exactly where a no-huge-loan TPO path matters. You may not want to finance panels on a roof that still has a decade of life questions. TPO keeps ownership with the provider if the roof and AEP Ohio path qualify.",
+  "delaware-oh:solar-panels":
+    "Square-adjacent lots can fight tighter setbacks and older planes; later edge roofs are often simpler rectangles. Panel layout follows shade, pitch, and winter sun — not a brand ranking we invented for Delaware County.",
+
+  "worthington-oh:solar-installation":
+    "A Worthington purchase install starts with village-green two-stories or later Olentangy-edge asphalt. Older covering and street-tree shade are a pause, not a catalog upsell. AEP Ohio interconnection is part of the written scope. We do not invent a Worthington survey price.",
+  "worthington-oh:tpo-solar":
+    "Older Worthington housing is exactly where a no-huge-loan TPO path matters. You may not want to finance panels on a roof that still has life questions. TPO keeps ownership with the provider if the village-core or later-edge roof and AEP Ohio path qualify.",
+  "worthington-oh:solar-panels":
+    "Village trees and two-stories change shade and winter sun more than a Dublin subdivision rectangle. Very old asphalt around the green is a reason to pause module selection until the roof plan is honest. National published cost ranges are the only dollar figures we cite.",
+
+  "cincinnati-oh:solar-installation":
+    "A Cincinnati purchase install starts with the roof you already have: hillside Italianates, brick two-stories, and asphalt that has seen ice, plus the occasional slate or tile on a historic block. Duke Energy Ohio interconnection is part of the written scope. We do not publish a Cincinnati-only price.",
+  "cincinnati-oh:tpo-solar":
+    "TPO is the first path we offer many Cincinnati owners who want solar without a large loan. Third-party ownership can put an array on a suitable Duke Energy rooftop with $0 down. You use the power; the TPO provider owns the equipment. A Team Contracting still walks the roof and the bill first.",
+  "cincinnati-oh:solar-panels":
+    "Panel layout in Cincinnati is about remaining shingle life, hillside orientation, and how a low winter sun hits a north slope — not a list of invented brands. Historic-district slate is a pause, not a catalog upsell.",
+
+  "mason-oh:solar-installation":
+    "Mason subdivisions along I-71 usually have larger, less-shaded roofs than Cincinnati city lots. A purchase install still runs through roof age, HOA rules, architectural shingles, and Duke Energy Ohio interconnection. Wider Warren County lots do not create a local price list.",
+  "mason-oh:tpo-solar":
+    "Newer Mason roofs are often closer to TPO-ready because the shingles are younger. $0-down still requires a sound deck and a utility path on a Duke Energy bill. We quote TPO first when the owner does not want a large loan.",
+  "mason-oh:solar-panels":
+    "Open HOA streets tend to fight fewer street trees than a Cincinnati hillside. Panel layout here is usually orientation, inverter type, and whether an HOA limits visible planes — not alley shade. Downtown Mason is a tighter, older walk.",
+
+  "west-chester-oh:solar-installation":
+    "West Chester Township purchase jobs are later I-75-corridor colonials on Duke Energy Ohio. A written install still names which planes get modules, how flashing is protected through ice season, and how interconnection is filed. Later subdivisions do not create a local price list.",
+  "west-chester-oh:tpo-solar":
+    "Newer West Chester roofs are often closer to TPO-ready because the shingles are younger. $0-down still requires a sound deck and a utility path on a Duke Energy bill. We quote TPO first when the owner does not want a large loan.",
+  "west-chester-oh:solar-panels":
+    "Open Butler County lots tend to fight fewer street trees than Hyde Park. Panel layout here is usually orientation, inverter type, and whether an HOA limits visible planes — not a Cincinnati hillside shade problem.",
+
+  "hamilton-oh:solar-installation":
+    "Hamilton purchase jobs sit on mill-town two-stories along the river or later Butler County–edge housing. Confirm City of Hamilton electric or the utility printed on your bill before interconnection talk — this is not a Duke Energy default. We will not invent a Hamilton-only dollar figure.",
+  "hamilton-oh:tpo-solar":
+    "A Hamilton owner who wants solar without a large loan can use TPO on a sound roof. $0-down does not skip a river-lot access check or an ice-season flashing review. The TPO provider owns the equipment. Confirm the city utility or whoever is printed on the statement.",
+  "hamilton-oh:solar-panels":
+    "A mill-town two-story is a different panel layout than a West Chester HOA colonial. North planes hold ice; river-adjacent lots are not automatically a south-facing ideal. We do not assume every Hamilton roof matches a subdivision rectangle.",
+
+  "fairfield-oh:solar-installation":
+    "Fairfield purchase installs are usually 1960s–90s asphalt on wider lots than a Cincinnati hillside block. Duke Energy Ohio is the usual bill. Remaining shingle life and ice at the eaves still come first. We will not invent a Fairfield-only dollar figure.",
+  "fairfield-oh:tpo-solar":
+    "TPO fits many Fairfield owners who want solar without a loan on a mid-century house. The TPO provider owns the system; you keep the bill conversation with Duke Energy. A long ranch plane can host $0-down if the deck and shingles pass.",
+  "fairfield-oh:solar-panels":
+    "Shade in Fairfield is less about Cincinnati street trees and more about open north-belt lots and neighboring additions. Low-pitch asphalt sheds snow differently than a steep hillside Italianate. Panel spacing follows that geometry — not a brand catalog.",
+
+  "lebanon-oh:solar-installation":
+    "Lebanon purchase jobs split between a historic downtown pitch and later Warren County edges toward Mason. Duke Energy Ohio interconnection is part of the written scope. Springboro and Franklin stay on their existing Dayton-ring pages — we do not duplicate them. We do not publish a Lebanon-only price.",
+  "lebanon-oh:tpo-solar":
+    "Older Lebanon downtown housing is exactly where a no-huge-loan TPO path matters. You may not want to finance panels on a roof that still has a decade of life questions. TPO keeps ownership with the provider if the roof and Duke Energy path qualify.",
+  "lebanon-oh:solar-panels":
+    "Square-adjacent lots can fight tighter setbacks and older planes; later edge roofs are often simpler rectangles. Panel layout follows shade, pitch, and winter sun — not a brand ranking we invented for Warren County.",
+
+  "loveland-oh:solar-installation":
+    "Loveland hillside lots and downtown two-stories create steeper pitches and tighter staging than a Mason ranch. A purchase install starts with access, remaining roof life, and Duke Energy Ohio — not a river-view premium we invented.",
+  "loveland-oh:tpo-solar":
+    "Steeper Loveland roofs can host a TPO system if structure and shingles pass. $0-down does not skip a hillside access check or an ice-season flashing review. The TPO provider owns the equipment.",
+  "loveland-oh:solar-panels":
+    "A Little Miami or gorge-adjacent lot can favor a west or southwest plane that still produces. We do not assume every Loveland roof is a south-facing ideal just because the zip is close to Cincinnati.",
+
+  "blue-ash-oh:solar-installation":
+    "Blue Ash purchase jobs sit on mid-century gables along the I-71 / I-275 corridor — simpler geometry than a Cincinnati hillside Italianate, older stock than a Mason HOA street. Duke Energy Ohio interconnection is part of the written scope. Tight lots change staging, not a city price we invented.",
+  "blue-ash-oh:tpo-solar":
+    "TPO can fit a Blue Ash owner who wants solar without a large loan on a mid-century house. $0-down does not skip a deck check or an ice-season flashing review. The TPO provider owns the equipment; Duke Energy still interconnects.",
+  "blue-ash-oh:solar-panels":
+    "A Blue Ash gable is usually one or two simple planes — useful for panels if the asphalt has life left. I-71-corridor wind is a mounting note, not a reason to publish a Blue Ash panel price. We do not invent a brand ranking.",
+
+  "montgomery-oh:solar-installation":
+    "Montgomery purchase jobs split between a historic downtown pitch and later I-275-edge colonials. A written install still starts with remaining roof life, which planes get modules, and Duke Energy Ohio interconnection. We do not publish a Montgomery-only price.",
+  "montgomery-oh:tpo-solar":
+    "A later Montgomery colonial can still go TPO if the south or west planes are sound. You are not buying the array. $0-down does not skip an HOA check or a roof inspection before A Team sends a quote. Downtown stock is a different roof-first conversation.",
+  "montgomery-oh:solar-panels":
+    "More facets on a later colonial mean we talk which planes are worth a string or microinverter layout. A north valley that holds ice downtown is not a panel plane just because the house is in northeast Hamilton County.",
+
+  "milford-oh:solar-installation":
+    "Milford purchase jobs split between a compact Little Miami downtown pitch and later Clermont-edge ranches. A written install still starts with remaining roof life, shade, and Duke Energy Ohio interconnection. We do not publish a Milford-only price.",
+  "milford-oh:tpo-solar":
+    "Milford owners who want bill relief without a large loan can ask for TPO first. $0-down still needs a sound deck and the utility path on a Duke Energy bill. The TPO provider owns the system; A Team Contracting still walks the roof.",
+  "milford-oh:solar-panels":
+    "Downtown Milford lots can fight tighter setbacks and older planes; later edge roofs are often simpler rectangles. Panel layout follows shade, pitch, and winter sun — not a brand ranking we invented for Clermont County.",
+
+  "norwood-oh:solar-installation":
+    "Norwood’s older industrial-era asphalt and tight lots inside the Cincinnati line make roof age the first filter. Some blocks need replacement before any purchase install. Duke Energy Ohio serves the city; we confirm that on the bill, not from a map guess.",
+  "norwood-oh:tpo-solar":
+    "Older Norwood housing is exactly where a no-huge-loan TPO path matters. You may not want to finance panels on a roof that still has life questions. TPO keeps ownership with the provider if the roof and Duke Energy path qualify.",
+  "norwood-oh:solar-panels":
+    "Shade in Norwood is less about suburban street trees and more about neighboring two-stories, additions, and winter sun angles on a landlocked block. We will not pick a panel brand to pretend we have a local ranking.",
+
+  "forest-park-oh:solar-installation":
+    "Forest Park purchase installs are usually mid-century asphalt on a planned north Hamilton County grid. Duke Energy Ohio is the usual bill. Open I-275 streets help staging; remaining shingle life and ice at the eaves still come first. We will not invent a Forest Park-only dollar figure.",
+  "forest-park-oh:tpo-solar":
+    "TPO fits many Forest Park owners who want solar without a loan on a 1960s–80s house. The TPO provider owns the system; you keep the bill conversation with Duke Energy. A long ranch plane can host $0-down if the deck and shingles pass.",
+  "forest-park-oh:solar-panels":
+    "Shade in Forest Park is less about Cincinnati hillside maples and more about open planned-community lots and neighboring additions. Low-pitch asphalt sheds snow differently than a steep Italianate. Panel spacing follows that geometry — not a brand catalog.",
 };
 
 for (const city of cities) {

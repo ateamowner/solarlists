@@ -14,10 +14,10 @@ export const site = {
   /** Native HTML POST to Formsubmit. No fetch/XHR, no API key. */
   formAction: "https://formsubmit.co/owner@ateamcontractings.com",
   formRedirect: "https://solarlists.com/request-sent/",
-  tagline: "Residential solar in the Dayton / Miami Valley. TPO or purchase.",
+  tagline: "Residential solar in Dayton, Columbus, and Cincinnati. TPO or purchase.",
   year: 2026,
   description:
-    "SolarLists collects residential solar quote requests for A Team Contracting in the Dayton / Miami Valley. Third-party ownership (TPO) and purchase quotes. We are not a utility or a national marketplace.",
+    "SolarLists collects residential solar quote requests for A Team Contracting in Dayton, Columbus, Cincinnati, and nearby Ohio cities. Third-party ownership (TPO) and purchase quotes. We are not a utility or a national marketplace.",
   disclosure:
     "This site collects solar quote requests for A Team Contracting. We are not a utility or a national marketplace.",
   theme: {
@@ -37,12 +37,15 @@ export const site = {
 
 export type CityStatus = "live" | "coming_soon";
 
+export type CityRegion = "dayton" | "columbus" | "cincinnati";
+
 export type City = {
   slug: string;
   name: string;
   state: string;
   stateAbbr: string;
   status: CityStatus;
+  region: CityRegion;
   nearbySlugs: string[];
   parentSlug?: string;
   /** Public geographic context used in hub copy. Not pricing. */
@@ -138,6 +141,7 @@ export const cities: City[] = [
     state: "Ohio",
     stateAbbr: "OH",
     status: "live",
+    region: "dayton",
     nearbySlugs: [
       "kettering-oh",
       "oakwood-oh",
@@ -163,6 +167,7 @@ export const cities: City[] = [
     state: "Ohio",
     stateAbbr: "OH",
     status: "live",
+    region: "dayton",
     nearbySlugs: [
       "dayton-oh",
       "oakwood-oh",
@@ -188,6 +193,7 @@ export const cities: City[] = [
     state: "Ohio",
     stateAbbr: "OH",
     status: "live",
+    region: "dayton",
     nearbySlugs: [
       "dayton-oh",
       "riverside-oh",
@@ -213,6 +219,7 @@ export const cities: City[] = [
     state: "Ohio",
     stateAbbr: "OH",
     status: "live",
+    region: "dayton",
     nearbySlugs: [
       "kettering-oh",
       "oakwood-oh",
@@ -238,6 +245,7 @@ export const cities: City[] = [
     state: "Ohio",
     stateAbbr: "OH",
     status: "live",
+    region: "dayton",
     nearbySlugs: [
       "dayton-oh",
       "vandalia-oh",
@@ -263,6 +271,7 @@ export const cities: City[] = [
     state: "Ohio",
     stateAbbr: "OH",
     status: "live",
+    region: "dayton",
     nearbySlugs: [
       "dayton-oh",
       "beavercreek-oh",
@@ -288,6 +297,7 @@ export const cities: City[] = [
     state: "Ohio",
     stateAbbr: "OH",
     status: "live",
+    region: "dayton",
     nearbySlugs: [
       "west-carrollton-oh",
       "moraine-oh",
@@ -313,6 +323,7 @@ export const cities: City[] = [
     state: "Ohio",
     stateAbbr: "OH",
     status: "live",
+    region: "dayton",
     nearbySlugs: [
       "beavercreek-oh",
       "bellbrook-oh",
@@ -338,6 +349,7 @@ export const cities: City[] = [
     state: "Ohio",
     stateAbbr: "OH",
     status: "live",
+    region: "dayton",
     nearbySlugs: [
       "dayton-oh",
       "huber-heights-oh",
@@ -363,6 +375,7 @@ export const cities: City[] = [
     state: "Ohio",
     stateAbbr: "OH",
     status: "live",
+    region: "dayton",
     nearbySlugs: [
       "dayton-oh",
       "fairborn-oh",
@@ -388,6 +401,7 @@ export const cities: City[] = [
     state: "Ohio",
     stateAbbr: "OH",
     status: "live",
+    region: "dayton",
     nearbySlugs: [
       "vandalia-oh",
       "troy-oh",
@@ -413,6 +427,7 @@ export const cities: City[] = [
     state: "Ohio",
     stateAbbr: "OH",
     status: "live",
+    region: "dayton",
     nearbySlugs: [
       "dayton-oh",
       "kettering-oh",
@@ -438,6 +453,7 @@ export const cities: City[] = [
     state: "Ohio",
     stateAbbr: "OH",
     status: "live",
+    region: "dayton",
     nearbySlugs: [
       "dayton-oh",
       "moraine-oh",
@@ -463,6 +479,7 @@ export const cities: City[] = [
     state: "Ohio",
     stateAbbr: "OH",
     status: "live",
+    region: "dayton",
     nearbySlugs: [
       "dayton-oh",
       "clayton-oh",
@@ -488,6 +505,7 @@ export const cities: City[] = [
     state: "Ohio",
     stateAbbr: "OH",
     status: "live",
+    region: "dayton",
     nearbySlugs: [
       "clayton-oh",
       "vandalia-oh",
@@ -513,6 +531,7 @@ export const cities: City[] = [
     state: "Ohio",
     stateAbbr: "OH",
     status: "live",
+    region: "dayton",
     nearbySlugs: [
       "dayton-oh",
       "fairborn-oh",
@@ -538,6 +557,7 @@ export const cities: City[] = [
     state: "Ohio",
     stateAbbr: "OH",
     status: "live",
+    region: "dayton",
     nearbySlugs: [
       "dayton-oh",
       "kettering-oh",
@@ -563,6 +583,7 @@ export const cities: City[] = [
     state: "Ohio",
     stateAbbr: "OH",
     status: "live",
+    region: "dayton",
     nearbySlugs: [
       "centerville-oh",
       "beavercreek-oh",
@@ -588,6 +609,7 @@ export const cities: City[] = [
     state: "Ohio",
     stateAbbr: "OH",
     status: "live",
+    region: "dayton",
     nearbySlugs: [
       "centerville-oh",
       "miamisburg-oh",
@@ -613,6 +635,7 @@ export const cities: City[] = [
     state: "Ohio",
     stateAbbr: "OH",
     status: "live",
+    region: "dayton",
     nearbySlugs: [
       "tipp-city-oh",
       "vandalia-oh",
@@ -638,6 +661,7 @@ export const cities: City[] = [
     state: "Ohio",
     stateAbbr: "OH",
     status: "live",
+    region: "dayton",
     nearbySlugs: [
       "englewood-oh",
       "trotwood-oh",
@@ -663,6 +687,7 @@ export const cities: City[] = [
     state: "Ohio",
     stateAbbr: "OH",
     status: "live",
+    region: "dayton",
     nearbySlugs: [
       "clayton-oh",
       "englewood-oh",
@@ -688,6 +713,7 @@ export const cities: City[] = [
     state: "Ohio",
     stateAbbr: "OH",
     status: "live",
+    region: "dayton",
     nearbySlugs: [
       "miamisburg-oh",
       "west-carrollton-oh",
@@ -713,6 +739,7 @@ export const cities: City[] = [
     state: "Ohio",
     stateAbbr: "OH",
     status: "live",
+    region: "dayton",
     nearbySlugs: [
       "springboro-oh",
       "miamisburg-oh",
@@ -732,7 +759,664 @@ export const cities: City[] = [
     localNote:
       "A Franklin mill-town two-story is not a Springboro subdivision array, even though both sit in Warren County on I-75.",
   },
+  {
+    slug: "columbus-oh",
+    name: "Columbus",
+    state: "Ohio",
+    stateAbbr: "OH",
+    status: "live",
+    region: "columbus",
+    nearbySlugs: [
+      "dublin-oh",
+      "upper-arlington-oh",
+      "westerville-oh",
+      "hilliard-oh",
+      "grove-city-oh",
+    ],
+    setting:
+      "Columbus is Ohio’s capital, with older city lots, street trees, and a mix of bungalows, two-stories, and later infill from German Village to Clintonville. AEP Ohio is the usual electric utility on the bill.",
+    utility: "AEP Ohio",
+    roofs:
+      "Mostly asphalt shingles; some brick and older downtown-adjacent blocks still carry slate or a mixed covering that is not a standard rack.",
+    housing:
+      "Victorian, Craftsman, and mid-century stock on tighter lots than Dublin or Hilliard subdivisions.",
+    winter:
+      "Ice storms and freeze–thaw wear flashing; street-tree shade after leaf-out hides a south plane that looked open in February.",
+    localNote:
+      "A Clintonville bungalow is a different shade and access problem than a later Grove City subdivision, even when both sit on AEP Ohio.",
+  },
+  {
+    slug: "dublin-oh",
+    name: "Dublin",
+    state: "Ohio",
+    stateAbbr: "OH",
+    status: "live",
+    region: "columbus",
+    nearbySlugs: [
+      "columbus-oh",
+      "hilliard-oh",
+      "powell-oh",
+      "worthington-oh",
+      "upper-arlington-oh",
+    ],
+    setting:
+      "Dublin sits northwest of Columbus along the Scioto and I-270, with later subdivisions, HOA streets, and a compact historic core. AEP Ohio is the typical utility.",
+    utility: "AEP Ohio",
+    roofs:
+      "1990s–2010s architectural shingles dominate the subdivisions; the older Bridge Street / Historic Dublin core has aging asphalt and tighter access.",
+    housing:
+      "Later two-stories and colonials on HOA lots, plus a small older core — not inner-city Columbus bungalow stock.",
+    winter:
+      "Open subdivision lots shed snow faster on steeper planes but take more wind; ice still sits on older downtown flashing.",
+    localNote:
+      "A Dublin HOA colonial is a different array scope than a Historic Dublin two-story, even when both use a Dublin address.",
+  },
+  {
+    slug: "westerville-oh",
+    name: "Westerville",
+    state: "Ohio",
+    stateAbbr: "OH",
+    status: "live",
+    region: "columbus",
+    nearbySlugs: [
+      "columbus-oh",
+      "worthington-oh",
+      "gahanna-oh",
+      "powell-oh",
+      "delaware-oh",
+    ],
+    setting:
+      "Westerville sits northeast of Columbus with an Uptown historic core and later housing toward Delaware County. Westerville Electric, the city utility, serves most addresses — confirm the name on your bill; some edges print AEP Ohio.",
+    utility: "Westerville Electric or the utility printed on your bill",
+    roofs:
+      "Older Uptown pitches mixed with later architectural shingles on wider lots. Slate leftovers are uncommon; remaining shingle life varies block to block.",
+    housing:
+      "Small-town two-stories around Uptown plus 1980s–2000s colonials on the edges.",
+    winter:
+      "North valleys on older Uptown roofs hold ice; later open lots catch more wind than the tree-lined core.",
+    localNote:
+      "Do not assume an AEP Ohio bill in Westerville. Interconnection follows the utility printed on the statement — often the city electric division.",
+  },
+  {
+    slug: "grove-city-oh",
+    name: "Grove City",
+    state: "Ohio",
+    stateAbbr: "OH",
+    status: "live",
+    region: "columbus",
+    nearbySlugs: [
+      "columbus-oh",
+      "hilliard-oh",
+      "pickerington-oh",
+      "reynoldsburg-oh",
+      "upper-arlington-oh",
+    ],
+    setting:
+      "Grove City sits southwest of Columbus along I-71, with a compact older downtown and large later subdivisions. AEP Ohio is the usual electric utility.",
+    utility: "AEP Ohio",
+    roofs:
+      "Later architectural shingles on subdivision streets; the older Broadway core has aging asphalt and more flashing lines.",
+    housing:
+      "1970s–2010s colonials and ranches plus a small historic core — wider lots than inner-city Columbus.",
+    winter:
+      "Open I-71-corridor lots catch more wind-driven snow than a tree-lined Clintonville street; low-pitch ranches still hold ice at the eaves.",
+    localNote:
+      "A Grove City subdivision rectangle is a different design problem than a downtown Broadway two-story, even when both sit on AEP Ohio.",
+  },
+  {
+    slug: "upper-arlington-oh",
+    name: "Upper Arlington",
+    state: "Ohio",
+    stateAbbr: "OH",
+    status: "live",
+    region: "columbus",
+    nearbySlugs: [
+      "columbus-oh",
+      "dublin-oh",
+      "hilliard-oh",
+      "worthington-oh",
+      "grove-city-oh",
+    ],
+    setting:
+      "Upper Arlington is an inner-ring city west of downtown Columbus, with tree-lined streets, early 20th-century two-stories, and tighter lots than later Dublin subdivisions. AEP Ohio is the usual electric utility.",
+    utility: "AEP Ohio",
+    roofs:
+      "Asphalt is common on later replacements; older houses still carry slate or a mixed covering that is not a standard rack.",
+    housing:
+      "Tudor, colonial, and foursquare stock on shaded lots — older Columbus-adjacent housing, not a 1990s HOA street.",
+    winter:
+      "Mature shade holds ice on north planes; ice dams show up where attic ventilation is weak. Winter sun sits low behind street trees.",
+    localNote:
+      "An Upper Arlington slate leftover is a different array conversation than a Hilliard subdivision plane, even though both sit west of downtown Columbus.",
+  },
+  {
+    slug: "hilliard-oh",
+    name: "Hilliard",
+    state: "Ohio",
+    stateAbbr: "OH",
+    status: "live",
+    region: "columbus",
+    nearbySlugs: [
+      "columbus-oh",
+      "dublin-oh",
+      "upper-arlington-oh",
+      "grove-city-oh",
+      "worthington-oh",
+    ],
+    setting:
+      "Hilliard sits west of Columbus along I-270, with Old Hilliard’s compact core and later subdivisions toward the Scioto. AEP Ohio is the typical utility.",
+    utility: "AEP Ohio",
+    roofs:
+      "Later architectural shingles dominate; Old Hilliard still has aging asphalt and tighter access than a 2000s street.",
+    housing:
+      "1990s–2010s two-stories and colonials plus a small older core — more HOA streets than Upper Arlington.",
+    winter:
+      "Open west-side lots take wind-driven ice; older Old Hilliard flashing still holds freeze–thaw after a Central Ohio storm.",
+    localNote:
+      "A Hilliard HOA colonial is not an Old Hilliard two-story walk, even when both use a Hilliard ZIP.",
+  },
+  {
+    slug: "gahanna-oh",
+    name: "Gahanna",
+    state: "Ohio",
+    stateAbbr: "OH",
+    status: "live",
+    region: "columbus",
+    nearbySlugs: [
+      "columbus-oh",
+      "westerville-oh",
+      "reynoldsburg-oh",
+      "worthington-oh",
+      "pickerington-oh",
+    ],
+    setting:
+      "Gahanna sits northeast of Columbus along Big Walnut Creek and I-270, with a Creekside older core and later housing. AEP Ohio is the usual electric utility.",
+    utility: "AEP Ohio",
+    roofs:
+      "Older in-town asphalt mixed with later architectural shingles. Slate is uncommon; remaining shingle life varies.",
+    housing:
+      "Mid-century and later two-stories plus a compact older core near Creekside — not a Powell subdivision grid.",
+    winter:
+      "Creek-adjacent ice and freeze–thaw on older flashing; later open lots catch more wind than the tree-lined core.",
+    localNote:
+      "A Gahanna Creekside two-story is a different design problem than a later I-270-edge colonial, even when both sit on AEP Ohio.",
+  },
+  {
+    slug: "reynoldsburg-oh",
+    name: "Reynoldsburg",
+    state: "Ohio",
+    stateAbbr: "OH",
+    status: "live",
+    region: "columbus",
+    nearbySlugs: [
+      "columbus-oh",
+      "gahanna-oh",
+      "pickerington-oh",
+      "grove-city-oh",
+      "westerville-oh",
+    ],
+    setting:
+      "Reynoldsburg sits east of Columbus along the I-70 corridor, spanning Franklin, Licking, and Fairfield county lines, with 1960s–90s housing and later infill. AEP Ohio is the typical utility.",
+    utility: "AEP Ohio",
+    roofs:
+      "Ranch and colonial asphalt, often lower pitch on older streets. Historic slate is uncommon.",
+    housing:
+      "1960s–90s ranches and two-stories plus later edges — simpler footprints than Upper Arlington.",
+    winter:
+      "I-70-corridor wind on more open lots; low-pitch ranches hold snow the way other east-side planes do.",
+    localNote:
+      "A Reynoldsburg ranch plane is closer to Grove City geometry than to a Clintonville bungalow, even though both sit on AEP Ohio.",
+  },
+  {
+    slug: "pickerington-oh",
+    name: "Pickerington",
+    state: "Ohio",
+    stateAbbr: "OH",
+    status: "live",
+    region: "columbus",
+    nearbySlugs: [
+      "reynoldsburg-oh",
+      "gahanna-oh",
+      "columbus-oh",
+      "grove-city-oh",
+      "westerville-oh",
+    ],
+    setting:
+      "Pickerington sits southeast of Columbus in Fairfield and Franklin counties, with later subdivisions and a small older core. Most of the city is on South Central Power; some addresses print AEP Ohio. Confirm the name on your bill.",
+    utility: "South Central Power or AEP Ohio",
+    roofs:
+      "1990s–2010s architectural shingles on HOA streets; the older core has aging asphalt and tighter access.",
+    housing:
+      "Later two-stories and colonials on wider lots than inner-city Columbus, plus a compact older downtown.",
+    winter:
+      "Open southeast lots catch more wind than a tree-lined Gahanna street; ice still sits on older downtown flashing.",
+    localNote:
+      "Do not copy an AEP Ohio assumption onto every Pickerington bill. Interconnection follows South Central Power or AEP — whichever is printed on the statement.",
+  },
+  {
+    slug: "powell-oh",
+    name: "Powell",
+    state: "Ohio",
+    stateAbbr: "OH",
+    status: "live",
+    region: "columbus",
+    nearbySlugs: [
+      "dublin-oh",
+      "worthington-oh",
+      "delaware-oh",
+      "westerville-oh",
+      "columbus-oh",
+    ],
+    setting:
+      "Powell sits in Delaware County north of Dublin and Worthington, with a compact historic downtown and large later subdivisions. AEP Ohio is the usual electric utility.",
+    utility: "AEP Ohio",
+    roofs:
+      "Later architectural shingles dominate the subdivisions; downtown Powell still has aging asphalt and tighter staging.",
+    housing:
+      "1990s–2010s colonials on HOA streets plus a small downtown core — newer on average than Worthington’s village stock.",
+    winter:
+      "Open Delaware County lots shed snow faster on steeper planes but take more wind; downtown ice still sits on older flashing.",
+    localNote:
+      "A Powell HOA colonial is a different array scope than a downtown two-story, even when both sit in Delaware County on AEP Ohio.",
+  },
+  {
+    slug: "delaware-oh",
+    name: "Delaware",
+    state: "Ohio",
+    stateAbbr: "OH",
+    status: "live",
+    region: "columbus",
+    nearbySlugs: [
+      "powell-oh",
+      "westerville-oh",
+      "dublin-oh",
+      "worthington-oh",
+      "columbus-oh",
+    ],
+    setting:
+      "Delaware is the Delaware County seat north of Columbus, with a public-square downtown, Ohio Wesleyan–adjacent streets, and later edges. AEP Ohio is the typical utility.",
+    utility: "AEP Ohio",
+    roofs:
+      "Brick and two-story stock around the square still show aging asphalt and some older covering; later edges are architectural shingle.",
+    housing:
+      "County-seat downtown two-stories plus 1970s–2000s ranches and colonials — older housing than a Powell subdivision street.",
+    winter:
+      "Ice on downtown eaves and freeze–thaw at brick chimneys; open north-edge lots catch more wind than the square.",
+    localNote:
+      "A Delaware public-square two-story is a different design problem than a Powell HOA ranch, even though both sit in Delaware County.",
+  },
+  {
+    slug: "worthington-oh",
+    name: "Worthington",
+    state: "Ohio",
+    stateAbbr: "OH",
+    status: "live",
+    region: "columbus",
+    nearbySlugs: [
+      "columbus-oh",
+      "dublin-oh",
+      "westerville-oh",
+      "powell-oh",
+      "upper-arlington-oh",
+    ],
+    setting:
+      "Worthington is a historic village north of Columbus along High Street / US-23, with a New England–style green and later housing toward the Olentangy. AEP Ohio is the usual electric utility.",
+    utility: "AEP Ohio",
+    roofs:
+      "Older village pitches — some aged covering — plus later architectural shingles on wider lots toward the river.",
+    housing:
+      "Early village two-stories around the green and later colonials on the edges. Not a 2000s Dublin HOA grid.",
+    winter:
+      "Village trees hold ice on north planes; later open lots catch more wind than the green. Winter sun sits low behind older two-stories.",
+    localNote:
+      "A Worthington village-green pitch is a different walk than a later Olentangy-edge colonial, even when both use a Worthington address.",
+  },
+  {
+    slug: "cincinnati-oh",
+    name: "Cincinnati",
+    state: "Ohio",
+    stateAbbr: "OH",
+    status: "live",
+    region: "cincinnati",
+    nearbySlugs: [
+      "norwood-oh",
+      "blue-ash-oh",
+      "montgomery-oh",
+      "forest-park-oh",
+      "loveland-oh",
+    ],
+    setting:
+      "Cincinnati sits on Ohio River hills with older city lots, street trees, and a mix of Italianates, bungalows, and hillside two-stories. Duke Energy Ohio is the usual electric utility on the bill.",
+    utility: "Duke Energy Ohio",
+    roofs:
+      "Steeper hillside pitches and aging asphalt; some historic blocks still carry slate or tile that need a different conversation than a standard rack.",
+    housing:
+      "Hillside Italianates, brick two-stories, and mid-century houses on tighter lots than Mason or West Chester subdivisions.",
+    winter:
+      "North slopes hold ice; hillside access in a freeze changes how a crew stages, not the national cost range.",
+    localNote:
+      "A hillside Price Hill or Hyde Park two-story is not a Mason subdivision rectangle, even when both sit on Duke Energy Ohio.",
+  },
+  {
+    slug: "mason-oh",
+    name: "Mason",
+    state: "Ohio",
+    stateAbbr: "OH",
+    status: "live",
+    region: "cincinnati",
+    nearbySlugs: [
+      "west-chester-oh",
+      "lebanon-oh",
+      "loveland-oh",
+      "blue-ash-oh",
+      "cincinnati-oh",
+    ],
+    setting:
+      "Mason is a Warren County city northeast of Cincinnati along I-71, with later subdivisions and a small older core. Duke Energy Ohio is the typical utility.",
+    utility: "Duke Energy Ohio",
+    roofs:
+      "1990s–2010s architectural shingles dominate; the older downtown still has aging asphalt and tighter access.",
+    housing:
+      "Later two-stories and colonials on HOA streets — closer to West Chester geometry than to a Cincinnati hillside Italianate.",
+    winter:
+      "Open I-71-corridor lots shed snow faster on steeper planes but take more wind; downtown ice still sits on older flashing.",
+    localNote:
+      "A Mason HOA colonial is a different array scope than a downtown two-story, even when both sit in Warren County on Duke Energy.",
+  },
+  {
+    slug: "west-chester-oh",
+    name: "West Chester",
+    state: "Ohio",
+    stateAbbr: "OH",
+    status: "live",
+    region: "cincinnati",
+    nearbySlugs: [
+      "mason-oh",
+      "hamilton-oh",
+      "fairfield-oh",
+      "forest-park-oh",
+      "cincinnati-oh",
+    ],
+    setting:
+      "West Chester Township sits in Butler County on the I-75 corridor north of Cincinnati, with later subdivisions and commercial corridors. Duke Energy Ohio is the usual electric utility.",
+    utility: "Duke Energy Ohio",
+    roofs:
+      "Later architectural shingles on subdivision streets. Historic slate is uncommon; HOA planes are typical.",
+    housing:
+      "1980s–2010s two-stories and colonials on HOA lots — not Cincinnati hillside stock and not a Hamilton mill-town two-story.",
+    winter:
+      "Open I-75-corridor lots catch more wind-driven ice than a tree-lined Hyde Park street; steeper planes shed snow faster.",
+    localNote:
+      "A West Chester HOA street is a different design problem than a Hamilton mill-town pitch, even when both sit in Butler County.",
+  },
+  {
+    slug: "hamilton-oh",
+    name: "Hamilton",
+    state: "Ohio",
+    stateAbbr: "OH",
+    status: "live",
+    region: "cincinnati",
+    nearbySlugs: [
+      "fairfield-oh",
+      "west-chester-oh",
+      "forest-park-oh",
+      "cincinnati-oh",
+      "mason-oh",
+    ],
+    setting:
+      "Hamilton is a Butler County mill town on the Great Miami River, with older industrial-era housing and later edges. The City of Hamilton owns the electric utility for most addresses — confirm the name on your bill; some edges print Duke Energy.",
+    utility: "City of Hamilton electric or the utility printed on your bill",
+    roofs:
+      "Older mill-town pitches and aging asphalt downtown; later housing adds architectural shingle on simpler planes.",
+    housing:
+      "Historic two-stories near the river plus later edges — older stock than a West Chester HOA street.",
+    winter:
+      "River-adjacent ice and freeze–thaw on older flashing. North planes on downtown roofs hold ice longer.",
+    localNote:
+      "Do not copy Duke Energy onto every Hamilton bill. Interconnection follows the city utility or whoever is printed on the statement.",
+  },
+  {
+    slug: "fairfield-oh",
+    name: "Fairfield",
+    state: "Ohio",
+    stateAbbr: "OH",
+    status: "live",
+    region: "cincinnati",
+    nearbySlugs: [
+      "hamilton-oh",
+      "west-chester-oh",
+      "forest-park-oh",
+      "cincinnati-oh",
+      "mason-oh",
+    ],
+    setting:
+      "Fairfield sits in Butler County between Hamilton and the I-275 belt, with 1960s–90s housing and later infill. Duke Energy Ohio is the typical utility.",
+    utility: "Duke Energy Ohio",
+    roofs:
+      "Ranch and colonial asphalt, often lower pitch on older streets. Historic slate is uncommon.",
+    housing:
+      "1960s–90s ranches and two-stories plus later edges — simpler footprints than a Cincinnati hillside Italianate.",
+    winter:
+      "Open north-belt lots catch more wind than a tree-lined Hyde Park street; low-pitch ranches hold snow.",
+    localNote:
+      "A Fairfield ranch plane is closer to West Chester geometry than to a Hamilton mill-town two-story, even when both sit in Butler County.",
+  },
+  {
+    slug: "lebanon-oh",
+    name: "Lebanon",
+    state: "Ohio",
+    stateAbbr: "OH",
+    status: "live",
+    region: "cincinnati",
+    nearbySlugs: [
+      "mason-oh",
+      "loveland-oh",
+      "springboro-oh",
+      "franklin-oh",
+      "west-chester-oh",
+    ],
+    setting:
+      "Lebanon is the Warren County seat northeast of Cincinnati, with a historic downtown and later edges toward Mason and Springboro. Duke Energy Ohio is the usual electric utility. Springboro and Franklin stay on their existing Dayton-ring pages — we do not duplicate them here.",
+    utility: "Duke Energy Ohio",
+    roofs:
+      "Older downtown pitches and aging asphalt; later edges are architectural shingle on simpler planes.",
+    housing:
+      "County-seat two-stories around the square plus later colonials — older stock than a Mason HOA street.",
+    winter:
+      "Ice on downtown eaves; open later lots catch more wind than the square. Winter production is lower on both.",
+    localNote:
+      "A Lebanon square two-story is not a Springboro subdivision array, even though both sit in Warren County. Use the existing Springboro page if that is the address.",
+  },
+  {
+    slug: "loveland-oh",
+    name: "Loveland",
+    state: "Ohio",
+    stateAbbr: "OH",
+    status: "live",
+    region: "cincinnati",
+    nearbySlugs: [
+      "mason-oh",
+      "milford-oh",
+      "montgomery-oh",
+      "blue-ash-oh",
+      "cincinnati-oh",
+    ],
+    setting:
+      "Loveland follows the Little Miami River across Hamilton, Clermont, and Warren county lines, with a historic downtown and later hillside housing. Duke Energy Ohio is the typical utility.",
+    utility: "Duke Energy Ohio",
+    roofs:
+      "Steeper hillside pitches and older downtown asphalt; later edges add architectural shingle.",
+    housing:
+      "Historic downtown two-stories plus later hillside and subdivision houses — tighter than a Mason HOA street.",
+    winter:
+      "North slopes hold ice; river-adjacent freeze–thaw wears flashing. Hillside access in a freeze changes staging, not a city price.",
+    localNote:
+      "A Little Miami hillside lot is not automatically a south-facing ideal. Orientation and trees along the gorge matter more than the zip code.",
+  },
+  {
+    slug: "blue-ash-oh",
+    name: "Blue Ash",
+    state: "Ohio",
+    stateAbbr: "OH",
+    status: "live",
+    region: "cincinnati",
+    nearbySlugs: [
+      "montgomery-oh",
+      "cincinnati-oh",
+      "mason-oh",
+      "loveland-oh",
+      "norwood-oh",
+    ],
+    setting:
+      "Blue Ash is a northeast Hamilton County city along I-71 / I-275, with mid-century streets and later infill next to Montgomery. Duke Energy Ohio is the usual electric utility.",
+    utility: "Duke Energy Ohio",
+    roofs:
+      "Mid-century asphalt and later architectural shingles. Slate leftovers are rarer than Cincinnati’s historic hillsides.",
+    housing:
+      "1960s–90s two-stories and ranches plus later infill — newer on average than Norwood, tighter than Mason.",
+    winter:
+      "I-71-corridor wind plus ice on older flashing. Snow sits on simpler gables the way it does on other moderate pitches.",
+    localNote:
+      "A Blue Ash mid-century gable is not a Montgomery later colonial, even though the two cities share a northeast Hamilton County border.",
+  },
+  {
+    slug: "montgomery-oh",
+    name: "Montgomery",
+    state: "Ohio",
+    stateAbbr: "OH",
+    status: "live",
+    region: "cincinnati",
+    nearbySlugs: [
+      "blue-ash-oh",
+      "loveland-oh",
+      "cincinnati-oh",
+      "mason-oh",
+      "milford-oh",
+    ],
+    setting:
+      "Montgomery sits in northeast Hamilton County next to Blue Ash, with a historic downtown and later housing toward I-275. Duke Energy Ohio is the typical utility.",
+    utility: "Duke Energy Ohio",
+    roofs:
+      "Older downtown pitches mixed with later architectural shingles. Complex colonials add more flashing lines than a Blue Ash ranch.",
+    housing:
+      "Historic-core two-stories plus later colonials — more HOA streets than Norwood, older downtown than Mason.",
+    winter:
+      "North valleys on older downtown roofs hold ice; later open lots catch more wind than the tree-lined core.",
+    localNote:
+      "A Montgomery downtown pitch is a different design problem than a later I-275-edge colonial, even when both use a Montgomery address.",
+  },
+  {
+    slug: "milford-oh",
+    name: "Milford",
+    state: "Ohio",
+    stateAbbr: "OH",
+    status: "live",
+    region: "cincinnati",
+    nearbySlugs: [
+      "loveland-oh",
+      "montgomery-oh",
+      "blue-ash-oh",
+      "cincinnati-oh",
+      "mason-oh",
+    ],
+    setting:
+      "Milford sits in Clermont and Hamilton counties on the Little Miami, with a compact historic downtown and later edges. Duke Energy Ohio is the usual electric utility.",
+    utility: "Duke Energy Ohio",
+    roofs:
+      "Older downtown asphalt and some aged covering; later edges are simpler architectural-shingle planes.",
+    housing:
+      "Small-town two-stories in the core and later ranches on the edges — more river-town than a West Chester HOA grid.",
+    winter:
+      "River-adjacent ice and freeze–thaw on older flashing; later open lots shed snow faster.",
+    localNote:
+      "A Milford downtown pitch is a different walk than a later Clermont-edge ranch, even when both use a Milford ZIP.",
+  },
+  {
+    slug: "norwood-oh",
+    name: "Norwood",
+    state: "Ohio",
+    stateAbbr: "OH",
+    status: "live",
+    region: "cincinnati",
+    nearbySlugs: [
+      "cincinnati-oh",
+      "blue-ash-oh",
+      "montgomery-oh",
+      "forest-park-oh",
+      "loveland-oh",
+    ],
+    setting:
+      "Norwood is a landlocked Hamilton County city surrounded by Cincinnati, with older industrial-era streets and tighter lots than the outer-ring suburbs. Duke Energy Ohio is the typical utility.",
+    utility: "Duke Energy Ohio",
+    roofs:
+      "Aging asphalt on worker-era houses and later replacements. Slate leftovers appear on some older blocks; simple gables are common.",
+    housing:
+      "Early 20th-century two-stories and mid-century infill — older Cincinnati-adjacent stock, not a Mason subdivision.",
+    winter:
+      "Tight lots and neighboring two-stories change winter sun; ice-dam leaks still show up on older attics.",
+    localNote:
+      "A Norwood gable is a different replacement history than a Blue Ash mid-century plane, even though both sit inside the I-275 belt on Duke Energy.",
+  },
+  {
+    slug: "forest-park-oh",
+    name: "Forest Park",
+    state: "Ohio",
+    stateAbbr: "OH",
+    status: "live",
+    region: "cincinnati",
+    nearbySlugs: [
+      "cincinnati-oh",
+      "fairfield-oh",
+      "west-chester-oh",
+      "hamilton-oh",
+      "norwood-oh",
+    ],
+    setting:
+      "Forest Park is a planned north Hamilton County city along I-275, with mid-century streets and later infill between Fairfield and the Cincinnati line. Duke Energy Ohio is the usual electric utility.",
+    utility: "Duke Energy Ohio",
+    roofs:
+      "Mid-century asphalt on ranches and two-stories; later replacements are architectural shingle. Historic slate is uncommon.",
+    housing:
+      "1960s–80s planned-community stock plus later infill — more open than Norwood, older than a West Chester HOA street.",
+    winter:
+      "I-275-corridor wind on more open lots; low-pitch ranches still hold melt at the eaves after a southwest Ohio freeze.",
+    localNote:
+      "A Forest Park ranch plane is closer to Fairfield geometry than to a Cincinnati hillside Italianate, even when both sit on Duke Energy Ohio.",
+  },
 ];
+
+export const cityRegionOrder: CityRegion[] = [
+  "dayton",
+  "columbus",
+  "cincinnati",
+];
+
+export const cityRegionHeadings: Record<
+  CityRegion,
+  { heading: string; intro: string }
+> = {
+  dayton: {
+    heading: "Dayton-area cities",
+    intro:
+      "Each city hub links solar installation, TPO solar, and solar panels. Internal links are real pages so nothing 404s.",
+  },
+  columbus: {
+    heading: "Columbus-area cities",
+    intro:
+      "Central Ohio hubs on AEP Ohio for most addresses — Westerville often uses the city electric division, and Pickerington is often South Central Power. Confirm the name on the bill.",
+  },
+  cincinnati: {
+    heading: "Cincinnati-area cities",
+    intro:
+      "Southwest Ohio hubs on Duke Energy Ohio for most addresses — Hamilton often uses the city electric utility. Springboro and Franklin stay on their Dayton-ring pages.",
+  },
+};
+
+export function citiesInRegion(region: CityRegion): City[] {
+  return cities.filter(
+    (city) => city.status === "live" && city.region === region
+  );
+}
 
 export const liveCitySlugs = cities
   .filter((city) => city.status === "live")
