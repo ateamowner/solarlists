@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Disclosure } from "@/components/disclosure";
+import { PhoneLink } from "@/components/phone-link";
 import { site } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -20,6 +21,10 @@ export default function RequestSentPage() {
         and not a marketplace of other companies.
       </p>
       <Disclosure className="mt-4" />
+      <p className="mt-6 leading-7">
+        Prefer to talk now? Call{" "}
+        <PhoneLink className="font-medium underline underline-offset-2" />.
+      </p>
       <p className="mt-6">
         <Link href="/" className="underline underline-offset-2">
           Back to SolarLists

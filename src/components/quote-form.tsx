@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import {
+  cityZip,
   formBillRanges,
   formInterest,
   formOwnHome,
@@ -18,8 +19,7 @@ const fieldClassName =
   "h-11 w-full rounded-lg border border-input bg-card px-2.5 text-base outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 md:text-sm";
 
 type Draft = {
-  first_name: string;
-  last_name: string;
+  name: string;
   phone: string;
   email: string;
   zip: string;
@@ -36,16 +36,15 @@ type Draft = {
 
 const drafts = new Map<string, Draft>();
 
-function emptyDraft(service?: Service): Draft {
+function emptyDraft(service?: Service, city?: City): Draft {
   return {
-    first_name: "",
-    last_name: "",
+    name: "",
     phone: "",
     email: "",
-    zip: "",
-    own_home: "yes",
+    zip: city ? cityZip(city) : "",
+    own_home: "",
     monthly_bill: "",
-    timing: "this_quarter",
+    timing: "",
     interested_in: service?.formValue ?? "tpo",
     roof_age: "",
     roof_type: "",
@@ -59,10 +58,14 @@ function draftKey(city?: City, service?: Service) {
   return `${city?.slug ?? "home"}:${service?.slug ?? "none"}`;
 }
 
-function readDraft(key: string, service?: Service): Draft {
+function readDraft(key: string, service?: Service, city?: City): Draft {
   const cached = drafts.get(key);
-  if (cached) return cached;
-  return emptyDraft(service);
+  const zip = city ? cityZip(city) : "";
+  if (cached) {
+    if (!cached.zip && zip) return { ...cached, zip };
+    return cached;
+  }
+  return emptyDraft(service, city);
 }
 
 function writeDraft(key: string, draft: Draft) {
@@ -79,7 +82,7 @@ export function QuoteForm({ city, service, compact }: QuoteFormProps) {
   const formRef = useRef<HTMLFormElement>(null);
   const lastKeyRef = useRef("");
   const key = draftKey(city, service);
-  const [draft, setDraft] = useState<Draft>(() => readDraft(key, service));
+  const [draft, setDraft] = useState<Draft>(() => readDraft(key, service, city));
 
   function update<K extends keyof Draft>(name: K, value: Draft[K]) {
     setDraft((prev) => {
@@ -90,7 +93,7 @@ export function QuoteForm({ city, service, compact }: QuoteFormProps) {
   }
 
   function onTextChange<
-    K extends "first_name" | "last_name" | "phone" | "email" | "zip" | "message",
+    K extends "name" | "phone" | "email" | "zip" | "message",
   >(name: K, value: string) {
     const lastKey = lastKeyRef.current;
     const clearing =
@@ -135,13 +138,7 @@ export function QuoteForm({ city, service, compact }: QuoteFormProps) {
         window.setTimeout(() => {
           const form = formRef.current;
           if (!form) return;
-          for (const name of [
-            "first_name",
-            "last_name",
-            "phone",
-            "email",
-            "zip",
-          ] as const) {
+          for (const name of ["name", "phone", "email", "zip"] as const) {
             const field = form.elements.namedItem(name);
             if (field instanceof HTMLInputElement && field.value) {
               update(name, field.value);
@@ -160,26 +157,14 @@ export function QuoteForm({ city, service, compact }: QuoteFormProps) {
       </p>
 
       <div className={`mt-4 grid gap-3 ${compact ? "" : "sm:grid-cols-2"}`}>
-        <Field label="First name" htmlFor="first_name">
+        <Field label="Name (optional)" htmlFor="name">
           <input
-            id="first_name"
-            name="first_name"
-            required
-            autoComplete="given-name"
+            id="name"
+            name="name"
+            autoComplete="name"
             className={fieldClassName}
-            value={draft.first_name}
-            onChange={(event) => onTextChange("first_name", event.target.value)}
-          />
-        </Field>
-        <Field label="Last name" htmlFor="last_name">
-          <input
-            id="last_name"
-            name="last_name"
-            required
-            autoComplete="family-name"
-            className={fieldClassName}
-            value={draft.last_name}
-            onChange={(event) => onTextChange("last_name", event.target.value)}
+            value={draft.name}
+            onChange={(event) => onTextChange("name", event.target.value)}
           />
         </Field>
         <Field label="Phone" htmlFor="phone">
@@ -219,34 +204,30 @@ export function QuoteForm({ city, service, compact }: QuoteFormProps) {
             onChange={(event) => onTextChange("zip", event.target.value)}
           />
         </Field>
-        <Field label="Do you own the home?" htmlFor="own_home">
+        <Field label="Do you own the home? (optional)" htmlFor="own_home">
           <select
             id="own_home"
             name="own_home"
-            required
             className={fieldClassName}
             value={draft.own_home}
             onChange={(event) => update("own_home", event.target.value)}
           >
             {formOwnHome.map((item) => (
-              <option key={item.value} value={item.value}>
+              <option key={item.value || "empty-own"} value={item.value}>
                 {item.label}
               </option>
             ))}
           </select>
         </Field>
-        <Field label="Monthly electric bill" htmlFor="monthly_bill">
+        <Field label="Monthly electric bill (optional)" htmlFor="monthly_bill">
           <select
             id="monthly_bill"
             name="monthly_bill"
-            required
             className={fieldClassName}
             value={draft.monthly_bill}
             onChange={(event) => update("monthly_bill", event.target.value)}
           >
-            <option value="" disabled>
-              Select a range
-            </option>
+            <option value="">Not sure / skip</option>
             {formBillRanges.map((item) => (
               <option key={item.value} value={item.value}>
                 {item.label}
@@ -254,17 +235,16 @@ export function QuoteForm({ city, service, compact }: QuoteFormProps) {
             ))}
           </select>
         </Field>
-        <Field label="Timing" htmlFor="timing">
+        <Field label="Timing (optional)" htmlFor="timing">
           <select
             id="timing"
             name="timing"
-            required
             className={fieldClassName}
             value={draft.timing}
             onChange={(event) => update("timing", event.target.value)}
           >
             {formTimings.map((item) => (
-              <option key={item.value} value={item.value}>
+              <option key={item.value || "empty-timing"} value={item.value}>
                 {item.label}
               </option>
             ))}

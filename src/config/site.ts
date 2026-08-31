@@ -11,6 +11,8 @@ export const site = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://solarlists.com",
   email: "owner@ateamcontractings.com",
   leadsEmail: "owner@ateamcontractings.com",
+  phone: "(937) 777-9093",
+  phoneTel: "+19377779093",
   /** Native HTML POST to Formsubmit. No fetch/XHR, no API key. */
   formAction: "https://formsubmit.co/owner@ateamcontractings.com",
   formRedirect: "https://solarlists.com/request-sent/",
@@ -94,6 +96,7 @@ export const formBillRanges = [
 ] as const;
 
 export const formTimings = [
+  { value: "", label: "Not sure / skip" },
   { value: "this_month", label: "This month" },
   { value: "this_quarter", label: "This quarter" },
   { value: "this_year", label: "This year" },
@@ -107,6 +110,7 @@ export const formInterest = [
 ] as const;
 
 export const formOwnHome = [
+  { value: "", label: "Not sure / skip" },
   { value: "yes", label: "Yes" },
   { value: "no", label: "No" },
 ] as const;
@@ -767,9 +771,58 @@ export function getParentCity(city: City): City | undefined {
   return city.parentSlug ? getCity(city.parentSlug) : undefined;
 }
 
+/** GitHub Pages 301s no-slash → slash. Sitemap, canonicals, and JSON-LD must match. */
+export function withTrailingSlash(path: string): string {
+  if (!path || path === "/") return "/";
+  return path.endsWith("/") ? path : `${path}/`;
+}
+
+export function canonicalUrl(path = "/"): string {
+  const base = site.url.replace(/\/+$/, "");
+  const pathname = path.startsWith("http")
+    ? new URL(path).pathname
+    : path.startsWith("/")
+      ? path
+      : `/${path}`;
+  return `${base}${withTrailingSlash(pathname)}`;
+}
+
+/** Representative USPS ZIP for quote-form prefill. The homeowner can edit it. */
+export const cityZips: Record<string, string> = {
+  "dayton-oh": "45402",
+  "kettering-oh": "45429",
+  "beavercreek-oh": "45431",
+  "centerville-oh": "45459",
+  "huber-heights-oh": "45424",
+  "fairborn-oh": "45324",
+  "miamisburg-oh": "45342",
+  "xenia-oh": "45385",
+  "vandalia-oh": "45377",
+  "springfield-oh": "45503",
+  "tipp-city-oh": "45371",
+  "oakwood-oh": "45419",
+  "west-carrollton-oh": "45449",
+  "trotwood-oh": "45426",
+  "englewood-oh": "45322",
+  "riverside-oh": "45431",
+  "moraine-oh": "45439",
+  "bellbrook-oh": "45305",
+  "springboro-oh": "45066",
+  "troy-oh": "45373",
+  "clayton-oh": "45315",
+  "brookville-oh": "45309",
+  "germantown-oh": "45327",
+  "franklin-oh": "45005",
+};
+
+export function cityZip(city: City | string): string {
+  const slug = typeof city === "string" ? city : city.slug;
+  return cityZips[slug] ?? "";
+}
+
 export function cityPath(city: City | string): string {
   const slug = typeof city === "string" ? city : city.slug;
-  return `/${slug}`;
+  return `/${slug}/`;
 }
 
 export function servicePath(
@@ -778,7 +831,7 @@ export function servicePath(
 ): string {
   const citySlug = typeof city === "string" ? city : city.slug;
   const serviceSlug = typeof service === "string" ? service : service.slug;
-  return `/${citySlug}/${serviceSlug}`;
+  return `/${citySlug}/${serviceSlug}/`;
 }
 
 export function lockedH1(service: Service, city: City): string {

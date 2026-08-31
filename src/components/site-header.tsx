@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { PhoneLink } from "@/components/phone-link";
 import { site } from "@/config/site";
 
 export function SiteHeader() {
@@ -17,7 +18,8 @@ export function SiteHeader() {
           aria-label="Primary"
           className="flex shrink-0 items-center gap-3 text-sm font-medium sm:gap-5"
         >
-          <Link href="/#cities" className="hover:underline">
+          <PhoneLink className="hover:underline" />
+          <Link href="/#cities" className="hidden hover:underline sm:inline">
             Cities
           </Link>
           <Link href="/dayton-oh/tpo-solar/" className="hidden hover:underline sm:inline">

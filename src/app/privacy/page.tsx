@@ -5,6 +5,7 @@ import { site } from "@/config/site";
 export const metadata: Metadata = {
   title: `Privacy — ${site.name}`,
   description: `How ${site.name} collects solar quote-form data for ${site.operator}.`,
+  alternates: { canonical: "/privacy/" },
 };
 
 export default function PrivacyPage() {
@@ -23,12 +24,12 @@ export default function PrivacyPage() {
 
       <h2 className="mt-8 font-heading text-2xl font-semibold">What we collect</h2>
       <p className="mt-3 leading-7">
-        From the quote form: first name, last name, phone, email, ZIP, whether
-        you own the home, monthly electric bill range, timing, interest in TPO
-        / buy / not sure, optional roof age and type, optional message, SMS
-        consent, and privacy consent. Hidden fields may include page URL, city,
-        city slug, state, service, source, gclid, utm_source, utm_medium, and
-        utm_campaign.
+        From the quote form: name (optional), phone, email, ZIP, optional home
+        ownership, optional monthly electric bill range, optional timing,
+        interest in TPO / buy / not sure, optional roof age and type, optional
+        message, SMS consent, and privacy consent. Hidden fields may include
+        page URL, city, city slug, state, service, source, gclid, utm_source,
+        utm_medium, and utm_campaign.
       </p>
 
       <h2 className="mt-8 font-heading text-2xl font-semibold">How we use it</h2>
