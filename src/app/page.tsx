@@ -3,21 +3,21 @@ import Link from "next/link";
 import { QuoteFormLoader } from "@/components/quote-form-loader";
 import { Disclosure } from "@/components/disclosure";
 import {
-  cities,
+  citiesInRegion,
+  cityRegionHeadings,
+  cityRegionOrder,
   getService,
-  liveCitySlugs,
   servicePath,
   services,
   site,
 } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: `${site.name} — Dayton / Miami Valley solar`,
+  title: `${site.name} — Dayton, Columbus, and Cincinnati solar`,
   description: site.description,
 };
 
 export default function HomePage() {
-  const live = cities.filter((city) => liveCitySlugs.includes(city.slug));
   const tpo = getService("tpo-solar");
 
   return (
@@ -26,13 +26,14 @@ export default function HomePage() {
         <div>
           <p className="text-sm font-medium text-primary">{site.tagline}</p>
           <h1 className="mt-2 font-heading text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
-            Go solar in the Miami Valley without a huge loan.
+            Go solar in Dayton, Columbus, and Cincinnati without a huge loan.
           </h1>
           <p className="mt-4 max-w-2xl text-lg leading-8">
             {site.name} is {site.operator}&apos;s residential solar quote site
-            for Dayton and nearby cities. We now sell third-party ownership
-            (TPO): $0 down, no large loan, and a written explanation of who
-            owns the system. You can also request a standard purchase quote.
+            for Dayton, Columbus, Cincinnati, and nearby Ohio cities. We now
+            sell third-party ownership (TPO): $0 down, no large loan, and a
+            written explanation of who owns the system. You can also request a
+            standard purchase quote.
           </p>
           <p className="mt-3 max-w-2xl text-base leading-7 text-muted-foreground">
             This is in-house lead gen for A Team Contracting — not a contractor
@@ -41,12 +42,24 @@ export default function HomePage() {
           </p>
           <Disclosure className="mt-3 max-w-2xl" />
           {tpo ? (
-            <p className="mt-4">
+            <p className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:gap-x-5">
               <Link
                 href={servicePath("dayton-oh", tpo)}
                 className="font-medium underline underline-offset-2"
               >
                 Best TPO Solar in Dayton — {site.year}
+              </Link>
+              <Link
+                href={servicePath("columbus-oh", tpo)}
+                className="font-medium underline underline-offset-2"
+              >
+                Best TPO Solar in Columbus — {site.year}
+              </Link>
+              <Link
+                href={servicePath("cincinnati-oh", tpo)}
+                className="font-medium underline underline-offset-2"
+              >
+                Best TPO Solar in Cincinnati — {site.year}
               </Link>
             </p>
           ) : null}
@@ -54,47 +67,59 @@ export default function HomePage() {
         <QuoteFormLoader />
       </section>
 
-      <section id="cities" className="mt-14">
-        <h2 className="font-heading text-2xl font-semibold">
-          Dayton-area cities
-        </h2>
-        <p className="mt-2 max-w-2xl text-base text-muted-foreground">
-          Each city hub links solar installation, TPO solar, and solar panels.
-          Internal links are real pages so nothing 404s.
-        </p>
-        <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {live.map((city) => (
-            <li
-              key={city.slug}
-              className="flex flex-col rounded-lg border border-border bg-card p-5"
-            >
-              <h3 className="font-heading text-xl font-semibold">
-                {city.name}, {city.stateAbbr}
-              </h3>
-              <p className="mt-2 flex-1 text-sm leading-6 text-muted-foreground">
-                {city.setting}
-              </p>
-              <ul className="mt-4 space-y-2 text-sm">
-                {services.map((service) => (
-                  <li key={service.slug}>
+      {cityRegionOrder.map((region) => {
+        const live = citiesInRegion(region);
+        const copy = cityRegionHeadings[region];
+        return (
+          <section
+            key={region}
+            id={region === "dayton" ? "cities" : `${region}-cities`}
+            className="mt-14"
+          >
+            <h2 className="font-heading text-2xl font-semibold">
+              {copy.heading}
+            </h2>
+            <p className="mt-2 max-w-2xl text-base text-muted-foreground">
+              {copy.intro}
+            </p>
+            <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {live.map((city) => (
+                <li
+                  key={city.slug}
+                  className="flex flex-col rounded-lg border border-border bg-card p-5"
+                >
+                  <h3 className="font-heading text-xl font-semibold">
+                    {city.name}, {city.stateAbbr}
+                  </h3>
+                  <p className="mt-2 flex-1 text-sm leading-6 text-muted-foreground">
+                    {city.setting}
+                  </p>
+                  <ul className="mt-4 space-y-2 text-sm">
+                    {services.map((service) => (
+                      <li key={service.slug}>
+                        <Link
+                          href={servicePath(city, service)}
+                          className="font-medium underline underline-offset-2"
+                        >
+                          Best {service.name} in {city.name} — {site.year}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="mt-3">
                     <Link
-                      href={servicePath(city, service)}
-                      className="font-medium underline underline-offset-2"
+                      href={`/${city.slug}/`}
+                      className="text-sm hover:underline"
                     >
-                      Best {service.name} in {city.name} — {site.year}
+                      All {city.name} solar pages
                     </Link>
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-3">
-                <Link href={`/${city.slug}/`} className="text-sm hover:underline">
-                  All {city.name} solar pages
-                </Link>
-              </p>
-            </li>
-          ))}
-        </ul>
-      </section>
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </section>
+        );
+      })}
 
       <section className="mt-14">
         <h2 className="font-heading text-2xl font-semibold">

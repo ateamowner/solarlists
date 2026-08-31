@@ -20,7 +20,7 @@ const serif = Source_Serif_4({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — Dayton / Miami Valley solar`,
+    default: `${site.name} — Dayton, Columbus, and Cincinnati solar`,
     template: `%s`,
   },
   description: site.description,
