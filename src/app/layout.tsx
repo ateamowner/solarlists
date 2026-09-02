@@ -60,6 +60,14 @@ export default function RootLayout({
       className={`${sans.variable} ${serif.variable} h-full scroll-smooth antialiased`}
     >
       <body className="flex min-h-full flex-col bg-background pb-16 text-foreground md:pb-0">
+        <div
+          hidden
+          aria-hidden="true"
+          dangerouslySetInnerHTML={{
+            __html:
+              "<!-- Webmaster verification — do not invent codes. Bing Webmaster Tools (msvalidate.01): Anthony must add solarlists.com in Bing Webmaster Tools and paste the real <meta name=\"msvalidate.01\" content=\"…\" /> here. Google site verification: HTML file is already at /googled3ae2edf58b5b2f8.html. Meta alternative: <meta name=\"google-site-verification\" content=\"…\" /> -->",
+          }}
+        />
         <style>{`:root { ${themeVars}; }`}</style>
         <SiteHeader />
         <main className="flex-1">{children}</main>
