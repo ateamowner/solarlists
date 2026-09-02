@@ -59,6 +59,16 @@ export default function RootLayout({
       lang="en"
       className={`${sans.variable} ${serif.variable} h-full scroll-smooth antialiased`}
     >
+      <head>
+        {/*
+          Webmaster verification — do not invent codes.
+          Bing Webmaster Tools: add solarlists.com, then paste the real
+          <meta name="msvalidate.01" content="…" /> here.
+          Google site verification: HTML file is already at
+          /googled3ae2edf58b5b2f8.html. Meta alternative:
+          <meta name="google-site-verification" content="…" />
+        */}
+      </head>
       <body className="flex min-h-full flex-col bg-background pb-16 text-foreground md:pb-0">
         <style>{`:root { ${themeVars}; }`}</style>
         <SiteHeader />
