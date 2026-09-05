@@ -30,34 +30,18 @@ export function publisherLocalBusiness(city: City) {
   };
 }
 
-export function organizationSchema() {
+/** Homepage only. Locked SHIP #2 LocalBusiness — not a marketplace Organization. */
+export function homepageLocalBusiness() {
   return {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    name: site.legalName,
-    alternateName: site.name,
-    description: site.description,
-    url: canonicalUrl("/"),
-    email: site.email,
-    telephone: site.phoneTel,
-    areaServed: [
-      {
-        "@type": "City",
-        name: "Dayton",
-        containedInPlace: { "@type": "State", name: "Ohio" },
-      },
-      {
-        "@type": "City",
-        name: "Columbus",
-        containedInPlace: { "@type": "State", name: "Ohio" },
-      },
-      {
-        "@type": "City",
-        name: "Cincinnati",
-        containedInPlace: { "@type": "State", name: "Ohio" },
-      },
-    ],
-    knowsAbout: ["Residential solar", "TPO solar", "Solar installation"],
+    "@type": "LocalBusiness",
+    "@id": "https://solarlists.com/#organization",
+    name: "A Team Contracting",
+    url: "https://solarlists.com/",
+    email: "owner@ateamcontractings.com",
+    areaServed: ["Dayton OH", "Columbus OH", "Cincinnati OH"],
+    description:
+      "Residential solar quotes (TPO and purchase) for A Team Contracting. Not a contractor marketplace.",
   };
 }
 
@@ -67,13 +51,8 @@ export function webSiteSchema() {
     "@type": "WebSite",
     name: site.name,
     url: canonicalUrl("/"),
-    description: site.description,
-    inLanguage: "en-US",
     publisher: {
-      "@type": "Organization",
-      name: site.legalName,
-      alternateName: site.name,
-      url: canonicalUrl("/"),
+      "@id": "https://solarlists.com/#organization",
     },
   };
 }

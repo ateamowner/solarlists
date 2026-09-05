@@ -181,26 +181,32 @@ export function faqs(city: City, service: Service): Faq[] {
   ];
 }
 
-/** Homepage FAQ — directory facts only. No invented reviews, ratings, or Featured marketplace. */
+/** Homepage FAQ — five locked SHIP #2 themes. Must match FAQPage JSON-LD. */
 export function homeFaqs(): Faq[] {
   return [
     {
-      question: `Is ${site.name} a solar installer?`,
-      answer: `No. ${site.name} is a residential solar quote directory for Dayton, Columbus, Cincinnati, and nearby Ohio cities — not a solar installer and not a solar company listing other contractors. ${site.disclosure}`,
-    },
-    {
-      question: "Who receives a quote request?",
-      answer: `Every request goes in-house to ${site.operator} at ${site.leadsEmail}. We do not sell listings to other solar companies from this site.`,
-    },
-    {
-      question: "Is there a Featured marketplace of installers?",
+      question: "What is the difference between TPO and a purchase quote?",
       answer:
-        "No. There is no Featured marketplace, no For Pros page, and no invented installer listings. Use the form — we take the request and hold it.",
+        "TPO (third-party ownership) is $0 down with no large loan — a third party owns the system. A purchase quote is if you want to own the array. You can request either on the form.",
     },
     {
-      question: "What quotes can I request?",
+      question: "Is SolarLists a contractor marketplace?",
       answer:
-        "Third-party ownership (TPO): $0 down, no large loan, and a written explanation of who owns the system. You can also request a standard purchase quote.",
+        "No. This is in-house lead gen for A Team Contracting — not a contractor marketplace and not a list of other solar companies. There is no Featured marketplace and no For Pros page.",
+    },
+    {
+      question: "Who owns the solar system?",
+      answer:
+        "On TPO, a third party owns the array; you are not buying it. On a purchase, you own it after the job is complete and paid. We give a written explanation of who owns the system.",
+    },
+    {
+      question: "What happens when I submit the quote form?",
+      answer: `The form emails ${site.leadsEmail}. A Team Contracting follows up in-house. We take the request and hold it. We do not invent companies or sell the lead to a marketplace of other contractors.`,
+    },
+    {
+      question: "Do you invent city prices or star ratings?",
+      answer:
+        "No. We do not invent city-specific prices, reviews, or star ratings. The only dollar range on this site is a cited national range, not a Dayton, Columbus, or Cincinnati survey.",
     },
   ];
 }

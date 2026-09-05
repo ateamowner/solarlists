@@ -17,7 +17,7 @@ import {
 import { homeFaqs } from "@/lib/content";
 import {
   faqPageSchema,
-  organizationSchema,
+  homepageLocalBusiness,
   webSiteSchema,
 } from "@/lib/schema";
 
@@ -35,7 +35,7 @@ export default function HomePage() {
     <div className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6">
       <JsonLd
         data={[
-          organizationSchema(),
+          homepageLocalBusiness(),
           webSiteSchema(),
           faqPageSchema(questions),
         ]}
