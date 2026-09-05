@@ -58,7 +58,7 @@
 
 @layer components {
   .type-h1 {
-    @apply font-heading font-semibold tracking-tight text-[26px] leading-8 md:text-[40px] md:leading-[48px];
+    @apply font-heading font-semibold tracking-tight text-[22px] leading-7 min-[360px]:text-[26px] min-[360px]:leading-8 md:text-[40px] md:leading-[48px];
   }
   .type-label {
     @apply text-[13px] leading-[18px] font-medium;
