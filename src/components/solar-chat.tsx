@@ -9,7 +9,7 @@ import {
   type ChatLink,
   getScriptedReply,
   openerMessage,
-  nepqChips,
+  openerChips,
   shouldOfferConsult,
   consultOfferLine,
 } from "@/lib/nepq-replies";
@@ -26,7 +26,7 @@ type ChatMessage = {
 };
 
 /**
- * Path A / Wave 1: scripted NEPQ replies only.
+ * Path A / Wave 1: scripted NEPQ-method replies only (no LLM).
  *
  * Hosting lock: GitHub Pages static export. No Next.js API routes, no
  * vendor keys in the client, no Vercel, no third-party chat embed.
@@ -41,7 +41,7 @@ function firstMessage(): ChatMessage {
     id: "opener",
     role: "bot",
     text: openerMessage,
-    chips: nepqChips,
+    chips: openerChips,
   };
 }
 
@@ -185,7 +185,7 @@ export function SolarChat() {
               <h2 id={labelId} className="font-heading text-lg font-semibold leading-6">
                 Ask about solar
               </h2>
-              <p className="type-small mt-0.5">Problem-finding first — not a quote closer.</p>
+              <p className="type-small mt-0.5">Find the gap first — not a quote closer.</p>
             </div>
             <button
               type="button"

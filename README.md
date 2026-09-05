@@ -104,8 +104,8 @@ Brand copy, theme, and consult destinations live in `src/config/site.ts`.
 
 A floating **Ask about solar** launcher sits on the global layout (Home, About, Sources, Consult). It is a client component: scripted NEPQ chips and curated replies in `src/lib/nepq-replies.ts`, UI in `src/components/solar-chat.tsx`. No Next.js API route and no API key in the client.
 
-- Problem-finding questions first. Soft-close to `/consult/` after two understanding turns. Eligibility stays on the consult form.
-- Unknown or number-seeking questions point at `/sources/` instead of inventing savings, city prices, warranties, or timelines.
+- Method-shaped scripted replies: Problem | Solution | Question opener, status-frame gap questions, concerns (clarify → discuss → diffuse), and situation questions before any quote dump. Soft-close to `/consult/` after two understanding turns. Eligibility stays on the consult form.
+- Unknown or number-seeking questions point at `/sources/` instead of inventing savings, city prices, warranties, or timelines. No uncited “locks the rate” or rebate promises.
 - `NEXT_PUBLIC_SOLAR_CHAT_ENDPOINT` is a commented, disabled stub for a future server *you* control. Wave 1 does not call an LLM. Never put vendor keys in `NEXT_PUBLIC_*`.
 
 ## Numbers
