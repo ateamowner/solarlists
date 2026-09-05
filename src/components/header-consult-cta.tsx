@@ -5,8 +5,7 @@ import { usePathname } from "next/navigation";
 
 export function HeaderConsultCta() {
   const pathname = usePathname();
-  const onConsult =
-    pathname === "/consult" || pathname === "/consult/";
+  const onConsult = pathname === "/consult" || pathname === "/consult/";
 
   return (
     <Link
@@ -20,7 +19,7 @@ export function HeaderConsultCta() {
         form.scrollIntoView({ behavior: "smooth", block: "start" });
       }}
     >
-      Consult
+      Book a consult
     </Link>
   );
 }

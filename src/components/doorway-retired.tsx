@@ -28,7 +28,7 @@ export function DoorwayRetired({
           About
         </Link>
         <Link href="/consult/" className="underline underline-offset-2">
-          Talk through your situation
+          Book a consult
         </Link>
       </p>
     </aside>

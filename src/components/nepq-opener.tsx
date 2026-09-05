@@ -9,7 +9,7 @@ export function NepqOpener() {
   return (
     <section id="questions" className="mt-14 scroll-mt-24">
       <p className="text-sm font-medium text-primary">Start here</p>
-      <h2 className="font-heading mt-2 text-2xl font-semibold sm:text-3xl">
+      <h2 className="type-h2 mt-2">
         Questions that find the problem
       </h2>
       <p className="mt-3 max-w-2xl text-base leading-7 text-muted-foreground">

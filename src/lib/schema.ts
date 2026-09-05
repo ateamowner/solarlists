@@ -13,6 +13,8 @@ export function personSchema() {
       name: site.authorLocation,
     },
     url: canonicalUrl("/about/"),
+    email: site.email,
+    telephone: site.phoneTel,
   };
 }
 

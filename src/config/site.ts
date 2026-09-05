@@ -13,21 +13,20 @@ export const site = {
   operator: "Anthony Leonard",
   domain: "solarlists.com",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://solarlists.com",
-  /** Consult routing is not live. Do not invent a phone or inbox. */
-  email: "TBD_EMAIL",
-  leadsEmail: "TBD_EMAIL",
-  phone: "TBD_PHONE",
-  phoneTel: "",
-  contactReady: false,
-  /** Empty until a real consult destination exists. Form submit stays disabled. */
-  formAction: "",
+  email: "Anthony.Leonard.brs@sunpower.com",
+  leadsEmail: "Anthony.Leonard.brs@sunpower.com",
+  phone: "(937) 777-9093",
+  phoneTel: "+19377779093",
+  contactReady: true,
+  /** Native HTML POST to Formsubmit. No fetch/XHR, no API key. */
+  formAction: "https://formsubmit.co/Anthony.Leonard.brs@sunpower.com",
   formRedirect: "https://solarlists.com/request-sent/",
   tagline: "Clear solar education for homeowners who want to think first.",
   year: 2026,
   lastReviewed: "2026-09-05",
   lastReviewedLabel: "September 5, 2026",
   description:
-    "SolarLists is a national education site for homeowners researching solar. Start with better questions — then, if useful, request a consult. Not a quote marketplace.",
+    "SolarLists is a national education site for homeowners researching solar. Start with better questions — then, if you live in a served market, request a consult.",
   /** Quiet IC line for About + footer only. Never use this as an H1. */
   disclosure:
     "Anthony Leonard is a SunPower independent contractor. SolarLists is an education site, not SunPower.com and not A Team Contracting.",
@@ -35,31 +34,73 @@ export const site = {
   hasForPros: false,
   hasFeatured: false,
   trustStrip: [
-    "Cite or omit",
-    "No invented prices",
-    "Consult is optional",
+    "Education first",
+    "No credit card",
+    "No pressure quotes",
   ] as const,
   theme: {
-    background: "#f6f1e6",
-    foreground: "#1a1d18",
-    card: "#fffdf8",
-    primary: "#8a4b12",
-    primaryForeground: "#fff8ec",
-    muted: "#ebe3d2",
-    mutedForeground: "#4a463c",
-    accent: "#f3d27a",
-    accentForeground: "#3d2e0a",
-    border: "#cfc3aa",
-    ring: "#8a4b12",
+    background: "#F7F3EA",
+    foreground: "#1A1D18",
+    card: "#FFFDF8",
+    primary: "#8A4B12",
+    primaryForeground: "#FFF8EC",
+    muted: "#EFE8DA",
+    mutedForeground: "#5C574C",
+    accent: "#F3D27A",
+    accentForeground: "#3D2E0A",
+    border: "#D9CFB8",
+    ring: "#8A4B12",
+    footerStrip: "#EFE8DA",
   },
 } as const;
 
 export const primaryNav = [
-  { href: "/", label: "Home" },
+  { href: "/#questions", label: "Learn" },
+  { href: "/about/", label: "About" },
+  { href: "/consult/", label: "Consult" },
+] as const;
+
+export const footerNav = [
   { href: "/about/", label: "About" },
   { href: "/sources/", label: "Sources" },
   { href: "/consult/", label: "Consult" },
+  { href: "/privacy/", label: "Privacy" },
 ] as const;
+
+/** Anthony’s IC markets only. Do not invent a map or ZIP list beyond this. */
+export const consultMarkets = [
+  { abbr: "CA", name: "California" },
+  { abbr: "CO", name: "Colorado" },
+  { abbr: "FL", name: "Florida" },
+  { abbr: "IL", name: "Illinois" },
+  { abbr: "IN", name: "Indiana" },
+  { abbr: "MA", name: "Massachusetts" },
+  { abbr: "MD", name: "Maryland" },
+  { abbr: "MI", name: "Michigan" },
+  { abbr: "MN", name: "Minnesota" },
+  { abbr: "NC", name: "North Carolina" },
+  { abbr: "NV", name: "Nevada" },
+  { abbr: "OH", name: "Ohio" },
+  { abbr: "OR", name: "Oregon" },
+  { abbr: "PA", name: "Pennsylvania" },
+  { abbr: "SC", name: "South Carolina" },
+  { abbr: "TX", name: "Texas" },
+  { abbr: "UT", name: "Utah" },
+  { abbr: "VA", name: "Virginia" },
+  { abbr: "WA", name: "Washington" },
+  { abbr: "WI", name: "Wisconsin" },
+] as const;
+
+export const OTHER_MARKET = "other";
+
+export function isConsultMarket(value: string): boolean {
+  return consultMarkets.some((market) => market.abbr === value);
+}
+
+export function consultMarketSentence(): string {
+  const names = consultMarkets.map((market) => market.name);
+  return `${names.slice(0, -1).join(", ")}, and ${names[names.length - 1]}`;
+}
 
 /** Wave 1: leftover city × service URLs stay live, but must not be indexed. */
 export const doorwayRobots = {
@@ -136,10 +177,10 @@ export const formBillRanges = [
 
 export const formTimings = [
   { value: "", label: "Select timing" },
-  { value: "researching", label: "Just researching" },
-  { value: "this_year", label: "Sometime this year" },
-  { value: "this_quarter", label: "In the next few months" },
-  { value: "this_month", label: "Sooner than that" },
+  { value: "this_month", label: "This month" },
+  { value: "this_quarter", label: "This quarter" },
+  { value: "this_year", label: "This year" },
+  { value: "researching", label: "Just learning" },
 ] as const;
 
 export const formInterest = [

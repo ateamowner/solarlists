@@ -59,7 +59,7 @@ export function homeFaqs(): Faq[] {
     {
       question: "Who is the consult for?",
       answer:
-        "Homeowners researching solar who want to talk through their situation. It is not a “get 3 quotes” marketplace and not a ZIP wizard. Consult routing is not published yet.",
+        "Homeowners in Anthony’s served markets who want to talk through their situation. It is not a “get 3 quotes” marketplace and not a ZIP wizard. Education stays available if you live elsewhere.",
     },
     {
       question: "Is this A Team Contracting?",
@@ -80,18 +80,18 @@ export const editorialSources: EditorialSource[] = [
     name: costGuide.sourceName,
     href: costGuide.sourceUrl,
     usedFor:
-      "The only dollar range this site may mention: a national published marketplace cluster, labeled as national — never as a city survey or a promised savings figure. Wave 1 does not put that number in the homepage hero.",
+      "A published market-report bookmark for later education articles. Wave 1 does not repeat a dollar-per-watt figure, splits, or commissions on any page.",
   },
 ];
 
 export const editorialRules = [
   {
     title: "Cite or omit",
-    body: "If we cannot point to a published source, we leave the number out. That includes savings claims, incentive dollar amounts, warranty lengths we did not read, install timelines, and traffic stats.",
+    body: "If we cannot point to a published source, we leave the number out. That includes savings claims, dollar-per-watt figures, splits, commissions, incentive dollar amounts, warranty lengths we did not read, install timelines, and traffic stats.",
   },
   {
-    title: "National education, generic eligibility",
-    body: "This site does not claim a state count, a SunPower service map, or a list of independent-contractor markets. Soft-close copy stays generic: homeowners researching solar.",
+    title: "National education, listed consult markets",
+    body: "Education is national. Consults are limited to the independent-contractor markets listed on the Consult page. We do not invent a ZIP list, a SunPower service map, or states beyond that list.",
   },
   {
     title: "No urgency theater",

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { site } from "@/config/site";
+import { consultMarketSentence, site } from "@/config/site";
 import { editorialRules, editorialSources } from "@/lib/editorial";
 
 export const metadata: Metadata = {
@@ -17,17 +17,17 @@ export default function SourcesPage() {
       <p className="mt-4 text-sm text-muted-foreground">
         Last reviewed {site.lastReviewedLabel}.
       </p>
-      <p className="mt-6 leading-7">
+      <p className="type-prose mt-6">
         {site.name} would rather leave a blank than invent a figure. This page
         is the rule set for every other URL on the site.
       </p>
 
-      <h2 className="mt-10 font-heading text-2xl font-semibold">The rules</h2>
+      <h2 className="type-h2 mt-10">The rules</h2>
       <ul className="mt-4 space-y-4">
         {editorialRules.map((rule) => (
           <li
             key={rule.title}
-            className="rounded-xl border border-border bg-card p-5"
+            className="rounded-2xl border border-border bg-card p-5 shadow-[0_8px_24px_rgba(26,29,24,0.06)]"
           >
             <h3 className="font-heading text-xl font-semibold">{rule.title}</h3>
             <p className="mt-2 text-sm leading-6 text-muted-foreground">
@@ -37,19 +37,17 @@ export default function SourcesPage() {
         ))}
       </ul>
 
-      <h2 className="mt-10 font-heading text-2xl font-semibold">
-        Sources we may cite
-      </h2>
-      <p className="mt-3 leading-7 text-muted-foreground">
-        Wave 1 does not put a dollar figure in the homepage hero. The citation
-        below is the only national range this site is willing to mention, and
-        only when a later page needs a labeled, published cluster.
+      <h2 className="type-h2 mt-10">Sources we may cite later</h2>
+      <p className="type-prose mt-3 text-muted-foreground">
+        Wave 1 does not publish a dollar-per-watt figure, splits, or
+        commissions. Named sources below are bookmarks for later articles — not
+        numbers on this page.
       </p>
       <ul className="mt-4 space-y-4">
         {editorialSources.map((source) => (
           <li
             key={source.href}
-            className="rounded-xl border border-border bg-card p-5"
+            className="rounded-2xl border border-border bg-card p-5 shadow-[0_8px_24px_rgba(26,29,24,0.06)]"
           >
             <a
               href={source.href}
@@ -66,15 +64,23 @@ export default function SourcesPage() {
         ))}
       </ul>
 
-      <h2 className="mt-10 font-heading text-2xl font-semibold">Corrections</h2>
-      <p className="mt-3 leading-7">
-        If a page is wrong, say so. Consult routing is not live (
-        <span className="font-mono text-sm">{site.email}</span>
-        ). Until that inbox exists, use the{" "}
+      <h2 className="type-h2 mt-10">Consult markets</h2>
+      <p className="type-prose mt-3">
+        Consults are limited to {consultMarketSentence()}. Education stays
+        available if you live elsewhere.
+      </p>
+
+      <h2 className="type-h2 mt-10">Corrections</h2>
+      <p className="type-prose mt-3">
+        If a page is wrong, email{" "}
+        <a href={`mailto:${site.email}`} className="underline underline-offset-2">
+          {site.email}
+        </a>{" "}
+        or use the{" "}
         <Link href="/consult/" className="underline underline-offset-2">
           consult form
-        </Link>{" "}
-        note as a reminder that we will not invent a contact path.
+        </Link>
+        .
       </p>
       <p className="mt-6">
         <Link href="/about/" className="underline underline-offset-2">

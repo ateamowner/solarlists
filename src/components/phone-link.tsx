@@ -12,10 +12,6 @@ export function PhoneLink({
   className?: string;
   children?: React.ReactNode;
 }) {
-  if (!site.contactReady || !site.phoneTel) {
-    return <span className={className}>{children ?? site.phone}</span>;
-  }
-
   return (
     <a href={`tel:${site.phoneTel}`} className={className}>
       {children ?? site.phone}
@@ -66,7 +62,7 @@ export function StickyMobileCallBar() {
           form.scrollIntoView({ behavior: "smooth", block: "start" });
         }}
       >
-        Talk through your situation
+        Book a consult
       </Link>
     </div>
   );

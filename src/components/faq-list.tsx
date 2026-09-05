@@ -3,7 +3,7 @@ import type { Faq } from "@/lib/editorial";
 export function FaqList({ faqs }: { faqs: Faq[] }) {
   return (
     <section id="faq" className="mt-10">
-      <h2 className="font-heading text-xl font-semibold sm:text-2xl">
+      <h2 className="type-h2">
         Frequently asked questions
       </h2>
       <div className="mt-4 divide-y divide-border border-y border-border">
