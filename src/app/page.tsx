@@ -27,7 +27,7 @@ export default function HomePage() {
       <section className="grid items-start gap-8 md:grid-cols-[minmax(0,1fr)_minmax(20rem,26rem)]">
         <div>
           <p className="text-sm font-medium text-primary">{site.tagline}</p>
-          <h1 className="type-h1 mt-2 text-balance">
+          <h1 className="type-h1 mt-2">
             Go solar in Dayton, Columbus, and Cincinnati without a huge loan.
           </h1>
           <p className="mt-4 max-w-2xl">
