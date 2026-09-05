@@ -181,6 +181,37 @@ export function faqs(city: City, service: Service): Faq[] {
   ];
 }
 
+/** Homepage FAQ — SHIP #2 verbatim copy. Must match FAQPage JSON-LD. */
+export function homeFaqs(): Faq[] {
+  return [
+    {
+      question: "Is SolarLists a contractor marketplace?",
+      answer:
+        "No. SolarLists collects residential solar quote requests for A Team Contracting only. There is no For Pros page and no list of other solar companies.",
+    },
+    {
+      question: "What is TPO / $0-down solar?",
+      answer:
+        "Third-party ownership. A provider owns the system so you can go solar without a huge loan. You can also request a standard purchase quote. Ask who owns the system and get it in writing.",
+    },
+    {
+      question: "What happens after I submit the form?",
+      answer:
+        "The request goes to A Team Contracting (owner@ateamcontractings.com). No credit card is collected on this site.",
+    },
+    {
+      question: "Do you publish city-specific solar prices?",
+      answer:
+        "No. We only cite national published ranges (not a local survey). A written number from a walk of your roof is the only local price that matters.",
+    },
+    {
+      question: "Which cities do you cover?",
+      answer:
+        "Dayton, Columbus, and Cincinnati areas with individual city pages. Each city×service URL has its own form.",
+    },
+  ];
+}
+
 export function hubFaqs(city: City): Faq[] {
   const nearby = getNearbyCities(city);
   const nearbyNames = nearby.map((item) => item.name);

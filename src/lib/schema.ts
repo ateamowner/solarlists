@@ -30,6 +30,33 @@ export function publisherLocalBusiness(city: City) {
   };
 }
 
+/** Homepage only. Locked SHIP #2 LocalBusiness — not a marketplace Organization. */
+export function homepageLocalBusiness() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://solarlists.com/#organization",
+    name: "A Team Contracting",
+    url: "https://solarlists.com/",
+    email: "owner@ateamcontractings.com",
+    areaServed: ["Dayton OH", "Columbus OH", "Cincinnati OH"],
+    description:
+      "Residential solar quote site for A Team Contracting. TPO / $0-down and purchase quotes. Not a contractor marketplace and not a list of other solar companies.",
+  };
+}
+
+export function webSiteSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: site.name,
+    url: canonicalUrl("/"),
+    publisher: {
+      "@id": "https://solarlists.com/#organization",
+    },
+  };
+}
+
 export function faqPageSchema(faqs: Faq[]) {
   return {
     "@context": "https://schema.org",
