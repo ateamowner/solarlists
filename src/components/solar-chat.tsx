@@ -42,16 +42,14 @@ type ChatMessage = {
  *
  * Wave 1 ships the scripted NEPQ path only.
  */
-async function tryExternalChatEndpoint(
-  _thread: { role: "user" | "assistant"; content: string }[]
-): Promise<string | null> {
+async function tryExternalChatEndpoint(): Promise<string | null> {
   // Disabled. Scripted replies only.
   // const endpoint = process.env.NEXT_PUBLIC_SOLAR_CHAT_ENDPOINT?.trim();
   // if (!endpoint) return null;
   // const response = await fetch(endpoint, {
   //   method: "POST",
   //   headers: { "Content-Type": "application/json" },
-  //   body: JSON.stringify({ messages: _thread }),
+  //   body: JSON.stringify({ messages: thread }),
   // });
   // if (!response.ok) return null;
   // const data = (await response.json()) as { text?: string; reply?: string };
@@ -167,12 +165,7 @@ export function SolarChat() {
     setMessages((current) => [...current, userMessage]);
     setBusy(true);
 
-    const thread = [...messages, userMessage].map((item) => ({
-      role: item.role === "user" ? ("user" as const) : ("assistant" as const),
-      content: item.text,
-    }));
-
-    const external = await tryExternalChatEndpoint(thread);
+    const external = await tryExternalChatEndpoint();
     const scripted = getScriptedReply(trimmed, usedTopics);
     const nextTopics = [...usedTopics, scripted.topicId];
     setUsedTopics(nextTopics);
