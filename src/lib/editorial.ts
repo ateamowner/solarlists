@@ -45,11 +45,11 @@ export function homeFaqs(): Faq[] {
     {
       question: "Is SolarLists a solar company?",
       answer:
-        "SolarLists is an education site. It is not a utility, not a contractor marketplace, and not SunPower.com. Optional consults, when they happen, are with Anthony Leonard.",
+        "SolarLists is an education site. It is not a utility, not a contractor marketplace, and not SunPower.com. Optional consults, when they happen, are with a professional solar consultant.",
     },
     {
       question: "Who writes this site?",
-      answer: `${site.author} writes SolarLists from ${site.authorLocation}. The About page has the full author note and a quiet independent-contractor disclosure.`,
+      answer: `${site.authorFormal} writes SolarLists from ${site.authorLocation}. The About page has the full author note and a quiet independent-contractor disclosure.`,
     },
     {
       question: "Do you publish savings numbers or city prices?",
@@ -59,7 +59,7 @@ export function homeFaqs(): Faq[] {
     {
       question: "Who is the consult for?",
       answer:
-        "Homeowners in Anthony’s served markets who want to talk through their situation. It is not a “get 3 quotes” marketplace and not a ZIP wizard. Education stays available if you live elsewhere.",
+        "Homeowners in served markets who want to talk through their situation. It is not a “get 3 quotes” marketplace and not a ZIP wizard. Education stays available if you live elsewhere.",
     },
     {
       question: "Is this A Team Contracting?",

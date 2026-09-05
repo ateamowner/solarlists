@@ -7,7 +7,7 @@ import { consultMarketSentence, consultMarkets, site } from "@/config/site";
 export const metadata: Metadata = {
   title: `Consult — ${site.name}`,
   description:
-    "Book a consult with Anthony Leonard. For homeowners in served markets — not a quote marketplace and not a ZIP wizard.",
+    "Book a consult with a professional solar consultant. For homeowners in served markets — not a quote marketplace and not a ZIP wizard.",
   alternates: { canonical: "/consult/" },
 };
 

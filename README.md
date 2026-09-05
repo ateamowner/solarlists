@@ -2,7 +2,7 @@
 
 National **solar education** site for homeowners who want to think first. Brand: **SolarLists**. Domain: [solarlists.com](https://solarlists.com).
 
-SolarLists is not A Team Contracting and not SunPower.com. Anthony Leonard writes the site from Tipp City, Ohio. Independent-contractor disclosure lives on About and in the footer only — never in an H1. Soft-close consults, when routed, are with Anthony Leonard (SunPower independent contractor) — not A Team.
+SolarLists is not A Team Contracting and not SunPower.com. A professional solar consultant writes the site from Tipp City, Ohio. Independent-contractor disclosure lives on About and in the footer only — never in an H1. Soft-close consults, when routed, are with a professional solar consultant (SunPower independent contractor) — not A Team.
 
 A Team Contracting is a separate exterior-cleaning business and is off this site.
 
@@ -93,7 +93,7 @@ Consults are for homeowners in CA, CO, FL, IL, IN, MA, MD, MI, MN, NC, NV, OH, O
 - `/` — education home (NEPQ problem-finder questions + secondary consult CTA)
 - `/about/` — author, IC disclosure, A Team note, editorial standards
 - `/sources/` — cite-or-omit policy and last-reviewed date
-- `/consult/` — soft-close form to Anthony Leonard (SunPower IC)
+- `/consult/` — soft-close form to a professional solar consultant (SunPower IC)
 - `/privacy/`
 - `/request-sent/` (noindex)
 - Legacy city hubs and city × service URLs remain for the static build and old links. They are **noindex,nofollow**, omitted from the sitemap, and **not** 301’d. Later pass: remove the routes.
@@ -117,6 +117,6 @@ Wave 1 does not publish dollar-per-watt figures, splits, or commissions. Cite or
 - `sitemap.xml` and `robots.txt` are generated from the education routes. Legacy city × service URLs are omitted from the sitemap and marked `noindex,nofollow` on the page.
 - Sitemap `<loc>` values are slash-canonical, including the homepage (`https://solarlists.com/`). Do not revert to no-slash locs. GitHub Pages 301s the no-slash URL to the slash URL.
 - `robots.txt` `Sitemap:` points at that slash sitemap. `Host: solarlists.com` is optional (Bing leftover). Do not `Disallow` the leftover city URLs — crawlers need to see the noindex tag.
-- Homepage JSON-LD: `WebSite`, `Person` (Anthony Leonard), and `FAQPage` matching the visible homepage FAQs. No SearchAction. No A Team `LocalBusiness`.
+- Homepage JSON-LD: `WebSite`, `Person` (a professional solar consultant), and `FAQPage` matching the visible homepage FAQs. No SearchAction. No A Team `LocalBusiness`.
 - IndexNow key file (this host only; public by design): [`57862ecf4b4f3c4df192ffaf4cffbf6e.txt`](https://solarlists.com/57862ecf4b4f3c4df192ffaf4cffbf6e.txt). After each GitHub Pages deploy, `.github/workflows/pages.yml` POSTs the sitemap locs to `https://api.indexnow.org/indexnow`. No Bing API secret and no secret env var.
-- **Anthony:** add `solarlists.com` in [Bing Webmaster Tools](https://www.bing.com/webmasters). Do not invent an `msvalidate.01` code — paste the real one into the HTML comment slot in `src/app/layout.tsx` when Bing issues it. Google HTML verification is already at `/googled3ae2edf58b5b2f8.html`.
+- Add `solarlists.com` in [Bing Webmaster Tools](https://www.bing.com/webmasters). Do not invent an `msvalidate.01` code — paste the real one into the HTML comment slot in `src/app/layout.tsx` when Bing issues it. Google HTML verification is already at `/googled3ae2edf58b5b2f8.html`.

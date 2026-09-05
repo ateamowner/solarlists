@@ -8,9 +8,10 @@
 export const site = {
   name: "SolarLists",
   legalName: "SolarLists",
-  author: "Anthony Leonard",
+  author: "a professional solar consultant",
+  authorFormal: "A professional solar consultant",
   authorLocation: "Tipp City, Ohio",
-  operator: "Anthony Leonard",
+  operator: "a professional solar consultant",
   domain: "solarlists.com",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://solarlists.com",
   email: "Anthony.Leonard.brs@sunpower.com",
@@ -29,7 +30,7 @@ export const site = {
     "SolarLists is a national education site for homeowners researching solar. Start with better questions — then, if you live in a served market, request a consult.",
   /** Quiet IC line for About + footer only. Never use this as an H1. */
   disclosure:
-    "Anthony Leonard is a SunPower independent contractor. SolarLists is an education site, not SunPower.com and not A Team Contracting.",
+    "Consults are with a professional solar consultant who is a SunPower independent contractor. SolarLists is an education site, not SunPower.com. A Team Contracting is a separate exterior-cleaning business.",
   /** Shared conversion shell switches. SolarLists has no For Pros page and no Featured buy path. */
   hasForPros: false,
   hasFeatured: false,
@@ -67,7 +68,7 @@ export const footerNav = [
   { href: "/privacy/", label: "Privacy" },
 ] as const;
 
-/** Anthony’s IC markets only. Do not invent a map or ZIP list beyond this. */
+/** IC markets only. Do not invent a map or ZIP list beyond this. */
 export const consultMarkets = [
   { abbr: "CA", name: "California" },
   { abbr: "CO", name: "Colorado" },

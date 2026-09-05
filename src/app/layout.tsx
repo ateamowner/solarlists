@@ -67,7 +67,7 @@ export default function RootLayout({
           aria-hidden="true"
           dangerouslySetInnerHTML={{
             __html:
-              "<!-- Webmaster verification — do not invent codes. Bing Webmaster Tools (msvalidate.01): Anthony must add solarlists.com in Bing Webmaster Tools and paste the real <meta name=\"msvalidate.01\" content=\"…\" /> here. Google site verification: HTML file is already at /googled3ae2edf58b5b2f8.html. Meta alternative: <meta name=\"google-site-verification\" content=\"…\" /> -->",
+              "<!-- Webmaster verification — do not invent codes. Bing Webmaster Tools (msvalidate.01): add solarlists.com in Bing Webmaster Tools and paste the real <meta name=\"msvalidate.01\" content=\"…\" /> here. Google site verification: HTML file is already at /googled3ae2edf58b5b2f8.html. Meta alternative: <meta name=\"google-site-verification\" content=\"…\" /> -->",
           }}
         />
         <style>{`:root { ${themeVars}; }`}</style>

@@ -147,7 +147,7 @@ const replies: Record<string, Omit<ScriptedReply, "chips">> = {
   consult: {
     topicId: "consult",
     links: [{ href: CONSULT_HREF, label: "Book a consult" }],
-    text: "A consult here is an optional conversation with Anthony about your situation — the bill, the roof, and the claims you do not trust yet. It is not a marketplace of bids and not a ZIP wizard. Education stays on the site either way. Whether a consult can be booked is decided on the consult form, not in this chat.\n\nWhat would you want that conversation to settle first?",
+    text: "A consult here is an optional conversation with a professional solar consultant about your situation — the bill, the roof, and the claims you do not trust yet. It is not a marketplace of bids and not a ZIP wizard. Education stays on the site either way. Whether a consult can be booked is decided on the consult form, not in this chat.\n\nWhat would you want that conversation to settle first?",
   },
   savings: {
     topicId: "savings",
@@ -176,7 +176,7 @@ const replies: Record<string, Omit<ScriptedReply, "chips">> = {
   identity: {
     topicId: "identity",
     links: [{ href: "/about/", label: "About" }],
-    text: "SolarLists is an education site. It is not SunPower.com and not A Team Contracting. A Team is a separate exterior-cleaning business. Optional consults, when they happen, are with Anthony.\n\nWhat did you want to understand first — the bill, the roof, or a claim you already heard?",
+    text: "SolarLists is an education site. It is not SunPower.com and not A Team Contracting. A Team is a separate exterior-cleaning business. Optional consults, when they happen, are with a professional solar consultant.\n\nWhat did you want to understand first — the bill, the roof, or a claim you already heard?",
   },
 };
 
@@ -300,7 +300,7 @@ const topicRules: TopicRule[] = [
     keywords: [
       "consult",
       "appointment",
-      "talk to anthony",
+      "talk to a consultant",
       "book a",
       "what is a consult",
     ],
