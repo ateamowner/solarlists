@@ -58,7 +58,10 @@
 
 @layer components {
   .type-h1 {
-    @apply font-heading text-[32px] leading-[40px] font-semibold tracking-tight md:text-[40px] md:leading-[48px];
+    @apply font-heading font-semibold tracking-tight;
+    /* Step down on narrow phones so benefit copy stays ≤3 lines. */
+    font-size: clamp(1.75rem, 1.35rem + 2.2vw, 2.5rem);
+    line-height: 1.25;
   }
   .type-label {
     @apply text-[13px] leading-[18px] font-medium;

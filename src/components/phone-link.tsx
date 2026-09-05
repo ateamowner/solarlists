@@ -52,6 +52,12 @@ export function StickyMobileCallBar() {
       <a
         href="#quote"
         className="type-button flex h-11 items-center justify-center rounded-lg bg-primary text-primary-foreground"
+        onClick={(event) => {
+          const form = document.getElementById("quote");
+          if (!form) return;
+          event.preventDefault();
+          form.scrollIntoView({ behavior: "smooth", block: "start" });
+        }}
       >
         Get a quote
       </a>
