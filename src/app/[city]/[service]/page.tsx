@@ -113,7 +113,7 @@ export default async function ServicePage({
           <p className="text-sm font-medium text-primary">
             {city.name}, {city.stateAbbr}
           </p>
-          <h1 className="type-h1 mt-2 text-balance">
+          <h1 className="type-h1 mt-2">
             {heading}
           </h1>
           <p className="mt-3 rounded-md border border-accent bg-accent/40 px-3 py-2 text-sm">
