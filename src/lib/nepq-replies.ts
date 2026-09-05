@@ -525,11 +525,24 @@ function normalize(text: string): string {
   return text.toLowerCase().replace(/[“”]/g, '"').replace(/\s+/g, " ").trim();
 }
 
+function escapeRegExp(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+/** Phrase match with alphanumeric edges so short keys like "itc" do not hit "pitch". */
+function keywordMatches(haystack: string, keyword: string): boolean {
+  const pattern = new RegExp(
+    `(?<![a-z0-9])${escapeRegExp(keyword)}(?![a-z0-9])`,
+    "i"
+  );
+  return pattern.test(haystack);
+}
+
 export function matchTopicId(userText: string): string | null {
   const haystack = normalize(userText);
   if (!haystack) return null;
   for (const rule of topicRules) {
-    if (rule.keywords.some((keyword) => haystack.includes(keyword))) {
+    if (rule.keywords.some((keyword) => keywordMatches(haystack, keyword))) {
       return rule.id;
     }
   }
