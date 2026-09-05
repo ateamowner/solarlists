@@ -7,7 +7,6 @@ import {
   CONSULT_HREF,
   type ChatChip,
   type ChatLink,
-  chipsAfter,
   getScriptedReply,
   openerMessage,
   nepqChips,
@@ -27,36 +26,15 @@ type ChatMessage = {
 };
 
 /**
- * TODO: Future LLM path — disabled for Wave 1.
+ * Path A / Wave 1: scripted NEPQ replies only.
  *
- * Hosting lock: GitHub Pages static export only. No Next.js API routes,
- * no vendor keys in the client, no Vercel runtime for solarlists.com.
+ * Hosting lock: GitHub Pages static export. No Next.js API routes, no
+ * vendor keys in the client, no Vercel, no third-party chat embed.
  *
- * Optional env (commented in `.env.example`):
- *   NEXT_PUBLIC_SOLAR_CHAT_ENDPOINT
- * If you later stand up a server *you* control, uncomment the fetch
- * below. That server holds the keys. Never put API keys in NEXT_PUBLIC_*.
- *
- * Expected request: `{ messages: { role: "user" | "assistant"; content: string }[] }`
- * Expected response JSON: `{ text: string }` or `{ reply: string }`
- *
- * Wave 1 ships the scripted NEPQ path only.
+ * TODO (later, not this PR): a server you control could accept
+ * `{ messages }` at NEXT_PUBLIC_SOLAR_CHAT_ENDPOINT. Leave that env
+ * commented. Never put API keys in NEXT_PUBLIC_*.
  */
-async function tryExternalChatEndpoint(): Promise<string | null> {
-  // Disabled. Scripted replies only.
-  // const endpoint = process.env.NEXT_PUBLIC_SOLAR_CHAT_ENDPOINT?.trim();
-  // if (!endpoint) return null;
-  // const response = await fetch(endpoint, {
-  //   method: "POST",
-  //   headers: { "Content-Type": "application/json" },
-  //   body: JSON.stringify({ messages: thread }),
-  // });
-  // if (!response.ok) return null;
-  // const data = (await response.json()) as { text?: string; reply?: string };
-  // const text = data.text ?? data.reply;
-  // return text?.trim() ? text.trim() : null;
-  return null;
-}
 
 function firstMessage(): ChatMessage {
   return {
@@ -96,7 +74,6 @@ export function SolarChat() {
   const labelId = useId();
   const [open, setOpen] = useState(false);
   const [draft, setDraft] = useState("");
-  const [busy, setBusy] = useState(false);
   const [barOffset, setBarOffset] = useState(true);
   const [messages, setMessages] = useState<ChatMessage[]>(() => [firstMessage()]);
   const [usedTopics, setUsedTopics] = useState<string[]>([]);
@@ -134,7 +111,7 @@ export function SolarChat() {
     if (!open) return;
     const node = logRef.current;
     if (node) node.scrollTop = node.scrollHeight;
-  }, [messages, open, busy]);
+  }, [messages, open]);
 
   useEffect(() => {
     if (!open) return;
@@ -149,38 +126,33 @@ export function SolarChat() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
-  async function send(text: string) {
+  function send(text: string) {
     const trimmed = text.trim();
-    if (!trimmed || busy) return;
+    if (!trimmed) return;
 
     const nextTurns = userTurns + 1;
-    const userMessage: ChatMessage = {
-      id: `user-${nextTurns}`,
-      role: "user",
-      text: trimmed,
-    };
+    const scripted = getScriptedReply(trimmed, usedTopics);
+    const nextTopics = [...usedTopics, scripted.topicId];
 
     setDraft("");
     setUserTurns(nextTurns);
-    setMessages((current) => [...current, userMessage]);
-    setBusy(true);
-
-    const external = await tryExternalChatEndpoint();
-    const scripted = getScriptedReply(trimmed, usedTopics);
-    const nextTopics = [...usedTopics, scripted.topicId];
     setUsedTopics(nextTopics);
-
-    const botMessage: ChatMessage = {
-      id: `bot-${nextTurns}`,
-      role: "bot",
-      text: external ?? scripted.text,
-      chips: external ? chipsAfter(nextTopics) : scripted.chips,
-      links: external ? undefined : scripted.links,
-      showConsult: shouldOfferConsult(nextTurns),
-    };
-
-    setMessages((current) => [...current, botMessage]);
-    setBusy(false);
+    setMessages((current) => [
+      ...current,
+      {
+        id: `user-${nextTurns}`,
+        role: "user",
+        text: trimmed,
+      },
+      {
+        id: `bot-${nextTurns}`,
+        role: "bot",
+        text: scripted.text,
+        chips: scripted.chips,
+        links: scripted.links,
+        showConsult: shouldOfferConsult(nextTurns),
+      },
+    ]);
   }
 
   return (
@@ -283,8 +255,7 @@ export function SolarChat() {
                         <button
                           key={chip.id}
                           type="button"
-                          disabled={busy}
-                          onClick={() => void send(chip.prompt)}
+                          onClick={() => send(chip.prompt)}
                           className="rounded-full border px-3 py-1.5 text-left text-[13px] leading-5 hover:border-primary disabled:opacity-60"
                           style={{
                             borderColor: "#CFC3AA",
@@ -299,9 +270,6 @@ export function SolarChat() {
                 </div>
               </div>
             ))}
-            {busy ? (
-              <p className="type-small px-1">Looking that up in the sourced answers…</p>
-            ) : null}
           </div>
 
           <form
@@ -309,7 +277,7 @@ export function SolarChat() {
             style={{ borderColor: "#CFC3AA" }}
             onSubmit={(event) => {
               event.preventDefault();
-              void send(draft);
+              send(draft);
             }}
           >
             <label htmlFor={`${panelId}-input`} className="sr-only">
@@ -322,14 +290,13 @@ export function SolarChat() {
                 value={draft}
                 onChange={(event) => setDraft(event.target.value)}
                 autoComplete="off"
-                disabled={busy}
                 placeholder="Type a question"
                 className="h-11 min-w-0 flex-1 rounded-lg border bg-[#FFFDF8] px-2.5 text-[16px] leading-[26px] outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:opacity-60"
                 style={{ borderColor: "#CFC3AA", color: "#1A1D18" }}
               />
               <button
                 type="submit"
-                disabled={busy || !draft.trim()}
+                disabled={!draft.trim()}
                 className="type-button inline-flex h-11 items-center rounded-lg bg-primary px-3 text-primary-foreground hover:bg-primary/90 disabled:opacity-50"
               >
                 Send
