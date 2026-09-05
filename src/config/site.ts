@@ -2,6 +2,7 @@
  * SolarLists site config — brand, domain, inbox, cities, and services.
  * Theme tokens live here so a rebrand is one file.
  */
+// Live host is GitHub Pages only.
 
 export const site = {
   name: "SolarLists",
