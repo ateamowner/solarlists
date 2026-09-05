@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { QuoteFormLoader } from "@/components/quote-form-loader";
 import { Disclosure } from "@/components/disclosure";
+import { FaqList } from "@/components/faq-list";
+import { JsonLd } from "@/components/json-ld";
+import { QuoteFormLoader } from "@/components/quote-form-loader";
 import { ForProsBand, TrustStrip } from "@/components/trust-strip";
 import {
   citiesInRegion,
@@ -12,6 +14,12 @@ import {
   services,
   site,
 } from "@/config/site";
+import { homeFaqs } from "@/lib/content";
+import {
+  faqPageSchema,
+  organizationSchema,
+  webSiteSchema,
+} from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: `${site.name} — Dayton, Columbus, and Cincinnati solar`,
@@ -21,9 +29,17 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   const tpo = getService("tpo-solar");
+  const questions = homeFaqs();
 
   return (
     <div className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6">
+      <JsonLd
+        data={[
+          organizationSchema(),
+          webSiteSchema(),
+          faqPageSchema(questions),
+        ]}
+      />
       <section className="grid items-start gap-8 md:grid-cols-[minmax(0,1fr)_minmax(20rem,26rem)]">
         <div>
           <p className="text-sm font-medium text-primary">{site.tagline}</p>
@@ -148,6 +164,8 @@ export default function HomePage() {
           ))}
         </ol>
       </section>
+
+      <FaqList faqs={questions} />
 
       <section className="mt-14">
         <h2 className="font-heading text-2xl font-semibold">What we quote</h2>

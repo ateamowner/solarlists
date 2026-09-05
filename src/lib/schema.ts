@@ -30,6 +30,54 @@ export function publisherLocalBusiness(city: City) {
   };
 }
 
+export function organizationSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: site.legalName,
+    alternateName: site.name,
+    description: site.description,
+    url: canonicalUrl("/"),
+    email: site.email,
+    telephone: site.phoneTel,
+    areaServed: [
+      {
+        "@type": "City",
+        name: "Dayton",
+        containedInPlace: { "@type": "State", name: "Ohio" },
+      },
+      {
+        "@type": "City",
+        name: "Columbus",
+        containedInPlace: { "@type": "State", name: "Ohio" },
+      },
+      {
+        "@type": "City",
+        name: "Cincinnati",
+        containedInPlace: { "@type": "State", name: "Ohio" },
+      },
+    ],
+    knowsAbout: ["Residential solar", "TPO solar", "Solar installation"],
+  };
+}
+
+export function webSiteSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: site.name,
+    url: canonicalUrl("/"),
+    description: site.description,
+    inLanguage: "en-US",
+    publisher: {
+      "@type": "Organization",
+      name: site.legalName,
+      alternateName: site.name,
+      url: canonicalUrl("/"),
+    },
+  };
+}
+
 export function faqPageSchema(faqs: Faq[]) {
   return {
     "@context": "https://schema.org",

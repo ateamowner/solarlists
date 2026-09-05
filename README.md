@@ -112,6 +112,7 @@ U.S. residential solar marketplace quotes have recently clustered around about $
 - `sitemap.xml` and `robots.txt` are generated from the city/service config.
 - Sitemap `<loc>` values are slash-canonical, including the homepage (`https://solarlists.com/`). Do not revert to no-slash locs. GitHub Pages 301s the no-slash URL to the slash URL.
 - `robots.txt` `Sitemap:` points at that slash sitemap. `Host: solarlists.com` is optional (Bing leftover). Do not `Disallow` money pages (homepage, city hubs, service pages, `/for-pros/`, featured, quote, contact).
+- Homepage JSON-LD only: `Organization` (A Team Contracting / SolarLists), `WebSite`, and `FAQPage` matching the visible homepage FAQs. Directory facts only — no invented reviews, ratings, or Featured marketplace.
 - Every city and city × service page includes JSON-LD: `LocalBusiness` for A Team Contracting / SolarLists, `FAQPage` matching the visible FAQs, and `BreadcrumbList`.
 - IndexNow key file (this host only; public by design): [`57862ecf4b4f3c4df192ffaf4cffbf6e.txt`](https://solarlists.com/57862ecf4b4f3c4df192ffaf4cffbf6e.txt). After each GitHub Pages deploy, `.github/workflows/pages.yml` POSTs the sitemap locs to `https://api.indexnow.org/indexnow`. No Bing API secret and no secret env var.
 - **Anthony:** add `solarlists.com` in [Bing Webmaster Tools](https://www.bing.com/webmasters). Do not invent an `msvalidate.01` code — paste the real one into the HTML comment slot in `src/app/layout.tsx` when Bing issues it. Google HTML verification is already at `/googled3ae2edf58b5b2f8.html`.

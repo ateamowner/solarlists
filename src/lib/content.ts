@@ -181,6 +181,30 @@ export function faqs(city: City, service: Service): Faq[] {
   ];
 }
 
+/** Homepage FAQ — directory facts only. No invented reviews, ratings, or Featured marketplace. */
+export function homeFaqs(): Faq[] {
+  return [
+    {
+      question: `Is ${site.name} a solar installer?`,
+      answer: `No. ${site.name} is a residential solar quote directory for Dayton, Columbus, Cincinnati, and nearby Ohio cities — not a solar installer and not a solar company listing other contractors. ${site.disclosure}`,
+    },
+    {
+      question: "Who receives a quote request?",
+      answer: `Every request goes in-house to ${site.operator} at ${site.leadsEmail}. We do not sell listings to other solar companies from this site.`,
+    },
+    {
+      question: "Is there a Featured marketplace of installers?",
+      answer:
+        "No. There is no Featured marketplace, no For Pros page, and no invented installer listings. Use the form — we take the request and hold it.",
+    },
+    {
+      question: "What quotes can I request?",
+      answer:
+        "Third-party ownership (TPO): $0 down, no large loan, and a written explanation of who owns the system. You can also request a standard purchase quote.",
+    },
+  ];
+}
+
 export function hubFaqs(city: City): Faq[] {
   const nearby = getNearbyCities(city);
   const nearbyNames = nearby.map((item) => item.name);
