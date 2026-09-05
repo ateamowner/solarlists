@@ -87,7 +87,7 @@ export function ConsultForm({ compact }: { compact?: boolean }) {
   const steps = [
     Boolean(draft.name.trim()),
     Boolean(draft.contact.trim()),
-    Boolean(draft.zip.trim() && draft.state),
+    Boolean(draft.zip.trim()),
     Boolean(draft.timing),
   ];
 
@@ -235,24 +235,6 @@ export function ConsultForm({ compact }: { compact?: boolean }) {
             }
           />
         </Field>
-        <Field label="State" htmlFor="state">
-          <select
-            id="state"
-            name="state"
-            required
-            className={fieldClassName}
-            value={draft.state}
-            onChange={(event) => update("state", event.target.value)}
-          >
-            <option value="">Select state</option>
-            {consultMarkets.map((market) => (
-              <option key={market.abbr} value={market.abbr}>
-                {market.name}
-              </option>
-            ))}
-            <option value={OTHER_MARKET}>Another state</option>
-          </select>
-        </Field>
         <Field
           label="Timing"
           htmlFor="timing"
@@ -291,6 +273,23 @@ export function ConsultForm({ compact }: { compact?: boolean }) {
       <details className="mt-4 rounded-lg border border-border bg-muted/40 px-3 py-2">
         <summary className="type-label cursor-pointer">More details</summary>
         <div className={`mt-3 grid gap-3 ${compact ? "" : "md:grid-cols-2"}`}>
+          <Field label="State (optional)" htmlFor="state">
+            <select
+              id="state"
+              name="state"
+              className={fieldClassName}
+              value={draft.state}
+              onChange={(event) => update("state", event.target.value)}
+            >
+              <option value="">Not sure / skip</option>
+              {consultMarkets.map((market) => (
+                <option key={market.abbr} value={market.abbr}>
+                  {market.name}
+                </option>
+              ))}
+              <option value={OTHER_MARKET}>Another state</option>
+            </select>
+          </Field>
           <Field label="Do you own the home? (optional)" htmlFor="own_home">
             <select
               id="own_home"

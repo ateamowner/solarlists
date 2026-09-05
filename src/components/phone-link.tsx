@@ -64,6 +64,12 @@ export function StickyMobileCallBar() {
       >
         Book a consult
       </Link>
+      <a
+        href={`tel:${site.phoneTel}`}
+        className="mt-1 block text-center text-[13px] leading-5 text-muted-foreground underline underline-offset-2"
+      >
+        Call or text {site.phone}
+      </a>
     </div>
   );
 }

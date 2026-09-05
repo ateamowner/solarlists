@@ -34,8 +34,8 @@ export const site = {
   hasForPros: false,
   hasFeatured: false,
   trustStrip: [
-    "No credit card",
     "Education first",
+    "No credit card",
     "No pressure quotes",
   ] as const,
   theme: {

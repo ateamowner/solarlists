@@ -60,7 +60,7 @@ export default function RootLayout({
       lang="en"
       className={`${sans.variable} ${serif.variable} h-full scroll-smooth antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-background pb-20 text-foreground md:pb-0">
+      <body className="flex min-h-full flex-col bg-background pb-28 text-foreground md:pb-0">
         <div
           hidden
           aria-hidden="true"
