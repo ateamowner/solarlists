@@ -106,7 +106,7 @@ A floating **Ask about solar** launcher sits on the global layout (Home, About, 
 
 - Problem-finding questions first. Soft-close to `/consult/` after two understanding turns. Eligibility stays on the consult form.
 - Unknown or number-seeking questions point at `/sources/` instead of inventing savings, city prices, warranties, or timelines.
-- Optional `NEXT_PUBLIC_SOLAR_CHAT_ENDPOINT` is a stub for a future server *you* control. If unset, only the scripted path runs. Never put vendor keys in `NEXT_PUBLIC_*`.
+- `NEXT_PUBLIC_SOLAR_CHAT_ENDPOINT` is a commented, disabled stub for a future server *you* control. Wave 1 does not call an LLM. Never put vendor keys in `NEXT_PUBLIC_*`.
 
 ## Numbers
 

@@ -27,39 +27,37 @@ type ChatMessage = {
 };
 
 /**
- * TODO: Future LLM path.
+ * TODO: Future LLM path — disabled for Wave 1.
  *
- * If `NEXT_PUBLIC_SOLAR_CHAT_ENDPOINT` is set at build time, POST the
- * thread to that public URL. The endpoint must be a server *you* control
- * that holds vendor keys. This static GitHub Pages export cannot keep
- * secrets, and `NEXT_PUBLIC_*` values ship in the browser bundle.
+ * Hosting lock: GitHub Pages static export only. No Next.js API routes,
+ * no vendor keys in the client, no Vercel runtime for solarlists.com.
+ *
+ * Optional env (commented in `.env.example`):
+ *   NEXT_PUBLIC_SOLAR_CHAT_ENDPOINT
+ * If you later stand up a server *you* control, uncomment the fetch
+ * below. That server holds the keys. Never put API keys in NEXT_PUBLIC_*.
  *
  * Expected request: `{ messages: { role: "user" | "assistant"; content: string }[] }`
  * Expected response JSON: `{ text: string }` or `{ reply: string }`
  *
- * If the env var is unset, only the scripted NEPQ path runs.
- * Do not put API keys in this file or in any NEXT_PUBLIC_* variable.
+ * Wave 1 ships the scripted NEPQ path only.
  */
-const EXTERNAL_CHAT_ENDPOINT =
-  process.env.NEXT_PUBLIC_SOLAR_CHAT_ENDPOINT?.trim() ?? "";
-
 async function tryExternalChatEndpoint(
-  thread: { role: "user" | "assistant"; content: string }[]
+  _thread: { role: "user" | "assistant"; content: string }[]
 ): Promise<string | null> {
-  if (!EXTERNAL_CHAT_ENDPOINT) return null;
-  try {
-    const response = await fetch(EXTERNAL_CHAT_ENDPOINT, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ messages: thread }),
-    });
-    if (!response.ok) return null;
-    const data = (await response.json()) as { text?: string; reply?: string };
-    const text = data.text ?? data.reply;
-    return text?.trim() ? text.trim() : null;
-  } catch {
-    return null;
-  }
+  // Disabled. Scripted replies only.
+  // const endpoint = process.env.NEXT_PUBLIC_SOLAR_CHAT_ENDPOINT?.trim();
+  // if (!endpoint) return null;
+  // const response = await fetch(endpoint, {
+  //   method: "POST",
+  //   headers: { "Content-Type": "application/json" },
+  //   body: JSON.stringify({ messages: _thread }),
+  // });
+  // if (!response.ok) return null;
+  // const data = (await response.json()) as { text?: string; reply?: string };
+  // const text = data.text ?? data.reply;
+  // return text?.trim() ? text.trim() : null;
+  return null;
 }
 
 function firstMessage(): ChatMessage {
