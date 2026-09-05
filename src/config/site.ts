@@ -39,7 +39,7 @@ export const site = {
     "No pressure quotes",
   ] as const,
   theme: {
-    background: "#F7F3EA",
+    background: "#f6f1e6",
     foreground: "#1A1D18",
     card: "#FFFDF8",
     primary: "#8A4B12",
