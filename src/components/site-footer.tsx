@@ -1,12 +1,5 @@
 import Link from "next/link";
-import {
-  citiesInRegion,
-  cityRegionHeadings,
-  cityRegionOrder,
-  servicePath,
-  site,
-} from "@/config/site";
-import { Disclosure } from "@/components/disclosure";
+import { primaryNav, site } from "@/config/site";
 
 export function SiteFooter() {
   return (
@@ -15,55 +8,42 @@ export function SiteFooter() {
         <div>
           <p className="font-heading text-lg font-semibold">{site.name}</p>
           <p className="mt-2 max-w-sm text-sm text-muted-foreground">
-            {site.tagline} Operated by {site.operator}.
+            {site.tagline}
           </p>
-          <Disclosure className="mt-3" />
+          <p className="mt-3 text-sm leading-6 text-muted-foreground">
+            Written by {site.author} in {site.authorLocation}.
+          </p>
         </div>
         <div>
-          <p className="text-sm font-semibold">Cities</p>
-          {cityRegionOrder.map((region) => (
-            <div key={region} className="mt-3">
-              <p className="text-xs font-medium text-muted-foreground">
-                {cityRegionHeadings[region].heading}
-              </p>
-              <ul className="mt-1 columns-2 gap-x-4 space-y-1 text-sm">
-                {citiesInRegion(region).map((city) => (
-                  <li key={city.slug} className="break-inside-avoid">
-                    <Link
-                      href={servicePath(city, "solar-installation")}
-                      className="underline-offset-2 hover:underline"
-                    >
-                      {city.name}, {city.stateAbbr} solar
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-        <div>
-          <p className="text-sm font-semibold">Site</p>
+          <p className="text-sm font-semibold">On this site</p>
           <ul className="mt-2 space-y-1 text-sm">
-            <li>
-              <Link href="/dayton-oh/tpo-solar/" className="hover:underline">
-                TPO / $0-down solar
-              </Link>
-            </li>
+            {primaryNav.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} className="hover:underline">
+                  {item.label}
+                </Link>
+              </li>
+            ))}
             <li>
               <Link href="/privacy/" className="hover:underline">
                 Privacy
               </Link>
             </li>
-            <li>
-              <a href={`mailto:${site.email}`} className="hover:underline">
-                {site.email}
-              </a>
-            </li>
           </ul>
         </div>
+        <div>
+          <p className="text-sm font-semibold">Consult</p>
+          <p className="mt-2 text-sm leading-6 text-muted-foreground">
+            Destination is not live. Placeholders:{" "}
+            <span className="font-mono">{site.email}</span>
+            {" / "}
+            <span className="font-mono">{site.phone}</span>
+            .
+          </p>
+        </div>
       </div>
-      <div className="border-t border-border px-4 py-4 text-center text-xs text-muted-foreground">
-        © {site.year} {site.legalName}. {site.disclosure}
+      <div className="border-t border-border px-4 py-4 text-center text-xs leading-5 text-muted-foreground">
+        © {site.year} {site.name}. {site.disclosure}
       </div>
     </footer>
   );

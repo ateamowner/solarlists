@@ -7,30 +7,37 @@
 
 export const site = {
   name: "SolarLists",
-  legalName: "A Team Contracting",
-  operator: "A Team Contracting",
+  legalName: "SolarLists",
+  author: "Anthony Leonard",
+  authorLocation: "Tipp City, Ohio",
+  operator: "Anthony Leonard",
   domain: "solarlists.com",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://solarlists.com",
-  email: "owner@ateamcontractings.com",
-  leadsEmail: "owner@ateamcontractings.com",
-  phone: "(937) 777-9093",
-  phoneTel: "+19377779093",
-  /** Native HTML POST to Formsubmit. No fetch/XHR, no API key. */
-  formAction: "https://formsubmit.co/owner@ateamcontractings.com",
+  /** Consult routing is not live. Do not invent a phone or inbox. */
+  email: "TBD_EMAIL",
+  leadsEmail: "TBD_EMAIL",
+  phone: "TBD_PHONE",
+  phoneTel: "",
+  contactReady: false,
+  /** Empty until a real consult destination exists. Form submit stays disabled. */
+  formAction: "",
   formRedirect: "https://solarlists.com/request-sent/",
-  tagline: "Residential solar in Dayton, Columbus, and Cincinnati. TPO or purchase.",
+  tagline: "Clear solar education for homeowners who want to think first.",
   year: 2026,
+  lastReviewed: "2026-09-05",
+  lastReviewedLabel: "September 5, 2026",
   description:
-    "Solar quote requests for Dayton, Columbus, Cincinnati & nearby Ohio. TPO and purchase quotes for A Team Contracting. Not a utility.",
+    "SolarLists is a national education site for homeowners researching solar. Start with better questions — then, if useful, request a consult. Not a quote marketplace.",
+  /** Quiet IC line for About + footer only. Never use this as an H1. */
   disclosure:
-    "This site collects solar quote requests for A Team Contracting. We are not a utility or a national marketplace.",
+    "Anthony Leonard is a SunPower independent contractor. SolarLists is an education site, not SunPower.com and not A Team Contracting.",
   /** Shared conversion shell switches. SolarLists has no For Pros page and no Featured buy path. */
   hasForPros: false,
   hasFeatured: false,
   trustStrip: [
-    "No credit card",
-    "Local city pages",
-    "Directory not a solar company",
+    "Cite or omit",
+    "No invented prices",
+    "Consult is optional",
   ] as const,
   theme: {
     background: "#f6f1e6",
@@ -44,6 +51,25 @@ export const site = {
     accentForeground: "#3d2e0a",
     border: "#cfc3aa",
     ring: "#8a4b12",
+  },
+} as const;
+
+export const primaryNav = [
+  { href: "/", label: "Home" },
+  { href: "/about/", label: "About" },
+  { href: "/sources/", label: "Sources" },
+  { href: "/consult/", label: "Consult" },
+] as const;
+
+/** Wave 1: leftover city × service URLs stay live, but must not be indexed. */
+export const doorwayRobots = {
+  index: false,
+  follow: false,
+  nocache: true,
+  googleBot: {
+    index: false,
+    follow: false,
+    noimageindex: true,
   },
 } as const;
 
@@ -110,10 +136,10 @@ export const formBillRanges = [
 
 export const formTimings = [
   { value: "", label: "Select timing" },
-  { value: "this_month", label: "This month" },
-  { value: "this_quarter", label: "This quarter" },
-  { value: "this_year", label: "This year" },
   { value: "researching", label: "Just researching" },
+  { value: "this_year", label: "Sometime this year" },
+  { value: "this_quarter", label: "In the next few months" },
+  { value: "this_month", label: "Sooner than that" },
 ] as const;
 
 export const formInterest = [
@@ -1412,7 +1438,7 @@ export const cityRegionHeadings: Record<
   dayton: {
     heading: "Dayton-area cities",
     intro:
-      "Each city hub links solar installation, TPO solar, and solar panels. Internal links are real pages so nothing 404s.",
+      "Legacy local URLs from an earlier site version. They stay published so old links do not 404, and they are noindexed.",
   },
   columbus: {
     heading: "Columbus-area cities",

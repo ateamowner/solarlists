@@ -1,47 +1,18 @@
-import {
-  canonicalUrl,
-  cityPath,
-  lockedH1,
-  servicePath,
-  site,
-  type City,
-  type Service,
-} from "@/config/site";
-import type { Faq } from "@/lib/content";
+import { canonicalUrl, site } from "@/config/site";
+import type { Faq } from "@/lib/editorial";
 
-export function publisherLocalBusiness(city: City) {
+export function personSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    name: site.legalName,
-    alternateName: site.name,
-    description: `${site.name} collects residential solar quote requests for ${site.operator}. ${site.disclosure}`,
-    url: site.url,
-    email: site.email,
-    areaServed: {
-      "@type": "City",
-      name: city.name,
-      containedInPlace: {
-        "@type": "State",
-        name: city.state,
-      },
+    "@type": "Person",
+    "@id": "https://solarlists.com/#author",
+    name: site.author,
+    jobTitle: "Writer",
+    homeLocation: {
+      "@type": "Place",
+      name: site.authorLocation,
     },
-    knowsAbout: ["Residential solar", "TPO solar", "Solar installation"],
-  };
-}
-
-/** Homepage only. Locked SHIP #2 LocalBusiness — not a marketplace Organization. */
-export function homepageLocalBusiness() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": "https://solarlists.com/#organization",
-    name: "A Team Contracting",
-    url: "https://solarlists.com/",
-    email: "owner@ateamcontractings.com",
-    areaServed: ["Dayton OH", "Columbus OH", "Cincinnati OH"],
-    description:
-      "Residential solar quote site for A Team Contracting. TPO / $0-down and purchase quotes. Not a contractor marketplace and not a list of other solar companies.",
+    url: canonicalUrl("/about/"),
   };
 }
 
@@ -49,10 +20,12 @@ export function webSiteSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": "https://solarlists.com/#website",
     name: site.name,
     url: canonicalUrl("/"),
-    publisher: {
-      "@id": "https://solarlists.com/#organization",
+    description: site.description,
+    author: {
+      "@id": "https://solarlists.com/#author",
     },
   };
 }
@@ -83,23 +56,4 @@ export function breadcrumbSchema(items: { name: string; path: string }[]) {
       item: canonicalUrl(item.path),
     })),
   };
-}
-
-export function servicePageBreadcrumbs(city: City, service: Service) {
-  return breadcrumbSchema([
-    { name: "Home", path: "/" },
-    { name: `${city.name}, ${city.stateAbbr}`, path: cityPath(city) },
-    { name: service.name, path: servicePath(city, service) },
-  ]);
-}
-
-export function hubBreadcrumbs(city: City) {
-  return breadcrumbSchema([
-    { name: "Home", path: "/" },
-    { name: `${city.name}, ${city.stateAbbr}`, path: cityPath(city) },
-  ]);
-}
-
-export function servicePageHeadline(city: City, service: Service) {
-  return lockedH1(service, city);
 }

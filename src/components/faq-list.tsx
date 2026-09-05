@@ -1,4 +1,4 @@
-import type { Faq } from "@/lib/content";
+import type { Faq } from "@/lib/editorial";
 
 export function FaqList({ faqs }: { faqs: Faq[] }) {
   return (
