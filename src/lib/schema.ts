@@ -6,7 +6,7 @@ export function personSchema() {
     "@context": "https://schema.org",
     "@type": "Person",
     "@id": "https://solarlists.com/#author",
-    name: site.author,
+    name: site.authorFormal,
     jobTitle: "Writer",
     homeLocation: {
       "@type": "Place",

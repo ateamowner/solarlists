@@ -193,7 +193,7 @@ export function hubFaqs(city: City): Faq[] {
     },
     {
       question: `Who receives a ${city.name} quote request?`,
-      answer: `${site.operator}. Leads go to ${site.leadsEmail}. ${site.disclosure}`,
+      answer: `${site.authorFormal}. Leads go to ${site.leadsEmail}. ${site.disclosure}`,
     },
     {
       question: `Can ${city.name} homeowners go solar without a large loan?`,

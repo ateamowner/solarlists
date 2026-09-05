@@ -22,14 +22,14 @@ export default function AboutPage() {
       </p>
       <p className="type-prose mt-6">
         {site.name} is a national education site for homeowners researching
-        solar. {site.author} writes it from {site.authorLocation}. The aim is
+        solar. {site.authorFormal} writes it from {site.authorLocation}. The aim is
         calmer questions and cited facts — not a quote marketplace and not a
         product pitch in the headline.
       </p>
 
       <h2 className="type-h2 mt-10">Who writes this</h2>
       <p className="type-prose mt-3">
-        {site.author} lives in {site.authorLocation}. He writes SolarLists as
+        {site.authorFormal} writes SolarLists from {site.authorLocation} as
         an educator first: what to ask about the bill, the roof, and the
         contract before anyone signs.
       </p>
@@ -37,7 +37,7 @@ export default function AboutPage() {
       <h2 className="type-h2 mt-10">Disclosure</h2>
       <Disclosure className="mt-3" />
       <p className="type-prose mt-3">
-        When a consult happens, it is with {site.author} in that independent
+        When a consult happens, it is with {site.author} in an independent
         contractor capacity — a conversation about your situation, not a
         SunPower.com storefront and not a claim that this site is the
         manufacturer.

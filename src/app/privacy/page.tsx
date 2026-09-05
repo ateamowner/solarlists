@@ -35,7 +35,7 @@ export default function PrivacyPage() {
 
       <h2 className="type-h2 mt-8">How we use it</h2>
       <p className="type-prose mt-3">
-        {site.author} uses the request to talk through your situation. That is
+        {site.authorFormal} uses the request to talk through your situation. That is
         not a marketplace handoff and not a lead sale to a list of other solar
         companies from this site.
       </p>

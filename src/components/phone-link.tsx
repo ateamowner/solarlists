@@ -50,7 +50,10 @@ export function StickyMobileCallBar() {
   }
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-card/95 p-2 md:hidden">
+    <div
+      id="sticky-consult-bar"
+      className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-card/95 p-2 md:hidden"
+    >
       <Link
         href={onConsult ? "#consult" : "/consult/"}
         className="type-button flex h-11 items-center justify-center rounded-lg bg-primary text-primary-foreground"
