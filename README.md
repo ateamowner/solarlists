@@ -83,7 +83,7 @@ Copy `.env.example`:
 
 The quote form is a **native HTML POST** (no `fetch` / XHR). Action: `https://formsubmit.co/owner@ateamcontractings.com`. Hidden `_next` redirects to `https://solarlists.com/request-sent/`. If Formsubmit cannot be used, the form includes a mailto fallback to the same address.
 
-Form v2 (conversion shell): required first — phone, email, ZIP, service (`interested_in`), timing, and privacy consent. Optionals sit behind **More details**. No new form key. No Featured / Stripe buy path (this host has neither).
+Form v2 (conversion shell): required first — phone, email, ZIP, service (`interested_in`), timing, SMS consent, and privacy consent. Optionals sit behind **More details**. No new form key. No Featured / Stripe buy path (this host has neither).
 
 Never use `treelist@agentmail.to`. Never invent a Web3Forms, Formspree, or other backend key.
 

@@ -10,7 +10,7 @@ export function HeaderQuoteCta() {
   return (
     <a
       href={onPageWithForm ? "#quote" : "/#quote"}
-      className="inline-flex h-10 items-center rounded-md bg-primary px-3 text-primary-foreground hover:bg-primary/90"
+      className="type-button inline-flex h-10 items-center rounded-md bg-primary px-3 text-primary-foreground hover:bg-primary/90"
     >
       Get a quote
     </a>

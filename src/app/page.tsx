@@ -24,13 +24,13 @@ export default function HomePage() {
 
   return (
     <div className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6">
-      <section className="grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_22rem]">
+      <section className="grid items-start gap-8 md:grid-cols-[minmax(0,1fr)_22rem]">
         <div>
           <p className="text-sm font-medium text-primary">{site.tagline}</p>
-          <h1 className="mt-2 font-heading text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
+          <h1 className="type-h1 mt-2 text-balance">
             Go solar in Dayton, Columbus, and Cincinnati without a huge loan.
           </h1>
-          <p className="mt-4 max-w-2xl text-lg leading-8">
+          <p className="mt-4 max-w-2xl">
             {site.name} is {site.operator}&apos;s residential solar quote site
             for Dayton, Columbus, Cincinnati, and nearby Ohio cities. We now
             sell third-party ownership (TPO): $0 down, no large loan, and a
@@ -66,7 +66,7 @@ export default function HomePage() {
             </p>
           ) : null}
         </div>
-        <QuoteFormLoader />
+        <QuoteFormLoader compact />
       </section>
 
       <TrustStrip className="mt-10" />

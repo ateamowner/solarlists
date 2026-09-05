@@ -27,7 +27,7 @@ export const site = {
   hasFeatured: false,
   trustStrip: [
     "No credit card",
-    "Local pages",
+    "Local city pages",
     "Directory not a solar company",
   ] as const,
   theme: {

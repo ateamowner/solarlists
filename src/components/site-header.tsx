@@ -19,7 +19,7 @@ export function SiteHeader() {
           aria-label="Primary"
           className="flex shrink-0 items-center gap-3 text-sm font-medium sm:gap-5"
         >
-          <PhoneLink className="hidden hover:underline sm:inline" />
+          <PhoneLink className="hidden hover:underline min-[400px]:inline" />
           <Link href="/#cities" className="hover:underline">
             Cities
           </Link>

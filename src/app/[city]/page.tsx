@@ -78,10 +78,10 @@ export default async function CityHubPage({
         ]}
       />
 
-      <div className="mt-4 grid gap-8 lg:grid-cols-[minmax(0,1fr)_22rem] lg:grid-rows-[auto_1fr]">
-        <header className="lg:col-start-1">
+      <div className="mt-4 grid gap-8 md:grid-cols-[minmax(0,1fr)_22rem] md:grid-rows-[auto_1fr]">
+        <header className="md:col-start-1">
           <p className="text-sm font-medium text-primary">{city.state}</p>
-          <h1 className="mt-2 font-heading text-3xl font-semibold tracking-tight sm:text-4xl">
+          <h1 className="type-h1 mt-2">
             Solar in {city.name}, {city.stateAbbr}
           </h1>
           <p className="mt-4 rounded-md border border-accent bg-accent/40 px-3 py-2 text-sm leading-6">
@@ -92,10 +92,10 @@ export default async function CityHubPage({
           <Disclosure className="mt-4" />
           <EmptyListingsNote className="mt-4" city={city} />
         </header>
-        <aside className="lg:col-start-2 lg:row-span-2 lg:sticky lg:top-24 lg:self-start">
-          <QuoteFormLoader city={city} service={tpo} />
+        <aside className="md:col-start-2 md:row-span-2 md:sticky md:top-24 md:self-start">
+          <QuoteFormLoader city={city} service={tpo} compact />
         </aside>
-        <div className="lg:col-start-1">
+        <div className="md:col-start-1">
           {intro.map((paragraph) => (
             <p key={paragraph} className="mt-4 text-base leading-7 first:mt-0">
               {paragraph}

@@ -108,12 +108,12 @@ export default async function ServicePage({
         ]}
       />
 
-      <div className="mt-4 grid gap-8 lg:grid-cols-[minmax(0,1fr)_22rem] lg:grid-rows-[auto_1fr]">
-        <header className="lg:col-start-1">
+      <div className="mt-4 grid gap-8 md:grid-cols-[minmax(0,1fr)_22rem] md:grid-rows-[auto_1fr]">
+        <header className="md:col-start-1">
           <p className="text-sm font-medium text-primary">
             {city.name}, {city.stateAbbr}
           </p>
-          <h1 className="mt-2 font-heading text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
+          <h1 className="type-h1 mt-2 text-balance">
             {heading}
           </h1>
           <p className="mt-3 rounded-md border border-accent bg-accent/40 px-3 py-2 text-sm">
@@ -125,11 +125,11 @@ export default async function ServicePage({
           <EmptyListingsNote className="mt-4" city={city} service={service} />
         </header>
 
-        <aside className="lg:col-start-2 lg:row-span-2 lg:self-start lg:sticky lg:top-24">
-          <QuoteFormLoader city={city} service={service} />
+        <aside className="md:col-start-2 md:row-span-2 md:self-start md:sticky md:top-24">
+          <QuoteFormLoader city={city} service={service} compact />
         </aside>
 
-        <div className="lg:col-start-1">
+        <div className="md:col-start-1">
           {intro.map((paragraph) => (
             <p key={paragraph} className="mt-4 text-base leading-7 first:mt-0">
               {paragraph}
