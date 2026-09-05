@@ -3,6 +3,7 @@
  * Theme tokens live here so a rebrand is one file.
  */
 // Live host is GitHub Pages only.
+// Vercel GitHub App uninstalled — no Vercel deploy status expected.
 
 export const site = {
   name: "SolarLists",
