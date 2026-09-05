@@ -181,32 +181,33 @@ export function faqs(city: City, service: Service): Faq[] {
   ];
 }
 
-/** Homepage FAQ — five locked SHIP #2 themes. Must match FAQPage JSON-LD. */
+/** Homepage FAQ — SHIP #2 verbatim copy. Must match FAQPage JSON-LD. */
 export function homeFaqs(): Faq[] {
   return [
     {
-      question: "What is the difference between TPO and a purchase quote?",
-      answer:
-        "TPO (third-party ownership) is $0 down with no large loan — a third party owns the system. A purchase quote is if you want to own the array. You can request either on the form.",
-    },
-    {
       question: "Is SolarLists a contractor marketplace?",
       answer:
-        "No. This is in-house lead gen for A Team Contracting — not a contractor marketplace and not a list of other solar companies. There is no Featured marketplace and no For Pros page.",
+        "No. SolarLists collects residential solar quote requests for A Team Contracting only. There is no For Pros page and no list of other solar companies.",
     },
     {
-      question: "Who owns the solar system?",
+      question: "What is TPO / $0-down solar?",
       answer:
-        "On TPO, a third party owns the array; you are not buying it. On a purchase, you own it after the job is complete and paid. We give a written explanation of who owns the system.",
+        "Third-party ownership. A provider owns the system so you can go solar without a huge loan. You can also request a standard purchase quote. Ask who owns the system and get it in writing.",
     },
     {
-      question: "What happens when I submit the quote form?",
-      answer: `The form emails ${site.leadsEmail}. A Team Contracting follows up in-house. We take the request and hold it. We do not invent companies or sell the lead to a marketplace of other contractors.`,
-    },
-    {
-      question: "Do you invent city prices or star ratings?",
+      question: "What happens after I submit the form?",
       answer:
-        "No. We do not invent city-specific prices, reviews, or star ratings. The only dollar range on this site is a cited national range, not a Dayton, Columbus, or Cincinnati survey.",
+        "The request goes to A Team Contracting (owner@ateamcontractings.com). No credit card is collected on this site.",
+    },
+    {
+      question: "Do you publish city-specific solar prices?",
+      answer:
+        "No. We only cite national published ranges (not a local survey). A written number from a walk of your roof is the only local price that matters.",
+    },
+    {
+      question: "Which cities do you cover?",
+      answer:
+        "Dayton, Columbus, and Cincinnati areas with individual city pages. Each city×service URL has its own form.",
     },
   ];
 }

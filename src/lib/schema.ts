@@ -41,7 +41,7 @@ export function homepageLocalBusiness() {
     email: "owner@ateamcontractings.com",
     areaServed: ["Dayton OH", "Columbus OH", "Cincinnati OH"],
     description:
-      "Residential solar quotes (TPO and purchase) for A Team Contracting. Not a contractor marketplace.",
+      "Residential solar quote site for A Team Contracting. TPO / $0-down and purchase quotes. Not a contractor marketplace and not a list of other solar companies.",
   };
 }
 
