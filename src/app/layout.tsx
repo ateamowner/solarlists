@@ -21,7 +21,7 @@ const serif = Source_Serif_4({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — Dayton, Columbus, and Cincinnati solar`,
+    default: `${site.name} — solar education for homeowners`,
     template: `%s`,
   },
   description: site.description,
@@ -44,7 +44,8 @@ const themeVars = Object.entries({
   "--border": site.theme.border,
   "--input": site.theme.border,
   "--ring": site.theme.ring,
-  "--destructive": "#8b1e1e",
+  "--footer-strip": site.theme.footerStrip,
+  "--destructive": "#8B1E1E",
 })
   .map(([key, value]) => `${key}: ${value}`)
   .join("; ");
@@ -59,7 +60,7 @@ export default function RootLayout({
       lang="en"
       className={`${sans.variable} ${serif.variable} h-full scroll-smooth antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-background pb-20 text-foreground md:pb-0">
+      <body className="flex min-h-full flex-col bg-background pb-28 text-foreground md:pb-0">
         <div
           hidden
           aria-hidden="true"

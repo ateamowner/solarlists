@@ -1,34 +1,26 @@
 import Link from "next/link";
-import { HeaderQuoteCta } from "@/components/header-quote-cta";
-import { PhoneLink } from "@/components/phone-link";
-import { site } from "@/config/site";
+import { HeaderConsultCta } from "@/components/header-consult-cta";
+import { primaryNav, site } from "@/config/site";
 
 export function SiteHeader() {
+  const links = primaryNav.filter((item) => item.href !== "/consult/");
+
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-card/95 backdrop-blur">
-      <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
-        <Link href="/" className="group min-w-0">
-          <p className="font-heading text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
-            {site.name}
-          </p>
-          <p className="text-xs text-muted-foreground sm:text-sm">
-            Dayton, Columbus, and Cincinnati solar
-          </p>
+      <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
+        <Link href="/" className="font-heading text-xl font-semibold tracking-tight sm:text-2xl">
+          {site.name}
         </Link>
         <nav
           aria-label="Primary"
           className="flex shrink-0 items-center gap-3 text-sm font-medium sm:gap-5"
         >
-          <PhoneLink className="hidden hover:underline min-[400px]:inline" />
-          <Link href="/#cities" className="hover:underline">
-            Cities
-          </Link>
-          {site.hasForPros ? (
-            <Link href="/for-pros/" className="hover:underline">
-              For Pros
+          {links.map((item) => (
+            <Link key={item.href} href={item.href} className="hover:underline">
+              {item.label}
             </Link>
-          ) : null}
-          <HeaderQuoteCta />
+          ))}
+          <HeaderConsultCta />
         </nav>
       </div>
     </header>

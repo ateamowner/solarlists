@@ -4,7 +4,7 @@ export function TrustStrip({ className = "" }: { className?: string }) {
   return (
     <ul
       className={`grid gap-3 sm:grid-cols-3 ${className}`}
-      aria-label="What this directory is"
+      aria-label="How this site writes"
     >
       {site.trustStrip.map((item) => (
         <li

@@ -7,43 +7,110 @@
 
 export const site = {
   name: "SolarLists",
-  legalName: "A Team Contracting",
-  operator: "A Team Contracting",
+  legalName: "SolarLists",
+  author: "Anthony Leonard",
+  authorLocation: "Tipp City, Ohio",
+  operator: "Anthony Leonard",
   domain: "solarlists.com",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://solarlists.com",
-  email: "owner@ateamcontractings.com",
-  leadsEmail: "owner@ateamcontractings.com",
+  email: "Anthony.Leonard.brs@sunpower.com",
+  leadsEmail: "Anthony.Leonard.brs@sunpower.com",
   phone: "(937) 777-9093",
   phoneTel: "+19377779093",
+  contactReady: true,
   /** Native HTML POST to Formsubmit. No fetch/XHR, no API key. */
-  formAction: "https://formsubmit.co/owner@ateamcontractings.com",
+  formAction: "https://formsubmit.co/Anthony.Leonard.brs@sunpower.com",
   formRedirect: "https://solarlists.com/request-sent/",
-  tagline: "Residential solar in Dayton, Columbus, and Cincinnati. TPO or purchase.",
+  tagline: "Clear solar education for homeowners who want to think first.",
   year: 2026,
+  lastReviewed: "2026-09-05",
+  lastReviewedLabel: "September 5, 2026",
   description:
-    "Solar quote requests for Dayton, Columbus, Cincinnati & nearby Ohio. TPO and purchase quotes for A Team Contracting. Not a utility.",
+    "SolarLists is a national education site for homeowners researching solar. Start with better questions — then, if you live in a served market, request a consult.",
+  /** Quiet IC line for About + footer only. Never use this as an H1. */
   disclosure:
-    "This site collects solar quote requests for A Team Contracting. We are not a utility or a national marketplace.",
+    "Anthony Leonard is a SunPower independent contractor. SolarLists is an education site, not SunPower.com and not A Team Contracting.",
   /** Shared conversion shell switches. SolarLists has no For Pros page and no Featured buy path. */
   hasForPros: false,
   hasFeatured: false,
   trustStrip: [
+    "Education first",
     "No credit card",
-    "Local city pages",
-    "Directory not a solar company",
+    "No pressure quotes",
   ] as const,
   theme: {
-    background: "#f6f1e6",
-    foreground: "#1a1d18",
-    card: "#fffdf8",
-    primary: "#8a4b12",
-    primaryForeground: "#fff8ec",
-    muted: "#ebe3d2",
-    mutedForeground: "#4a463c",
-    accent: "#f3d27a",
-    accentForeground: "#3d2e0a",
-    border: "#cfc3aa",
-    ring: "#8a4b12",
+    background: "#F7F3EA",
+    foreground: "#1A1D18",
+    card: "#FFFDF8",
+    primary: "#8A4B12",
+    primaryForeground: "#FFF8EC",
+    muted: "#EFE8DA",
+    mutedForeground: "#5C574C",
+    accent: "#F3D27A",
+    accentForeground: "#3D2E0A",
+    border: "#D9CFB8",
+    ring: "#8A4B12",
+    footerStrip: "#EFE8DA",
+  },
+} as const;
+
+export const primaryNav = [
+  { href: "/#questions", label: "Learn" },
+  { href: "/about/", label: "About" },
+  { href: "/consult/", label: "Consult" },
+] as const;
+
+export const footerNav = [
+  { href: "/about/", label: "About" },
+  { href: "/sources/", label: "Sources" },
+  { href: "/consult/", label: "Consult" },
+  { href: "/privacy/", label: "Privacy" },
+] as const;
+
+/** Anthony’s IC markets only. Do not invent a map or ZIP list beyond this. */
+export const consultMarkets = [
+  { abbr: "CA", name: "California" },
+  { abbr: "CO", name: "Colorado" },
+  { abbr: "FL", name: "Florida" },
+  { abbr: "IL", name: "Illinois" },
+  { abbr: "IN", name: "Indiana" },
+  { abbr: "MA", name: "Massachusetts" },
+  { abbr: "MD", name: "Maryland" },
+  { abbr: "MI", name: "Michigan" },
+  { abbr: "MN", name: "Minnesota" },
+  { abbr: "NC", name: "North Carolina" },
+  { abbr: "NV", name: "Nevada" },
+  { abbr: "OH", name: "Ohio" },
+  { abbr: "OR", name: "Oregon" },
+  { abbr: "PA", name: "Pennsylvania" },
+  { abbr: "SC", name: "South Carolina" },
+  { abbr: "TX", name: "Texas" },
+  { abbr: "UT", name: "Utah" },
+  { abbr: "VA", name: "Virginia" },
+  { abbr: "WA", name: "Washington" },
+  { abbr: "WI", name: "Wisconsin" },
+] as const;
+
+export const OTHER_MARKET = "other";
+
+export function isConsultMarket(value: string): boolean {
+  return consultMarkets.some((market) => market.abbr === value);
+}
+
+export function consultMarketSentence(): string {
+  const names = consultMarkets.map((market) => market.name);
+  return `${names.slice(0, -1).join(", ")}, and ${names[names.length - 1]}`;
+}
+
+/** Wave 1: leftover city × service URLs stay live, but must not be indexed. */
+export const doorwayRobots = {
+  index: false,
+  follow: false,
+  nocache: true,
+  googleBot: {
+    index: false,
+    follow: false,
+    noimageindex: true,
   },
 } as const;
 
@@ -113,7 +180,7 @@ export const formTimings = [
   { value: "this_month", label: "This month" },
   { value: "this_quarter", label: "This quarter" },
   { value: "this_year", label: "This year" },
-  { value: "researching", label: "Just researching" },
+  { value: "researching", label: "Just learning" },
 ] as const;
 
 export const formInterest = [
@@ -1412,7 +1479,7 @@ export const cityRegionHeadings: Record<
   dayton: {
     heading: "Dayton-area cities",
     intro:
-      "Each city hub links solar installation, TPO solar, and solar panels. Internal links are real pages so nothing 404s.",
+      "Legacy local URLs from an earlier site version. They stay published so old links do not 404, and they are noindexed.",
   },
   columbus: {
     heading: "Columbus-area cities",

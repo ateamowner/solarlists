@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { cities, liveCitySlugs, servicePath, site } from "@/config/site";
+import { primaryNav, site } from "@/config/site";
 
 export const metadata: Metadata = {
   title: `Page not found | ${site.name}`,
 };
 
 export default function NotFound() {
-  const live = cities.filter((city) => liveCitySlugs.includes(city.slug));
-
   return (
     <article className="mx-auto w-full max-w-xl px-4 py-16 sm:px-6">
       <title>{`Page not found | ${site.name}`}</title>
@@ -17,26 +15,18 @@ export default function NotFound() {
         That URL is not on SolarLists
       </h1>
       <p className="mt-4 leading-7 text-muted-foreground">
-        {site.name} publishes one page per Dayton-area city and service. If you
-        followed an old link, use a live city below or go home.
+        {site.name} is a national education site. If you followed an old local
+        link and it is gone, start from home.
       </p>
       <ul className="mt-6 space-y-2">
-        {live.map((city) => (
-          <li key={city.slug}>
-            <Link
-              href={servicePath(city, "solar-installation")}
-              className="underline underline-offset-2"
-            >
-              Best Solar Installation in {city.name} — {site.year}
+        {primaryNav.map((item) => (
+          <li key={item.href}>
+            <Link href={item.href} className="underline underline-offset-2">
+              {item.label}
             </Link>
           </li>
         ))}
       </ul>
-      <p className="mt-6">
-        <Link href="/" className="font-medium underline underline-offset-2">
-          Home
-        </Link>
-      </p>
     </article>
   );
 }
