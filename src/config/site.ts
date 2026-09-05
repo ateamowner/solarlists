@@ -22,6 +22,14 @@ export const site = {
     "SolarLists collects residential solar quote requests for A Team Contracting in Dayton, Columbus, Cincinnati, and nearby Ohio cities. Third-party ownership (TPO) and purchase quotes. We are not a utility or a national marketplace.",
   disclosure:
     "This site collects solar quote requests for A Team Contracting. We are not a utility or a national marketplace.",
+  /** Shared conversion shell switches. SolarLists has no For Pros page and no Featured buy path. */
+  hasForPros: false,
+  hasFeatured: false,
+  trustStrip: [
+    "No credit card",
+    "Local city pages",
+    "Directory not a solar company",
+  ] as const,
   theme: {
     background: "#f6f1e6",
     foreground: "#1a1d18",
@@ -99,7 +107,7 @@ export const formBillRanges = [
 ] as const;
 
 export const formTimings = [
-  { value: "", label: "Not sure / skip" },
+  { value: "", label: "Select timing" },
   { value: "this_month", label: "This month" },
   { value: "this_quarter", label: "This quarter" },
   { value: "this_year", label: "This year" },
