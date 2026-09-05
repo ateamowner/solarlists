@@ -25,6 +25,12 @@ export const metadata: Metadata = {
   title: `${site.name} — Dayton, Columbus, and Cincinnati solar`,
   description: site.description,
   alternates: { canonical: "https://solarlists.com/" },
+  openGraph: {
+    description: site.description,
+  },
+  twitter: {
+    description: site.description,
+  },
 };
 
 export default function HomePage() {

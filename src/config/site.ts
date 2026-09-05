@@ -19,7 +19,7 @@ export const site = {
   tagline: "Residential solar in Dayton, Columbus, and Cincinnati. TPO or purchase.",
   year: 2026,
   description:
-    "SolarLists collects residential solar quote requests for A Team Contracting in Dayton, Columbus, Cincinnati, and nearby Ohio cities. Third-party ownership (TPO) and purchase quotes. We are not a utility or a national marketplace.",
+    "Solar quote requests for Dayton, Columbus, Cincinnati & nearby Ohio. TPO and purchase quotes for A Team Contracting. Not a utility.",
   disclosure:
     "This site collects solar quote requests for A Team Contracting. We are not a utility or a national marketplace.",
   /** Shared conversion shell switches. SolarLists has no For Pros page and no Featured buy path. */
