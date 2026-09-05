@@ -3,6 +3,7 @@ import { Inter, Source_Serif_4 } from "next/font/google";
 import { StickyMobileCallBar } from "@/components/phone-link";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { SolarChat } from "@/components/solar-chat";
 import { site } from "@/config/site";
 import "./globals.css";
 
@@ -74,6 +75,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <SiteFooter />
         <StickyMobileCallBar />
+        <SolarChat />
       </body>
     </html>
   );

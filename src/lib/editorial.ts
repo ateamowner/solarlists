@@ -82,6 +82,12 @@ export const editorialSources: EditorialSource[] = [
     usedFor:
       "A published market-report bookmark for later education articles. Wave 1 does not repeat a dollar-per-watt figure, splits, or commissions on any page.",
   },
+  {
+    name: "IRS, Residential Clean Energy Credit",
+    href: "https://www.irs.gov/credits-deductions/residential-clean-energy-credit",
+    usedFor:
+      "The federal credit the education chat may point to. Wave 1 cites the IRS page without quoting a percentage, a dollar amount, or whether a household qualifies.",
+  },
 ];
 
 export const editorialRules = [

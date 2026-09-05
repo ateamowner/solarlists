@@ -100,6 +100,14 @@ Consults are for homeowners in CA, CO, FL, IL, IN, MA, MD, MI, MN, NC, NV, OH, O
 
 Brand copy, theme, and consult destinations live in `src/config/site.ts`.
 
+## Education chat (Wave 1)
+
+A floating **Ask about solar** launcher sits on the global layout (Home, About, Sources, Consult). It is a client component: scripted NEPQ chips and curated replies in `src/lib/nepq-replies.ts`, UI in `src/components/solar-chat.tsx`. No Next.js API route and no API key in the client.
+
+- Problem-finding questions first. Soft-close to `/consult/` after two understanding turns. Eligibility stays on the consult form.
+- Unknown or number-seeking questions point at `/sources/` instead of inventing savings, city prices, warranties, or timelines.
+- Optional `NEXT_PUBLIC_SOLAR_CHAT_ENDPOINT` is a stub for a future server *you* control. If unset, only the scripted path runs. Never put vendor keys in `NEXT_PUBLIC_*`.
+
 ## Numbers
 
 Wave 1 does not publish dollar-per-watt figures, splits, or commissions. Cite or omit.
