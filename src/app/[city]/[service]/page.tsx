@@ -10,7 +10,9 @@ import {
   RelatedServiceLinks,
 } from "@/components/internal-links";
 import { JsonLd } from "@/components/json-ld";
+import { EmptyListingsNote } from "@/components/empty-listings";
 import { QuoteFormLoader } from "@/components/quote-form-loader";
+import { TrustStrip } from "@/components/trust-strip";
 import {
   cities,
   cityPath,
@@ -120,18 +122,20 @@ export default async function ServicePage({
               : `TPO / $0-down is available on this ${city.name} quote, plus a standard purchase path.`}
           </p>
           <Disclosure className="mt-3" />
-          {intro.map((paragraph) => (
-            <p key={paragraph} className="mt-4 text-base leading-7">
-              {paragraph}
-            </p>
-          ))}
+          <EmptyListingsNote className="mt-4" city={city} service={service} />
         </header>
 
-        <aside className="lg:col-start-2 lg:row-span-2 lg:self-start lg:sticky lg:top-6">
+        <aside className="lg:col-start-2 lg:row-span-2 lg:self-start lg:sticky lg:top-24">
           <QuoteFormLoader city={city} service={service} />
         </aside>
 
         <div className="lg:col-start-1">
+          {intro.map((paragraph) => (
+            <p key={paragraph} className="mt-4 text-base leading-7 first:mt-0">
+              {paragraph}
+            </p>
+          ))}
+          <TrustStrip className="mt-8" />
           <HowToChoose content={choose} />
           <CostGuide content={cost} />
           <FaqList faqs={questions} />

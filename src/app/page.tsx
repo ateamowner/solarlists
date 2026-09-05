@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { QuoteFormLoader } from "@/components/quote-form-loader";
 import { Disclosure } from "@/components/disclosure";
+import { ForProsBand, TrustStrip } from "@/components/trust-strip";
 import {
   citiesInRegion,
   cityRegionHeadings,
@@ -23,7 +24,7 @@ export default function HomePage() {
 
   return (
     <div className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6">
-      <section className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_22rem]">
+      <section className="grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_22rem]">
         <div>
           <p className="text-sm font-medium text-primary">{site.tagline}</p>
           <h1 className="mt-2 font-heading text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
@@ -68,6 +69,9 @@ export default function HomePage() {
         <QuoteFormLoader />
       </section>
 
+      <TrustStrip className="mt-10" />
+      <ForProsBand />
+
       {cityRegionOrder.map((region) => {
         const live = citiesInRegion(region);
         const copy = cityRegionHeadings[region];
@@ -75,7 +79,7 @@ export default function HomePage() {
           <section
             key={region}
             id={region === "dayton" ? "cities" : `${region}-cities`}
-            className="mt-14"
+            className="mt-14 scroll-mt-24"
           >
             <h2 className="font-heading text-2xl font-semibold">
               {copy.heading}

@@ -24,10 +24,10 @@ export default function PrivacyPage() {
 
       <h2 className="mt-8 font-heading text-2xl font-semibold">What we collect</h2>
       <p className="mt-3 leading-7">
-        From the quote form: name (optional), phone, email, ZIP, optional home
-        ownership, optional monthly electric bill range, optional timing,
-        interest in TPO / buy / not sure, optional roof age and type, optional
-        message, SMS consent, and privacy consent. Hidden fields may include
+        From the quote form: phone, email, ZIP, service (TPO / buy / not sure),
+        and timing are required, plus a required privacy consent. Optional
+        fields sit behind More details: name, home ownership, monthly electric
+        bill range, roof age and type, message, and SMS consent. Hidden fields may include
         page URL, city, city slug, state, service, source, gclid, utm_source,
         utm_medium, and utm_campaign.
       </p>
