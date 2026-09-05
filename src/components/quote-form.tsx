@@ -327,14 +327,12 @@ export function QuoteForm({ city, service, compact }: QuoteFormProps) {
           type="checkbox"
           name="sms_consent"
           value="true"
-          required
           className="mt-1 size-4 accent-primary"
           checked={draft.sms_consent}
           onChange={(event) => update("sms_consent", event.target.checked)}
         />
         <span>
           You may text me about this request at the number I provided.
-          Required.
         </span>
       </label>
       <label className="mt-2 flex items-start gap-2 text-[16px] leading-[26px]">

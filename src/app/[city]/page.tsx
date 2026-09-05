@@ -78,7 +78,7 @@ export default async function CityHubPage({
         ]}
       />
 
-      <div className="mt-4 grid gap-8 md:grid-cols-[minmax(0,1fr)_22rem] md:grid-rows-[auto_1fr]">
+      <div className="mt-4 grid gap-8 md:grid-cols-[minmax(0,1fr)_minmax(20rem,26rem)] md:grid-rows-[auto_1fr]">
         <header className="md:col-start-1">
           <p className="text-sm font-medium text-primary">{city.state}</p>
           <h1 className="type-h1 mt-2">
@@ -93,7 +93,7 @@ export default async function CityHubPage({
           <EmptyListingsNote className="mt-4" city={city} />
         </header>
         <aside className="md:col-start-2 md:row-span-2 md:sticky md:top-24 md:self-start">
-          <QuoteFormLoader city={city} service={tpo} compact />
+          <QuoteFormLoader city={city} service={tpo} />
         </aside>
         <div className="md:col-start-1">
           {intro.map((paragraph) => (

@@ -108,7 +108,7 @@ export default async function ServicePage({
         ]}
       />
 
-      <div className="mt-4 grid gap-8 md:grid-cols-[minmax(0,1fr)_22rem] md:grid-rows-[auto_1fr]">
+      <div className="mt-4 grid gap-8 md:grid-cols-[minmax(0,1fr)_minmax(20rem,26rem)] md:grid-rows-[auto_1fr]">
         <header className="md:col-start-1">
           <p className="text-sm font-medium text-primary">
             {city.name}, {city.stateAbbr}
@@ -126,7 +126,7 @@ export default async function ServicePage({
         </header>
 
         <aside className="md:col-start-2 md:row-span-2 md:self-start md:sticky md:top-24">
-          <QuoteFormLoader city={city} service={service} compact />
+          <QuoteFormLoader city={city} service={service} />
         </aside>
 
         <div className="md:col-start-1">

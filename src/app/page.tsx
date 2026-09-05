@@ -24,7 +24,7 @@ export default function HomePage() {
 
   return (
     <div className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6">
-      <section className="grid items-start gap-8 md:grid-cols-[minmax(0,1fr)_22rem]">
+      <section className="grid items-start gap-8 md:grid-cols-[minmax(0,1fr)_minmax(20rem,26rem)]">
         <div>
           <p className="text-sm font-medium text-primary">{site.tagline}</p>
           <h1 className="type-h1 mt-2 text-balance">
@@ -66,7 +66,7 @@ export default function HomePage() {
             </p>
           ) : null}
         </div>
-        <QuoteFormLoader compact />
+        <QuoteFormLoader />
       </section>
 
       <TrustStrip className="mt-10" />
@@ -96,7 +96,7 @@ export default function HomePage() {
                   <h3 className="font-heading text-xl font-semibold">
                     {city.name}, {city.stateAbbr}
                   </h3>
-                  <p className="mt-2 flex-1 text-sm leading-6 text-muted-foreground">
+                  <p className="mt-2 line-clamp-1 flex-1 text-sm leading-6 text-muted-foreground">
                     {city.setting}
                   </p>
                   <ul className="mt-4 space-y-2 text-sm">
