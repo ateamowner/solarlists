@@ -22,11 +22,11 @@
   --radius-sm: 0.3rem;
   --radius-md: 0.4rem;
   --radius-lg: 0.5rem;
-  --radius-xl: 0.75rem;
+  --radius-xl: 1rem;
 }
 
 :root {
-  --background: #f6f1e6;
+  --background: #F7F3EA;
   --foreground: #1A1D18;
   --card: #FFFDF8;
   --card-foreground: #1A1D18;

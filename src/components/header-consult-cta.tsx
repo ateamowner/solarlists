@@ -19,7 +19,7 @@ export function HeaderConsultCta() {
         form.scrollIntoView({ behavior: "smooth", block: "start" });
       }}
     >
-      Book a consult
+      Consult
     </Link>
   );
 }

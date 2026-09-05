@@ -72,7 +72,7 @@ export default function HomePage() {
             </a>
           </div>
         </div>
-        <aside className="rounded-2xl border border-border bg-card p-5 shadow-[0_16px_40px_rgba(26,29,24,0.08)]">
+        <aside className="rounded-[16px] border border-border bg-card p-5 shadow-[0_16px_40px_rgba(26,29,24,0.08)]">
           <p className="text-sm font-semibold">What you will not find here</p>
           <ul className="mt-3 space-y-2 text-sm leading-6 text-muted-foreground">
             <li>A product pitch as the homepage.</li>
@@ -100,7 +100,7 @@ export default function HomePage() {
           {promises.map((item) => (
             <li
               key={item.title}
-              className="rounded-2xl border border-border bg-card p-5 shadow-[0_8px_24px_rgba(26,29,24,0.06)]"
+              className="rounded-[16px] border border-border bg-card p-5 shadow-[0_8px_24px_rgba(26,29,24,0.06)]"
             >
               <h3 className="font-heading text-xl font-semibold">{item.title}</h3>
               <p className="mt-2 text-sm leading-6 text-muted-foreground">
@@ -123,7 +123,7 @@ export default function HomePage() {
 
       <NepqOpener />
 
-      <section className="mt-14 rounded-2xl border border-border bg-card px-5 py-8 shadow-[0_8px_24px_rgba(26,29,24,0.06)] sm:px-8">
+      <section className="mt-14 rounded-[16px] border border-border bg-card px-5 py-8 shadow-[0_8px_24px_rgba(26,29,24,0.06)] sm:px-8">
         <h2 className="type-h2">A consult is optional</h2>
         <p className="type-prose mt-3 text-muted-foreground">
           If you live in a served market and want a conversation with{" "}

@@ -8,13 +8,8 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-card/95 backdrop-blur">
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
-        <Link href="/" className="group min-w-0">
-          <p className="font-heading text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
-            {site.name}
-          </p>
-          <p className="truncate text-xs text-muted-foreground sm:text-sm">
-            Solar education
-          </p>
+        <Link href="/" className="font-heading text-xl font-semibold tracking-tight sm:text-2xl">
+          {site.name}
         </Link>
         <nav
           aria-label="Primary"

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { nepqItems } from "@/lib/editorial";
 
 export function NepqOpener() {
@@ -9,10 +10,8 @@ export function NepqOpener() {
   return (
     <section id="questions" className="mt-14 scroll-mt-24">
       <p className="text-sm font-medium text-primary">Start here</p>
-      <h2 className="type-h2 mt-2">
-        Questions that find the problem
-      </h2>
-      <p className="mt-3 max-w-2xl text-base leading-7 text-muted-foreground">
+      <h2 className="type-h2 mt-2">Questions that find the problem</h2>
+      <p className="type-prose mt-3 text-muted-foreground">
         These are the first questions we would rather you sit with than a quote
         form. Open one. There is no score and no right answer.
       </p>
@@ -26,7 +25,7 @@ export function NepqOpener() {
                 aria-expanded={open}
                 aria-controls={`nepq-${item.id}`}
                 onClick={() => setOpenId(open ? null : item.id)}
-                className={`w-full rounded-xl border px-4 py-4 text-left transition ${
+                className={`w-full rounded-[16px] border px-4 py-4 text-left transition-colors ${
                   open
                     ? "border-primary bg-card shadow-[0_12px_28px_rgba(26,29,24,0.08)]"
                     : "border-border bg-card/70 hover:border-primary/50"
@@ -57,6 +56,14 @@ export function NepqOpener() {
           );
         })}
       </ol>
+      <p className="mt-6">
+        <Link
+          href="/consult/"
+          className="type-button inline-flex h-11 items-center rounded-lg bg-primary px-4 text-primary-foreground hover:bg-primary/90"
+        >
+          Book a consult
+        </Link>
+      </p>
     </section>
   );
 }

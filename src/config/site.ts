@@ -34,12 +34,12 @@ export const site = {
   hasForPros: false,
   hasFeatured: false,
   trustStrip: [
-    "Education first",
     "No credit card",
+    "Education first",
     "No pressure quotes",
   ] as const,
   theme: {
-    background: "#f6f1e6",
+    background: "#F7F3EA",
     foreground: "#1A1D18",
     card: "#FFFDF8",
     primary: "#8A4B12",
