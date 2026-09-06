@@ -365,21 +365,21 @@ export function ConsultForm({ compact }: { compact?: boolean }) {
         </Field>
       </details>
 
-      {parsed.phone ? (
-        <label className="mt-4 flex items-start gap-2 text-[16px] leading-[26px]">
-          <input
-            type="checkbox"
-            name="sms_consent"
-            value="true"
-            className="mt-1 size-4 accent-primary"
-            checked={draft.sms_consent}
-            onChange={(event) => update("sms_consent", event.target.checked)}
-          />
-          <span>
-            You may text me about this request at the number I provided.
-          </span>
-        </label>
-      ) : null}
+      <label className="mt-4 flex items-start gap-2 text-[16px] leading-[26px]">
+        <input
+          id="sms_consent"
+          type="checkbox"
+          className="mt-1 size-4 shrink-0 accent-primary"
+          checked={draft.sms_consent}
+          onChange={(event) => update("sms_consent", event.target.checked)}
+        />
+        <span>
+          I agree to receive text messages about this consult from a
+          professional solar consultant at {site.phone}. Msg & data rates may
+          apply. Reply STOP to opt out. Consent is not required to request a
+          consult.
+        </span>
+      </label>
 
       <label className="mt-4 flex items-start gap-2 text-[16px] leading-[26px]">
         <input
@@ -387,7 +387,7 @@ export function ConsultForm({ compact }: { compact?: boolean }) {
           name="privacy_consent"
           value="true"
           required
-          className="mt-1 size-4 accent-primary"
+          className="mt-1 size-4 shrink-0 accent-primary"
           checked={draft.privacy_consent}
           onChange={(event) => update("privacy_consent", event.target.checked)}
         />
@@ -414,6 +414,11 @@ export function ConsultForm({ compact }: { compact?: boolean }) {
       <input type="hidden" name="_captcha" value="false" />
       <input type="hidden" name="email" value={parsed.email} />
       <input type="hidden" name="phone" value={parsed.phone} />
+      <input
+        type="hidden"
+        name="sms_opt_in"
+        value={draft.sms_consent ? "Yes" : "No"}
+      />
       <input type="hidden" name="page_url" defaultValue="" />
       <input type="hidden" name="source" defaultValue="solarlists.com" />
       <input type="hidden" name="gclid" defaultValue="" />

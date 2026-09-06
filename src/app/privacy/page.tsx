@@ -28,9 +28,19 @@ export default function PrivacyPage() {
       <h2 className="type-h2 mt-8">What we collect</h2>
       <p className="type-prose mt-3">
         The consult form asks for name, one phone or email, ZIP, state, timing,
-        and privacy consent. If you enter a phone number, SMS consent is
-        optional. Optional fields sit behind More details: home ownership,
-        monthly bill range, roof age and type, and a message.
+        and a required privacy checkbox. SMS consent is a separate, optional
+        checkbox and is unchecked unless you choose it. Optional fields sit
+        behind More details: home ownership, monthly bill range, roof age and
+        type, and a message.
+      </p>
+
+      <h2 className="type-h2 mt-8">Text messages</h2>
+      <p className="type-prose mt-3">
+        If you check the SMS box on the consult form, {site.author} may text
+        you about that consult from {site.phone}. Message and data rates may
+        apply. Reply STOP to opt out. Agreeing to this privacy policy is not
+        SMS consent. Texting requires the separate, optional checkbox. You can
+        request a consult without agreeing to texts.
       </p>
 
       <h2 className="type-h2 mt-8">How we use it</h2>

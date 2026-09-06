@@ -84,7 +84,7 @@ Copy `.env.example`:
 - Consult inbox: `Anthony.Leonard.brs@sunpower.com`
 - Call/text: `(937) 777-9093` (`tel:+19377779093`)
 
-The consult form is a **native HTML POST** to Formsubmit at that inbox. Hidden `_next` redirects to `https://solarlists.com/request-sent/`. Submit is enabled for the listed IC markets only. Do not point the form at an A Team inbox. Never use `treelist@agentmail.to`. Never invent a Web3Forms, Formspree, or other backend key.
+The consult form is a **native HTML POST** to Formsubmit at that inbox. Hidden `_next` redirects to `https://solarlists.com/request-sent/`. Submit is enabled for the listed IC markets only. The optional SMS checkbox is unchecked by default and is not required. Formsubmit always receives `sms_opt_in` as `Yes` or `No`. Do not point the form at an A Team inbox. Never use `treelist@agentmail.to`. Never invent a Web3Forms, Formspree, or other backend key.
 
 Consults are for homeowners in CA, CO, FL, IL, IN, MA, MD, MI, MN, NC, NV, OH, OR, PA, SC, TX, UT, VA, WA, and WI whose ZIP is not on the private ops filter in `src/config/dq-zips.ts`. That list is not marketed on the homepage. Education stays available elsewhere.
 
