@@ -132,8 +132,8 @@ export function ConsultForm({ compact }: { compact?: boolean }) {
     <form
       ref={formRef}
       id="consult"
-      action={canSubmit ? site.formAction : undefined}
-      method={canSubmit ? "POST" : undefined}
+      action={site.contactReady ? site.formAction : undefined}
+      method={site.contactReady ? "POST" : undefined}
       acceptCharset="UTF-8"
       autoComplete="off"
       onSubmit={(event) => {
@@ -142,6 +142,8 @@ export function ConsultForm({ compact }: { compact?: boolean }) {
           setContactError("Add a phone number or an email.");
           return;
         }
+        // ZIP / DQ / IC-market gate only blocks submit. It must not strip
+        // Formsubmit action from static HTML or no-JS / late-hydration paths.
         if (!canSubmit) event.preventDefault();
       }}
       onKeyDown={(event) => {
