@@ -123,6 +123,21 @@
   .consult-step-line-done {
     background-color: color-mix(in srgb, var(--primary) 45%, var(--border));
   }
+
+  .editorial-rule {
+    @apply rounded-[16px] border border-border bg-card;
+  }
+
+  .editorial-rule[open] {
+    border-color: var(--primary);
+    background-color: color-mix(in srgb, var(--accent) 22%, var(--card));
+    box-shadow: 0 12px 28px rgba(26, 29, 24, 0.08);
+  }
+
+  .clay-panel {
+    border-color: #cfc3aa;
+    background-color: #f7f3ea;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
