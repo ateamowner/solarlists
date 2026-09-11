@@ -9,30 +9,41 @@ export function NepqOpener() {
 
   return (
     <section id="questions" className="mt-14 scroll-mt-24">
+      <div className="home-soft-rule mb-8" aria-hidden="true" />
       <p className="text-sm font-medium text-primary">Start here</p>
       <h2 className="type-h2 mt-2">Questions that find the problem</h2>
       <p className="type-prose mt-3 text-muted-foreground">
         These are the first questions we would rather you sit with than a quote
         form. Open one. There is no score and no right answer.
       </p>
-      <ol className="mt-6 space-y-3">
+      <ol className="relative mt-6 space-y-3">
         {nepqItems.map((item, index) => {
           const open = openId === item.id;
+          const last = index === nepqItems.length - 1;
           return (
-            <li key={item.id}>
+            <li key={item.id} className="relative">
+              {last ? null : (
+                <span aria-hidden="true" className="nepq-rail" />
+              )}
               <button
                 type="button"
                 aria-expanded={open}
                 aria-controls={`nepq-${item.id}`}
                 onClick={() => setOpenId(open ? null : item.id)}
-                className={`w-full rounded-[16px] border px-4 py-4 text-left transition-colors ${
+                className={`nepq-item w-full rounded-[16px] border px-4 py-4 text-left ${
                   open
                     ? "border-primary bg-card shadow-[0_12px_28px_rgba(26,29,24,0.08)]"
                     : "border-border bg-card/70 hover:border-primary/50"
                 }`}
               >
                 <span className="flex items-start gap-3">
-                  <span className="mt-0.5 inline-flex size-7 shrink-0 items-center justify-center rounded-full bg-accent text-sm font-semibold text-accent-foreground">
+                  <span
+                    className={`relative z-10 mt-0.5 inline-flex size-7 shrink-0 items-center justify-center rounded-full text-sm font-semibold ${
+                      open
+                        ? "bg-accent text-accent-foreground"
+                        : "bg-muted text-muted-foreground"
+                    }`}
+                  >
                     {index + 1}
                   </span>
                   <span className="min-w-0 flex-1">
@@ -41,14 +52,24 @@ export function NepqOpener() {
                     </span>
                     <span
                       id={`nepq-${item.id}`}
-                      hidden={!open}
-                      className="mt-2 block text-sm leading-6 text-muted-foreground"
+                      role="region"
+                      aria-hidden={!open}
+                      className={`nepq-panel ${open ? "nepq-panel-open" : ""}`}
                     >
-                      {item.why}
+                      <span className="nepq-panel-inner">
+                        <span className="mt-2 block text-sm leading-6 text-muted-foreground">
+                          {item.why}
+                        </span>
+                      </span>
                     </span>
                   </span>
-                  <span aria-hidden="true" className="text-muted-foreground">
-                    {open ? "−" : "+"}
+                  <span
+                    aria-hidden="true"
+                    className={`text-muted-foreground transition-transform duration-200 ${
+                      open ? "rotate-45" : ""
+                    }`}
+                  >
+                    +
                   </span>
                 </span>
               </button>
