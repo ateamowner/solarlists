@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { site } from "@/config/site";
 import {
@@ -78,9 +78,11 @@ export function SolarChat() {
   const [messages, setMessages] = useState<ChatMessage[]>(() => [firstMessage()]);
   const [usedTopics, setUsedTopics] = useState<string[]>([]);
   const [userTurns, setUserTurns] = useState(0);
+  const [logEpoch, setLogEpoch] = useState(0);
   const logRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const launcherRef = useRef<HTMLButtonElement>(null);
+  const pinTopRef = useRef(true);
 
   useEffect(() => {
     const sync = () => {
@@ -107,18 +109,20 @@ export function SolarChat() {
     };
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!open) return;
     const node = logRef.current;
     if (!node) return;
-    const frame = window.requestAnimationFrame(() => {
-      // Tall PSQ opener starts mid-bubble on short phones if we pin to the
-      // bottom. Open on the first message at the top; later turns follow the
-      // newest reply.
-      node.scrollTop = messages.length <= 1 ? 0 : node.scrollHeight;
-    });
-    return () => window.cancelAnimationFrame(frame);
-  }, [messages, open]);
+    // Tall PSQ opener starts mid-bubble on short phones if we keep a prior
+    // scroll offset. Pin the opener to the top; later turns follow the newest
+    // reply.
+    if (pinTopRef.current || messages.length <= 1) {
+      node.scrollTop = 0;
+      pinTopRef.current = false;
+    } else {
+      node.scrollTop = node.scrollHeight;
+    }
+  }, [messages, open, logEpoch]);
 
   useEffect(() => {
     if (!open) return;
@@ -134,10 +138,12 @@ export function SolarChat() {
   }, [open]);
 
   function startOver() {
+    pinTopRef.current = true;
     setDraft("");
     setUserTurns(0);
     setUsedTopics([]);
     setMessages([firstMessage()]);
+    setLogEpoch((value) => value + 1);
   }
 
   function send(text: string) {
@@ -228,8 +234,9 @@ export function SolarChat() {
           </header>
 
           <div
+            key={logEpoch}
             ref={logRef}
-            className="min-h-0 flex-1 space-y-3 overflow-y-auto px-3 py-3"
+            className="min-h-0 flex-1 space-y-3 overflow-y-auto overflow-anchor-none px-3 py-3"
           >
             {messages.map((message) => (
               <div
@@ -343,7 +350,16 @@ export function SolarChat() {
         type="button"
         aria-expanded={open}
         aria-controls={open ? panelId : undefined}
-        onClick={() => setOpen((current) => !current)}
+        onClick={() => {
+          setOpen((current) => {
+            const next = !current;
+            if (next) {
+              pinTopRef.current = messages.length <= 1;
+              if (messages.length <= 1) setLogEpoch((value) => value + 1);
+            }
+            return next;
+          });
+        }}
         className="pointer-events-auto inline-flex h-12 items-center gap-2 rounded-full px-4 text-[15px] font-medium shadow-[0_12px_28px_rgba(26,29,24,0.16)]"
         style={{ backgroundColor: "#8A4B12", color: "#FFF8EC" }}
       >
