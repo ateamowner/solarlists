@@ -84,12 +84,34 @@ export function ConsultForm({ compact }: { compact?: boolean }) {
   const parsed = parseContact(draft.contact);
   const gate = consultGate(draft.zip, draft.state);
   const canSubmit = site.contactReady && gate === "ok";
+  const zipReady = normalizeZip(draft.zip).length === 5;
   const steps = [
-    Boolean(draft.name.trim()),
-    Boolean(draft.contact.trim()),
-    Boolean(draft.zip.trim()),
-    Boolean(draft.timing),
-  ];
+    {
+      id: "situation",
+      label: "Situation",
+      done: zipReady,
+    },
+    {
+      id: "contact",
+      label: "Contact",
+      done: Boolean(draft.name.trim() && draft.contact.trim()),
+    },
+    {
+      id: "timing",
+      label: "Timing",
+      done: Boolean(draft.timing),
+    },
+  ] as const;
+  const activeStep =
+    steps.find((step) => !step.done)?.id ?? steps[steps.length - 1].id;
+  const detailCount = [
+    draft.state,
+    draft.own_home,
+    draft.monthly_bill,
+    draft.roof_age,
+    draft.roof_type,
+    draft.message,
+  ].filter((value) => Boolean(value.trim())).length;
 
   function update<K extends keyof Draft>(name: K, value: Draft[K]) {
     setDraft((prev) => {
@@ -163,65 +185,56 @@ export function ConsultForm({ compact }: { compact?: boolean }) {
       </p>
 
       <ol
-        className="mt-4 flex items-center gap-2"
-        aria-label="Form progress"
+        className="mt-5 grid grid-cols-3"
+        aria-label="Form progress: Situation, Contact, Timing"
       >
-        {steps.map((done, index) => (
-          <li key={index} className="flex items-center gap-2">
-            <span
-              className={`block size-2.5 rounded-full ${
-                done ? "bg-primary" : "bg-border"
-              }`}
-            />
-            {index < steps.length - 1 ? (
-              <span aria-hidden="true" className="block h-px w-4 bg-border" />
+        {steps.map((step, index) => (
+          <li
+            key={step.id}
+            className="relative flex min-w-0 flex-col items-center text-center"
+          >
+            {index > 0 ? (
+              <span
+                aria-hidden="true"
+                className={`consult-step-line ${
+                  steps[index - 1].done ? "consult-step-line-done" : ""
+                }`}
+              />
             ) : null}
+            <span
+              className={`relative z-10 inline-flex size-7 items-center justify-center rounded-full border text-[12px] font-semibold leading-none ${
+                step.done
+                  ? "border-primary bg-primary text-primary-foreground"
+                  : activeStep === step.id
+                    ? "border-primary bg-accent text-accent-foreground"
+                    : "border-border bg-muted text-muted-foreground"
+              }`}
+              aria-current={activeStep === step.id ? "step" : undefined}
+            >
+              {step.done ? <span aria-hidden="true">✓</span> : index + 1}
+              <span className="sr-only">
+                {step.label}
+                {step.done
+                  ? ", complete"
+                  : activeStep === step.id
+                    ? ", current"
+                    : ""}
+              </span>
+            </span>
+            <span className="type-label mt-1.5 text-[12px] sm:text-[13px]">
+              {step.label}
+            </span>
           </li>
         ))}
       </ol>
 
-      <div className={`mt-4 grid gap-3 ${compact ? "" : "md:grid-cols-2"}`}>
-        <Field
-          label="Name"
-          htmlFor="name"
-          className={compact ? "" : "md:col-span-2"}
-        >
-          <input
-            id="name"
-            name="name"
-            required
-            autoComplete="name"
-            className={fieldClassName}
-            value={draft.name}
-            onChange={(event) => onTextChange("name", event.target.value)}
-          />
-        </Field>
-        <Field
-          label="Phone or email"
-          htmlFor="contact"
-          className={compact ? "" : "md:col-span-2"}
-        >
-          <input
-            id="contact"
-            name="contact"
-            required
-            autoComplete="on"
-            inputMode="email"
-            className={fieldClassName}
-            value={draft.contact}
-            onChange={(event) => onTextChange("contact", event.target.value)}
-            aria-describedby={contactError ? "contact-error" : "contact-hint"}
-          />
-          <p id="contact-hint" className="mt-1 text-[13px] leading-5 text-muted-foreground">
-            One field is enough — whichever you prefer.
-          </p>
-          {contactError ? (
-            <p id="contact-error" className="mt-1 text-[13px] leading-5 text-destructive">
-              {contactError}
-            </p>
-          ) : null}
-        </Field>
-        <Field label="ZIP" htmlFor="zip">
+      <fieldset className="mt-5 min-w-0 border-0 p-0">
+        <legend className="type-label text-muted-foreground">Situation</legend>
+        <p className="mt-1 text-[13px] leading-5 text-muted-foreground">
+          ZIP tells us whether a consult is available. Education stays on the
+          site either way.
+        </p>
+        <Field label="ZIP" htmlFor="zip" className="mt-3">
           <input
             id="zip"
             name="zip"
@@ -237,134 +250,262 @@ export function ConsultForm({ compact }: { compact?: boolean }) {
             }
           />
         </Field>
-        <Field
-          label="Timing"
-          htmlFor="timing"
-          className={compact ? "" : "md:col-span-2"}
-        >
-          <select
-            id="timing"
-            name="timing"
-            required
-            className={fieldClassName}
-            value={draft.timing}
-            onChange={(event) => update("timing", event.target.value)}
-          >
-            {formTimings.map((item) => (
-              <option key={item.value || "empty-timing"} value={item.value}>
-                {item.label}
-              </option>
-            ))}
-          </select>
-        </Field>
-      </div>
+        {gate === "ok" ? (
+          <p className="mt-3">
+            <span className="inline-flex rounded-full border border-border bg-accent/40 px-3 py-1 text-[13px] leading-5">
+              Served market — a conversation is available
+            </span>
+          </p>
+        ) : null}
+        {gate === "dq" ? (
+          <p className="mt-3 rounded-lg border border-border bg-muted/60 px-3 py-3 text-sm leading-6 text-muted-foreground">
+            A consult is not available for this ZIP. The education pages on this
+            site are still here if you want them.
+          </p>
+        ) : null}
+        {gate === "out_of_market" ? (
+          <p className="mt-3 rounded-lg border border-border bg-muted/60 px-3 py-3 text-sm leading-6 text-muted-foreground">
+            Consults are limited to served markets. Education on this site is
+            still available.
+          </p>
+        ) : null}
+      </fieldset>
 
-      {gate === "dq" ? (
-        <p className="mt-4 rounded-lg border border-border bg-muted/60 px-3 py-3 text-sm leading-6 text-muted-foreground">
-          A consult is not available for this ZIP. The education pages on this
-          site are still here if you want them.
-        </p>
-      ) : null}
-      {gate === "out_of_market" ? (
-        <p className="mt-4 rounded-lg border border-border bg-muted/60 px-3 py-3 text-sm leading-6 text-muted-foreground">
-          Consults are limited to served markets. Education on this site is
-          still available.
-        </p>
-      ) : null}
-
-      <details className="mt-4 rounded-lg border border-border bg-muted/40 px-3 py-2">
-        <summary className="type-label cursor-pointer">More details</summary>
+      <fieldset className="mt-5 min-w-0 border-0 p-0">
+        <legend className="type-label text-muted-foreground">Contact</legend>
         <div className={`mt-3 grid gap-3 ${compact ? "" : "md:grid-cols-2"}`}>
-          <Field label="State (optional)" htmlFor="state">
-            <select
-              id="state"
-              name="state"
+          <Field
+            label="Name"
+            htmlFor="name"
+            className={compact ? "" : "md:col-span-2"}
+          >
+            <input
+              id="name"
+              name="name"
+              required
+              autoComplete="name"
               className={fieldClassName}
-              value={draft.state}
-              onChange={(event) => update("state", event.target.value)}
-            >
-              <option value="">Not sure / skip</option>
-              {consultMarkets.map((market) => (
-                <option key={market.abbr} value={market.abbr}>
-                  {market.name}
-                </option>
-              ))}
-              <option value={OTHER_MARKET}>Another state</option>
-            </select>
+              value={draft.name}
+              onChange={(event) => onTextChange("name", event.target.value)}
+            />
           </Field>
-          <Field label="Do you own the home? (optional)" htmlFor="own_home">
-            <select
-              id="own_home"
-              name="own_home"
+          <Field
+            label="Phone or email"
+            htmlFor="contact"
+            className={compact ? "" : "md:col-span-2"}
+          >
+            <input
+              id="contact"
+              name="contact"
+              required
+              autoComplete="on"
+              inputMode="email"
               className={fieldClassName}
-              value={draft.own_home}
-              onChange={(event) => update("own_home", event.target.value)}
-            >
-              {formOwnHome.map((item) => (
-                <option key={item.value || "empty-own"} value={item.value}>
-                  {item.label}
-                </option>
-              ))}
-            </select>
-          </Field>
-          <Field label="Monthly electric bill (optional)" htmlFor="monthly_bill">
-            <select
-              id="monthly_bill"
-              name="monthly_bill"
-              className={fieldClassName}
-              value={draft.monthly_bill}
-              onChange={(event) => update("monthly_bill", event.target.value)}
-            >
-              <option value="">Not sure / skip</option>
-              {formBillRanges.map((item) => (
-                <option key={item.value} value={item.value}>
-                  {item.label}
-                </option>
-              ))}
-            </select>
-          </Field>
-          <Field label="Roof age (optional)" htmlFor="roof_age">
-            <select
-              id="roof_age"
-              name="roof_age"
-              className={fieldClassName}
-              value={draft.roof_age}
-              onChange={(event) => update("roof_age", event.target.value)}
-            >
-              {formRoofAges.map((item) => (
-                <option key={item.value || "empty-age"} value={item.value}>
-                  {item.label}
-                </option>
-              ))}
-            </select>
-          </Field>
-          <Field label="Roof type (optional)" htmlFor="roof_type">
-            <select
-              id="roof_type"
-              name="roof_type"
-              className={fieldClassName}
-              value={draft.roof_type}
-              onChange={(event) => update("roof_type", event.target.value)}
-            >
-              {formRoofTypes.map((item) => (
-                <option key={item.value || "empty-type"} value={item.value}>
-                  {item.label}
-                </option>
-              ))}
-            </select>
+              value={draft.contact}
+              onChange={(event) => onTextChange("contact", event.target.value)}
+              aria-describedby={contactError ? "contact-error" : "contact-hint"}
+            />
+            <p id="contact-hint" className="mt-1 text-[13px] leading-5 text-muted-foreground">
+              One field is enough — whichever you prefer.
+            </p>
+            {contactError ? (
+              <p id="contact-error" className="mt-1 text-[13px] leading-5 text-destructive">
+                {contactError}
+              </p>
+            ) : null}
           </Field>
         </div>
-        <Field label="Message (optional)" htmlFor="message" className="mt-3">
-          <textarea
-            id="message"
-            name="message"
-            rows={4}
-            className="min-h-24 w-full rounded-lg border border-input bg-card px-2.5 py-2 text-[16px] leading-[26px] outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
-            placeholder="Bill notes, roof notes, or the question you do not trust yet."
-            value={draft.message}
-            onChange={(event) => onTextChange("message", event.target.value)}
-          />
-        </Field>
+      </fieldset>
+
+      <fieldset className="mt-5 min-w-0 border-0 p-0">
+        <legend className="type-label text-muted-foreground">Timing</legend>
+        <p className="mt-1 text-[13px] leading-5 text-muted-foreground">
+          When you want to talk — not a closer.
+        </p>
+        <div
+          className="mt-3 flex flex-wrap gap-2"
+          role="radiogroup"
+          aria-label="Timing"
+        >
+          {formTimings
+            .filter((item) => item.value)
+            .map((item) => {
+              const selected = draft.timing === item.value;
+              return (
+                <label
+                  key={item.value}
+                  className={`inline-flex cursor-pointer items-center rounded-full border px-3 py-2 text-[13px] leading-5 transition-colors ${
+                    selected
+                      ? "border-primary bg-accent text-accent-foreground"
+                      : "border-border bg-card hover:border-primary/60"
+                  }`}
+                >
+                  <input
+                    type="radio"
+                    name="timing"
+                    value={item.value}
+                    required
+                    checked={selected}
+                    onChange={() => update("timing", item.value)}
+                    className="sr-only"
+                  />
+                  {item.label}
+                </label>
+              );
+            })}
+        </div>
+        {draft.timing === "researching" ? (
+          <p className="mt-3">
+            <span className="inline-flex rounded-full border border-border bg-muted/70 px-3 py-1 text-[13px] leading-5">
+              Just learning is a valid starting point
+            </span>
+          </p>
+        ) : null}
+        {draft.timing && draft.timing !== "researching" ? (
+          <p className="mt-3">
+            <span className="inline-flex rounded-full border border-border bg-muted/70 px-3 py-1 text-[13px] leading-5">
+              A conversation — not three quotes
+            </span>
+          </p>
+        ) : null}
+      </fieldset>
+
+      <details className="group mt-5 rounded-[14px] border border-border bg-muted/30">
+        <summary className="flex cursor-pointer list-none items-start gap-3 px-4 py-3 [&::-webkit-details-marker]:hidden">
+          <span
+            aria-hidden="true"
+            className="mt-0.5 inline-flex size-6 shrink-0 items-center justify-center rounded-full border border-border bg-card text-sm leading-none text-muted-foreground transition-transform duration-200 group-open:rotate-90"
+          >
+            ›
+          </span>
+          <span className="min-w-0 flex-1">
+            <span className="type-label block">More details</span>
+            <span className="type-small mt-0.5 block">
+              Optional — home, roof, bill, and a note. Skip anything you do not
+              know yet.
+            </span>
+          </span>
+          {detailCount > 0 ? (
+            <span className="shrink-0 rounded-full border border-border bg-card px-2 py-0.5 text-[12px] leading-5 text-muted-foreground">
+              {detailCount} added
+            </span>
+          ) : (
+            <span className="shrink-0 rounded-full border border-transparent px-2 py-0.5 text-[12px] leading-5 text-muted-foreground">
+              Optional
+            </span>
+          )}
+        </summary>
+        <div className="space-y-4 border-t border-border px-4 py-4">
+          <div>
+            <p className="type-label text-muted-foreground">Home</p>
+            <div className={`mt-2 grid gap-3 ${compact ? "" : "md:grid-cols-2"}`}>
+              <Field label="State (optional)" htmlFor="state">
+                <select
+                  id="state"
+                  name="state"
+                  className={fieldClassName}
+                  value={draft.state}
+                  onChange={(event) => update("state", event.target.value)}
+                >
+                  <option value="">Not sure / skip</option>
+                  {consultMarkets.map((market) => (
+                    <option key={market.abbr} value={market.abbr}>
+                      {market.name}
+                    </option>
+                  ))}
+                  <option value={OTHER_MARKET}>Another state</option>
+                </select>
+              </Field>
+              <Field label="Do you own the home? (optional)" htmlFor="own_home">
+                <select
+                  id="own_home"
+                  name="own_home"
+                  className={fieldClassName}
+                  value={draft.own_home}
+                  onChange={(event) => update("own_home", event.target.value)}
+                >
+                  {formOwnHome.map((item) => (
+                    <option key={item.value || "empty-own"} value={item.value}>
+                      {item.label}
+                    </option>
+                  ))}
+                </select>
+              </Field>
+            </div>
+          </div>
+          <div>
+            <p className="type-label text-muted-foreground">Roof</p>
+            <div className={`mt-2 grid gap-3 ${compact ? "" : "md:grid-cols-2"}`}>
+              <Field label="Roof age (optional)" htmlFor="roof_age">
+                <select
+                  id="roof_age"
+                  name="roof_age"
+                  className={fieldClassName}
+                  value={draft.roof_age}
+                  onChange={(event) => update("roof_age", event.target.value)}
+                >
+                  {formRoofAges.map((item) => (
+                    <option key={item.value || "empty-age"} value={item.value}>
+                      {item.label}
+                    </option>
+                  ))}
+                </select>
+              </Field>
+              <Field label="Roof type (optional)" htmlFor="roof_type">
+                <select
+                  id="roof_type"
+                  name="roof_type"
+                  className={fieldClassName}
+                  value={draft.roof_type}
+                  onChange={(event) => update("roof_type", event.target.value)}
+                >
+                  {formRoofTypes.map((item) => (
+                    <option key={item.value || "empty-type"} value={item.value}>
+                      {item.label}
+                    </option>
+                  ))}
+                </select>
+              </Field>
+            </div>
+          </div>
+          <div>
+            <p className="type-label text-muted-foreground">Bill</p>
+            <Field
+              label="Monthly electric bill (optional)"
+              htmlFor="monthly_bill"
+              className="mt-2"
+            >
+              <select
+                id="monthly_bill"
+                name="monthly_bill"
+                className={fieldClassName}
+                value={draft.monthly_bill}
+                onChange={(event) => update("monthly_bill", event.target.value)}
+              >
+                <option value="">Not sure / skip</option>
+                {formBillRanges.map((item) => (
+                  <option key={item.value} value={item.value}>
+                    {item.label}
+                  </option>
+                ))}
+              </select>
+            </Field>
+          </div>
+          <div>
+            <p className="type-label text-muted-foreground">Note</p>
+            <Field label="Message (optional)" htmlFor="message" className="mt-2">
+              <textarea
+                id="message"
+                name="message"
+                rows={4}
+                className="min-h-24 w-full rounded-lg border border-input bg-card px-2.5 py-2 text-[16px] leading-[26px] outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
+                placeholder="Bill notes, roof notes, or the question you do not trust yet."
+                value={draft.message}
+                onChange={(event) => onTextChange("message", event.target.value)}
+              />
+            </Field>
+          </div>
+        </div>
       </details>
 
       <label className="mt-4 flex items-start gap-2 text-[16px] leading-[26px]">

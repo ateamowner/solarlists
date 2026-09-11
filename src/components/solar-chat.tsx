@@ -110,7 +110,14 @@ export function SolarChat() {
   useEffect(() => {
     if (!open) return;
     const node = logRef.current;
-    if (node) node.scrollTop = node.scrollHeight;
+    if (!node) return;
+    const frame = window.requestAnimationFrame(() => {
+      // Tall PSQ opener starts mid-bubble on short phones if we pin to the
+      // bottom. Open on the first message at the top; later turns follow the
+      // newest reply.
+      node.scrollTop = messages.length <= 1 ? 0 : node.scrollHeight;
+    });
+    return () => window.cancelAnimationFrame(frame);
   }, [messages, open]);
 
   useEffect(() => {
@@ -125,6 +132,13 @@ export function SolarChat() {
     inputRef.current?.focus();
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
+
+  function startOver() {
+    setDraft("");
+    setUserTurns(0);
+    setUsedTopics([]);
+    setMessages([firstMessage()]);
+  }
 
   function send(text: string) {
     const trimmed = text.trim();
@@ -178,28 +192,39 @@ export function SolarChat() {
               : "min(32rem, calc(100dvh - 6.5rem))",
           }}
         >
-          <header className="flex items-center justify-between gap-3 border-b px-4 py-3"
+          <header className="flex items-start justify-between gap-3 border-b px-4 py-3"
             style={{ borderColor: "#CFC3AA" }}
           >
-            <div>
+            <div className="min-w-0">
               <h2 id={labelId} className="font-heading text-lg font-semibold leading-6">
                 Ask about solar
               </h2>
               <p className="type-small mt-0.5">Find the gap first — not a quote closer.</p>
             </div>
-            <button
-              type="button"
-              onClick={() => {
-                setOpen(false);
-                launcherRef.current?.focus();
-              }}
-              className="inline-flex size-9 items-center justify-center rounded-lg text-muted-foreground hover:bg-muted hover:text-foreground"
-              aria-label="Close chat"
-            >
-              <span aria-hidden="true" className="text-xl leading-none">
-                ×
-              </span>
-            </button>
+            <div className="flex shrink-0 items-center gap-1">
+              {userTurns > 0 ? (
+                <button
+                  type="button"
+                  onClick={startOver}
+                  className="rounded-lg px-2 py-1.5 text-[13px] leading-5 text-muted-foreground hover:bg-muted hover:text-foreground"
+                >
+                  Start over
+                </button>
+              ) : null}
+              <button
+                type="button"
+                onClick={() => {
+                  setOpen(false);
+                  launcherRef.current?.focus();
+                }}
+                className="inline-flex size-9 items-center justify-center rounded-lg text-muted-foreground hover:bg-muted hover:text-foreground"
+                aria-label="Close chat"
+              >
+                <span aria-hidden="true" className="text-xl leading-none">
+                  ×
+                </span>
+              </button>
+            </div>
           </header>
 
           <div

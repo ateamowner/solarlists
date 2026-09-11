@@ -2,19 +2,22 @@ import { site } from "@/config/site";
 
 export function TrustStrip({ className = "" }: { className?: string }) {
   return (
-    <ul
-      className={`grid gap-3 sm:grid-cols-3 ${className}`}
-      aria-label="How this site writes"
-    >
-      {site.trustStrip.map((item) => (
-        <li
-          key={item}
-          className="rounded-[16px] border border-border bg-card px-4 py-3 text-sm font-medium leading-6 shadow-[0_8px_24px_rgba(26,29,24,0.06)]"
-        >
-          {item}
-        </li>
-      ))}
-    </ul>
+    <div className={className}>
+      <div className="home-soft-rule mb-6" aria-hidden="true" />
+      <ul
+        className="grid rounded-[16px] border border-border bg-card shadow-[0_8px_24px_rgba(26,29,24,0.06)] sm:grid-cols-3 sm:divide-x sm:divide-border"
+        aria-label="How this site writes"
+      >
+        {site.trustStrip.map((item) => (
+          <li
+            key={item}
+            className="home-trust-chip border-b border-border px-4 py-3 text-sm font-medium leading-6 last:border-b-0 sm:border-b-0"
+          >
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 
