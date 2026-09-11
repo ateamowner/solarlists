@@ -49,7 +49,7 @@ export const site = {
     mutedForeground: "#5C574C",
     accent: "#F3D27A",
     accentForeground: "#3D2E0A",
-    border: "#D9CFB8",
+    border: "#CFC3AA",
     ring: "#8A4B12",
     footerStrip: "#EFE8DA",
   },
