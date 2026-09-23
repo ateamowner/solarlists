@@ -22,20 +22,20 @@ export const site = {
   /** Native HTML POST to Formsubmit. No fetch/XHR, no API key. */
   formAction: "https://formsubmit.co/Anthony.Leonard.brs@sunpower.com",
   formRedirect: "https://solarlists.com/request-sent/",
-  tagline: "Clear solar education for homeowners who want to think first.",
+  tagline: "Ohio city guides and clear solar education for homeowners.",
   year: 2026,
-  lastReviewed: "2026-09-05",
-  lastReviewedLabel: "September 5, 2026",
+  lastReviewed: "2026-09-23",
+  lastReviewedLabel: "September 23, 2026",
   description:
-    "SolarLists is a national education site for homeowners researching solar. Start with better questions — then, if you live in a served market, request a consult.",
+    "SolarLists publishes city guides for Dayton, Columbus, Cincinnati, and nearby Ohio cities, plus education for homeowners researching solar. Open a city hub or request a consult.",
   /** Quiet IC line for About + footer only. Never use this as an H1. */
   disclosure:
-    "Consults are with a professional solar consultant who is a SunPower independent contractor. SolarLists is an education site, not SunPower.com. A Team Contracting is a separate exterior-cleaning business.",
+    "Consults are with a professional solar consultant who is a SunPower independent contractor. SolarLists is not SunPower.com. A Team Contracting is a separate exterior-cleaning business.",
   /** Shared conversion shell switches. SolarLists has no For Pros page and no Featured buy path. */
   hasForPros: false,
   hasFeatured: false,
   trustStrip: [
-    "Education first",
+    "Ohio city pages",
     "No credit card",
     "No pressure quotes",
   ] as const,
@@ -56,12 +56,14 @@ export const site = {
 } as const;
 
 export const primaryNav = [
+  { href: "/#cities", label: "Cities" },
   { href: "/#questions", label: "Learn" },
   { href: "/about/", label: "About" },
   { href: "/consult/", label: "Consult" },
 ] as const;
 
 export const footerNav = [
+  { href: "/#cities", label: "Ohio cities" },
   { href: "/about/", label: "About" },
   { href: "/sources/", label: "Sources" },
   { href: "/consult/", label: "Consult" },
@@ -103,15 +105,13 @@ export function consultMarketSentence(): string {
   return `${names.slice(0, -1).join(", ")}, and ${names[names.length - 1]}`;
 }
 
-/** Wave 1: leftover city × service URLs stay live, but must not be indexed. */
-export const doorwayRobots = {
-  index: false,
-  follow: false,
-  nocache: true,
+/** City hubs and city × service pages are the local index. Thank-you stays noindex. */
+export const indexableRobots = {
+  index: true,
+  follow: true,
   googleBot: {
-    index: false,
-    follow: false,
-    noimageindex: true,
+    index: true,
+    follow: true,
   },
 } as const;
 
@@ -1480,7 +1480,7 @@ export const cityRegionHeadings: Record<
   dayton: {
     heading: "Dayton-area cities",
     intro:
-      "Legacy local URLs from an earlier site version. They stay published so old links do not 404, and they are noindexed.",
+      "Each city hub links solar installation, TPO solar, and solar panels. Internal links are real pages so nothing 404s.",
   },
   columbus: {
     heading: "Columbus-area cities",

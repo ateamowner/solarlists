@@ -1,6 +1,6 @@
 # SolarLists
 
-National **solar education** site for homeowners who want to think first. Brand: **SolarLists**. Domain: [solarlists.com](https://solarlists.com).
+Ohio **city guides** plus solar education for homeowners. Brand: **SolarLists**. Domain: [solarlists.com](https://solarlists.com).
 
 SolarLists is not A Team Contracting and not SunPower.com. A professional solar consultant writes the site from Tipp City, Ohio. Independent-contractor disclosure lives on About and in the footer only — never in an H1. Soft-close consults, when routed, are with a professional solar consultant (SunPower independent contractor) — not A Team.
 
@@ -28,7 +28,7 @@ npm start
 
 `npm start` serves the `out/` folder with `serve`. The live site does not run `next start`.
 
-After `npm run build`, `out/` must contain `CNAME` (`solarlists.com`), `.nojekyll`, education routes (`about/`, `sources/`, `consult/`), and leftover city folders such as `dayton-oh/` (kept so old links do not 404; they are noindexed).
+After `npm run build`, `out/` must contain `CNAME` (`solarlists.com`), `.nojekyll`, education routes (`about/`, `sources/`, `consult/`), and indexable city folders such as `dayton-oh/` and `dayton-oh/tpo-solar/`.
 
 ## GitHub Pages
 
@@ -90,13 +90,13 @@ Consults are for homeowners in CA, CO, FL, IL, IN, MA, MD, MI, MN, NC, NV, OH, O
 
 ## Pages
 
-- `/` — education home (NEPQ problem-finder questions + secondary consult CTA)
+- `/` — Ohio city directory plus education (NEPQ problem-finder questions + consult CTA). Links every live city hub and city × service page.
 - `/about/` — author, IC disclosure, A Team note, editorial standards
 - `/sources/` — cite-or-omit policy and last-reviewed date
 - `/consult/` — soft-close form to a professional solar consultant (SunPower IC)
 - `/privacy/`
 - `/request-sent/` (noindex)
-- Legacy city hubs and city × service URLs remain for the static build and old links. They are **noindex,nofollow**, omitted from the sitemap, and **not** 301’d. Later pass: remove the routes.
+- City hubs (`/dayton-oh/` and the other `*-oh` cities) and city × service URLs (`solar-installation`, `tpo-solar`, `solar-panels`) are **index,follow**, included in the sitemap, and written as local guides (unique copy, FAQs, internal links). They are not archive stubs and they are not 301’d.
 
 Brand copy, theme, and consult destinations live in `src/config/site.ts`.
 
@@ -114,9 +114,10 @@ Wave 1 does not publish dollar-per-watt figures, splits, or commissions. Cite or
 
 ## SEO
 
-- `sitemap.xml` and `robots.txt` are generated from the education routes. Legacy city × service URLs are omitted from the sitemap and marked `noindex,nofollow` on the page.
+- `sitemap.xml` lists the education routes plus every live city hub and city × service URL. City hubs use priority `0.8`; solar installation and TPO use `0.9`; solar panels use `0.7`. `/request-sent/` stays out of the sitemap and `noindex`.
+- City and service pages set `robots` to `index, follow`. Canonicals stay on the apex host with a trailing slash.
 - Sitemap `<loc>` values are slash-canonical, including the homepage (`https://solarlists.com/`). Do not revert to no-slash locs. GitHub Pages 301s the no-slash URL to the slash URL.
-- `robots.txt` `Sitemap:` points at that slash sitemap. `Host: solarlists.com` is optional (Bing leftover). Do not `Disallow` the leftover city URLs — crawlers need to see the noindex tag.
+- `robots.txt` `Sitemap:` points at that slash sitemap. `Host: solarlists.com` is optional (Bing leftover). Do not `Disallow` city URLs.
 - Homepage JSON-LD: `WebSite`, `Person` (a professional solar consultant), and `FAQPage` matching the visible homepage FAQs. No SearchAction. No A Team `LocalBusiness`.
 - IndexNow key file (this host only; public by design): [`57862ecf4b4f3c4df192ffaf4cffbf6e.txt`](https://solarlists.com/57862ecf4b4f3c4df192ffaf4cffbf6e.txt). After each GitHub Pages deploy, `.github/workflows/pages.yml` POSTs the sitemap locs to `https://api.indexnow.org/indexnow`. No Bing API secret and no secret env var.
 - Add `solarlists.com` in [Bing Webmaster Tools](https://www.bing.com/webmasters). Do not invent an `msvalidate.01` code — paste the real one into the HTML comment slot in `src/app/layout.tsx` when Bing issues it. Google HTML verification is already at `/googled3ae2edf58b5b2f8.html`.

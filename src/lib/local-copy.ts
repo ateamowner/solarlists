@@ -4,7 +4,7 @@ const copy: Record<string, string> = {
   "dayton-oh:solar-installation":
     "A Dayton purchase install starts with the roof you already have: bungalows and two-stories on tight lots, asphalt that has seen ice, and the occasional slate or tile on a historic block. AES Ohio interconnection is part of the written scope. We do not publish a Dayton-only price.",
   "dayton-oh:tpo-solar":
-    "TPO is the first path we offer many Dayton owners who want solar without a large loan. Third-party ownership can put an array on a suitable AES Ohio rooftop with $0 down. You use the power; the TPO provider owns the equipment. A Team Contracting still walks the roof and the bill first.",
+    "TPO is the first path we offer many Dayton owners who want solar without a large loan. Third-party ownership can put an array on a suitable AES Ohio rooftop with $0 down. You use the power; the TPO provider owns the equipment. A consult still starts with the roof and the bill.",
   "dayton-oh:solar-panels":
     "Panel layout in Dayton is about remaining shingle life, street-tree shade after leaf-out, and how a low winter sun hits a bungalow plane — not a list of invented brands. Historic-district slate is a pause, not a catalog upsell.",
 
@@ -25,7 +25,7 @@ const copy: Record<string, string> = {
   "centerville-oh:solar-installation":
     "Centerville colonials add roof facets that a Huber ranch does not have. A purchase install has to name which planes get modules, how flashing is protected through ice season, and how AES Ohio interconnection is filed. The historic core is a different access problem than Washington Township.",
   "centerville-oh:tpo-solar":
-    "A two-story Centerville colonial can still go TPO if the south or west planes are sound. You are not buying the array. $0-down does not skip an HOA check or a roof inspection before A Team sends a quote.",
+    "A two-story Centerville colonial can still go TPO if the south or west planes are sound. You are not buying the array. $0-down does not skip an HOA check or a roof inspection before a written consult.",
   "centerville-oh:solar-panels":
     "More facets mean we talk which planes are worth a string or microinverter layout. A north valley that holds ice is not a panel plane just because the house is large.",
 
@@ -74,7 +74,7 @@ const copy: Record<string, string> = {
   "tipp-city-oh:solar-installation":
     "Tipp City purchase jobs split between the historic downtown and later Miami County subdivisions north of Dayton. A written install still starts with remaining roof life, shade, and AES Ohio interconnection. We do not publish a Tipp-only price.",
   "tipp-city-oh:tpo-solar":
-    "Tipp City owners who want bill relief without a large loan can ask for TPO first. $0-down still needs a sound deck and the utility path on an AES Ohio bill. The TPO provider owns the system; A Team Contracting still walks the roof.",
+    "Tipp City owners who want bill relief without a large loan can ask for TPO first. $0-down still needs a sound deck and the utility path on an AES Ohio bill. The TPO provider owns the system; A consult still starts with the roof.",
   "tipp-city-oh:solar-panels":
     "Downtown Tipp lots can fight tighter setbacks and older planes; later subdivision roofs are often simpler rectangles. Panel layout follows shade, pitch, and winter sun — not a brand ranking we invented for Miami County.",
 
@@ -123,7 +123,7 @@ const copy: Record<string, string> = {
   "bellbrook-oh:solar-installation":
     "Bellbrook purchase jobs split between a historic Main Street pitch and later Sugarcreek-edge colonials. A written install still starts with remaining roof life, which planes get modules, and AES Ohio interconnection. We do not publish a Bellbrook-only price.",
   "bellbrook-oh:tpo-solar":
-    "A later Bellbrook colonial can still go TPO if the south or west planes are sound. You are not buying the array. $0-down does not skip an HOA check or a roof inspection before A Team sends a quote. Downtown stock is a different roof-first conversation.",
+    "A later Bellbrook colonial can still go TPO if the south or west planes are sound. You are not buying the array. $0-down does not skip an HOA check or a roof inspection before a written consult. Downtown stock is a different roof-first conversation.",
   "bellbrook-oh:solar-panels":
     "More facets on a township-edge colonial mean we talk which planes are worth a string or microinverter layout. A north valley that holds ice on Main Street is not a panel plane just because the house is in Greene County.",
 
@@ -151,7 +151,7 @@ const copy: Record<string, string> = {
   "brookville-oh:solar-installation":
     "Brookville purchase jobs split between a compact downtown pitch and later west-edge ranches along the US-35 / I-70 side. A written install still starts with remaining roof life, shade, and AES Ohio interconnection. We do not publish a Brookville-only price.",
   "brookville-oh:tpo-solar":
-    "Brookville owners who want bill relief without a large loan can ask for TPO first. $0-down still needs a sound deck and the utility path on an AES Ohio bill. The TPO provider owns the system; A Team Contracting still walks the roof.",
+    "Brookville owners who want bill relief without a large loan can ask for TPO first. $0-down still needs a sound deck and the utility path on an AES Ohio bill. The TPO provider owns the system; A consult still starts with the roof.",
   "brookville-oh:solar-panels":
     "Downtown Brookville lots can fight tighter setbacks and older planes; later west-edge roofs are often simpler rectangles. Panel layout follows shade, pitch, and winter sun — not a brand ranking we invented for west Montgomery County.",
 
@@ -172,7 +172,7 @@ const copy: Record<string, string> = {
   "columbus-oh:solar-installation":
     "A Columbus purchase install starts with the roof you already have: Clintonville bungalows, German Village brick, and two-stories on tight lots, plus asphalt that has seen ice and the occasional slate leftover. AEP Ohio interconnection is part of the written scope. We do not publish a Columbus-only price.",
   "columbus-oh:tpo-solar":
-    "TPO is the first path we offer many Columbus owners who want solar without a large loan. Third-party ownership can put an array on a suitable AEP Ohio rooftop with $0 down. You use the power; the TPO provider owns the equipment. A Team Contracting still walks the roof and the bill first.",
+    "TPO is the first path we offer many Columbus owners who want solar without a large loan. Third-party ownership can put an array on a suitable AEP Ohio rooftop with $0 down. You use the power; the TPO provider owns the equipment. A consult still starts with the roof and the bill.",
   "columbus-oh:solar-panels":
     "Panel layout in Columbus is about remaining shingle life, street-tree shade after leaf-out, and how a low winter sun hits a bungalow plane — not a list of invented brands. Historic-district slate is a pause, not a catalog upsell.",
 
@@ -207,14 +207,14 @@ const copy: Record<string, string> = {
   "hilliard-oh:solar-installation":
     "Hilliard purchase jobs mix later I-270-edge colonials with Old Hilliard’s tighter core. A written install still starts with remaining roof life, HOA rules, and AEP Ohio interconnection. We do not invent a Hilliard survey price.",
   "hilliard-oh:tpo-solar":
-    "A later Hilliard colonial can still go TPO if the south or west planes are sound. You are not buying the array. $0-down does not skip an HOA check or a roof inspection before A Team sends a quote. Old Hilliard is a different roof-first conversation.",
+    "A later Hilliard colonial can still go TPO if the south or west planes are sound. You are not buying the array. $0-down does not skip an HOA check or a roof inspection before a written consult. Old Hilliard is a different roof-first conversation.",
   "hilliard-oh:solar-panels":
     "Open west-side lots tend to fight fewer street trees than Upper Arlington. Panel layout here is usually orientation, inverter type, and whether an HOA limits visible planes — not a village-green shade problem.",
 
   "gahanna-oh:solar-installation":
     "Gahanna purchase jobs split between a Creekside older pitch and later I-270-edge colonials. A written install still starts with remaining roof life, which planes get modules, and AEP Ohio interconnection. We do not publish a Gahanna-only price.",
   "gahanna-oh:tpo-solar":
-    "A later Gahanna colonial can still go TPO if the south or west planes are sound. $0-down still needs a sound deck and the utility path on an AEP Ohio bill. The TPO provider owns the system; A Team Contracting still walks the roof.",
+    "A later Gahanna colonial can still go TPO if the south or west planes are sound. $0-down still needs a sound deck and the utility path on an AEP Ohio bill. The TPO provider owns the system; A consult still starts with the roof.",
   "gahanna-oh:solar-panels":
     "Creek-adjacent lots can fight tighter setbacks and older planes; later I-270-edge roofs are often simpler rectangles. Panel layout follows shade, pitch, and winter sun — not a brand ranking we invented for northeast Franklin County.",
 
@@ -256,7 +256,7 @@ const copy: Record<string, string> = {
   "cincinnati-oh:solar-installation":
     "A Cincinnati purchase install starts with the roof you already have: hillside Italianates, brick two-stories, and asphalt that has seen ice, plus the occasional slate or tile on a historic block. Duke Energy Ohio interconnection is part of the written scope. We do not publish a Cincinnati-only price.",
   "cincinnati-oh:tpo-solar":
-    "TPO is the first path we offer many Cincinnati owners who want solar without a large loan. Third-party ownership can put an array on a suitable Duke Energy rooftop with $0 down. You use the power; the TPO provider owns the equipment. A Team Contracting still walks the roof and the bill first.",
+    "TPO is the first path we offer many Cincinnati owners who want solar without a large loan. Third-party ownership can put an array on a suitable Duke Energy rooftop with $0 down. You use the power; the TPO provider owns the equipment. A consult still starts with the roof and the bill.",
   "cincinnati-oh:solar-panels":
     "Panel layout in Cincinnati is about remaining shingle life, hillside orientation, and how a low winter sun hits a north slope — not a list of invented brands. Historic-district slate is a pause, not a catalog upsell.",
 
@@ -312,14 +312,14 @@ const copy: Record<string, string> = {
   "montgomery-oh:solar-installation":
     "Montgomery purchase jobs split between a historic downtown pitch and later I-275-edge colonials. A written install still starts with remaining roof life, which planes get modules, and Duke Energy Ohio interconnection. We do not publish a Montgomery-only price.",
   "montgomery-oh:tpo-solar":
-    "A later Montgomery colonial can still go TPO if the south or west planes are sound. You are not buying the array. $0-down does not skip an HOA check or a roof inspection before A Team sends a quote. Downtown stock is a different roof-first conversation.",
+    "A later Montgomery colonial can still go TPO if the south or west planes are sound. You are not buying the array. $0-down does not skip an HOA check or a roof inspection before a written consult. Downtown stock is a different roof-first conversation.",
   "montgomery-oh:solar-panels":
     "More facets on a later colonial mean we talk which planes are worth a string or microinverter layout. A north valley that holds ice downtown is not a panel plane just because the house is in northeast Hamilton County.",
 
   "milford-oh:solar-installation":
     "Milford purchase jobs split between a compact Little Miami downtown pitch and later Clermont-edge ranches. A written install still starts with remaining roof life, shade, and Duke Energy Ohio interconnection. We do not publish a Milford-only price.",
   "milford-oh:tpo-solar":
-    "Milford owners who want bill relief without a large loan can ask for TPO first. $0-down still needs a sound deck and the utility path on a Duke Energy bill. The TPO provider owns the system; A Team Contracting still walks the roof.",
+    "Milford owners who want bill relief without a large loan can ask for TPO first. $0-down still needs a sound deck and the utility path on a Duke Energy bill. The TPO provider owns the system; A consult still starts with the roof.",
   "milford-oh:solar-panels":
     "Downtown Milford lots can fight tighter setbacks and older planes; later edge roofs are often simpler rectangles. Panel layout follows shade, pitch, and winter sun — not a brand ranking we invented for Clermont County.",
 

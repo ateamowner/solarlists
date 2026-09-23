@@ -21,10 +21,11 @@ export default function AboutPage() {
         Last reviewed {site.lastReviewedLabel}.
       </p>
       <p className="type-prose mt-6">
-        {site.name} is a national education site for homeowners researching
-        solar. {site.authorFormal} writes it from {site.authorLocation}. The aim is
-        calmer questions and cited facts — not a quote marketplace and not a
-        product pitch in the headline.
+        {site.name} publishes Ohio city guides for homeowners researching solar,
+        plus the education pages on how ownership works. {site.authorFormal}{" "}
+        writes it from {site.authorLocation}. The aim is a real page for each
+        city and cited facts — not a quote marketplace and not a product pitch
+        in the headline.
       </p>
 
       <h2 className="type-h2 mt-10">Who writes this</h2>
@@ -44,9 +45,12 @@ export default function AboutPage() {
       </p>
       <p className="type-prose mt-3">
         A Team Contracting is a separate exterior-cleaning business. It is not
-        this site, and it is not the product SolarLists sells. Older local URLs
-        from an earlier version of the domain are kept so they do not 404; they
-        are noindexed and will be removed later.
+        this site. Ohio city hubs and city × service pages are published again
+        so they can be crawled and indexed. Start from the{" "}
+        <Link href="/#cities" className="underline underline-offset-2">
+          city guides on the homepage
+        </Link>
+        .
       </p>
 
       <h2 className="type-h2 mt-10">Editorial standards</h2>
