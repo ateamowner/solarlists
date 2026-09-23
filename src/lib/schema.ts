@@ -1,4 +1,11 @@
-import { canonicalUrl, site } from "@/config/site";
+import {
+  canonicalUrl,
+  cityPath,
+  servicePath,
+  site,
+  type City,
+  type Service,
+} from "@/config/site";
 import type { Faq } from "@/lib/editorial";
 
 export function personSchema() {
@@ -45,6 +52,44 @@ export function faqPageSchema(faqs: Faq[]) {
       },
     })),
   };
+}
+
+/** City pages. No street address — public contact only. */
+export function publisherLocalBusiness(city: City) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: site.legalName,
+    alternateName: site.name,
+    description: `${site.name} publishes residential solar guides for ${city.name} and collects consult requests for ${site.operator}.`,
+    url: canonicalUrl("/"),
+    email: site.email,
+    telephone: site.phoneTel,
+    areaServed: {
+      "@type": "City",
+      name: city.name,
+      containedInPlace: {
+        "@type": "State",
+        name: city.state,
+      },
+    },
+    knowsAbout: ["Residential solar", "TPO solar", "Solar installation"],
+  };
+}
+
+export function servicePageBreadcrumbs(city: City, service: Service) {
+  return breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: `${city.name}, ${city.stateAbbr}`, path: cityPath(city) },
+    { name: service.name, path: servicePath(city, service) },
+  ]);
+}
+
+export function hubBreadcrumbs(city: City) {
+  return breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: `${city.name}, ${city.stateAbbr}`, path: cityPath(city) },
+  ]);
 }
 
 export function breadcrumbSchema(items: { name: string; path: string }[]) {

@@ -12,11 +12,11 @@ import type { Faq } from "@/lib/editorial";
 export type { Faq };
 
 export function introParagraphs(city: City, service: Service): string[] {
-  const disclosure = `${site.disclosure} Every quote on this page goes to ${site.operator} at ${site.leadsEmail}.`;
+  const disclosure = `Consult requests on this page go to ${site.operator} at ${site.leadsEmail}.`;
   const tpoLead =
     service.slug === "tpo-solar"
       ? `${city.name} homeowners can ask for third-party ownership first: $0 down, no huge loan, and a written explanation of who owns the system.`
-      : `A Team Contracting now offers third-party ownership (TPO) so ${city.name} homeowners can go solar without a large loan, plus a standard purchase quote if you would rather own the array.`;
+      : `A consult can cover third-party ownership (TPO) so ${city.name} homeowners can go solar without a large loan, plus a standard purchase quote if you would rather own the array.`;
 
   return [uniqueLocalCopy(city, service), tpoLead, city.setting, disclosure];
 }
@@ -26,8 +26,8 @@ export function hubIntro(city: City): string[] {
     `This is the ${city.name}, ${city.stateAbbr} hub on ${site.name}. From here you can open solar installation, TPO solar, and solar panel pages — each with its own quote form.`,
     city.setting,
     `${city.housing} ${city.roofs} ${city.winter}`,
-    `A Team Contracting leads with TPO / $0-down when a ${city.name} roof and ${city.utility} bill qualify, and still quotes a purchase path if you want to own the system.`,
-    site.disclosure,
+    `A consult leads with TPO / $0-down when a ${city.name} roof and ${city.utility} bill qualify, and still covers a purchase path if you want to own the system.`,
+    `Consult requests go to ${site.operator} at ${site.leadsEmail}.`,
   ];
 }
 
@@ -94,7 +94,7 @@ export function faqs(city: City, service: Service): Faq[] {
     return [
       {
         question: `What is TPO solar in ${city.name}?`,
-        answer: `Third-party ownership. A provider owns the system on your ${city.name} roof. You can go solar with $0 down and without a large loan. A Team Contracting quotes that path for ${site.name}. We are not a utility.`,
+        answer: `Third-party ownership. A provider owns the system on your ${city.name} roof. You can go solar with $0 down and without a large loan. That path is what a ${site.name} consult can cover. We are not a utility.`,
       },
       {
         question: `Who owns the solar system if I choose TPO?`,
@@ -125,7 +125,7 @@ export function faqs(city: City, service: Service): Faq[] {
     return [
       {
         question: `Which solar panels does ${site.name} recommend in ${city.name}?`,
-        answer: `We do not publish a brand ranking or invented product names. Panel choice follows roof type, shade, and warranty — ${city.roofs} A Team Contracting will talk equipment on the callback, not in a fake shop page.`,
+        answer: `We do not publish a brand ranking or invented product names. Panel choice follows roof type, shade, and warranty — ${city.roofs} Equipment is discussed on the consult, not in a fake shop page.`,
       },
       {
         question: `Can ${city.name} roofs take panels through an Ohio winter?`,
@@ -137,7 +137,7 @@ export function faqs(city: City, service: Service): Faq[] {
       },
       {
         question: `Is this a marketplace of installers?`,
-        answer: `No. ${site.disclosure} There is no installer directory on this page and no For Pros listing for other solar companies.`,
+        answer: `No. This page is a ${city.name} guide with a consult form. It is not a utility site and not a marketplace of other solar companies.`,
       },
       {
         question:
@@ -155,7 +155,7 @@ export function faqs(city: City, service: Service): Faq[] {
   return [
     {
       question: `Is ${site.name} a solar installer in ${city.name}?`,
-      answer: `This site collects quote requests for ${site.operator}. We are not a utility and not a national marketplace. A Team Contracting follows up on ${city.name} requests sent through this form.`,
+      answer: `This site collects consult requests for ${site.operator}. We are not a utility and not a national marketplace. ${site.authorFormal} follows up on ${city.name} requests sent through this form.`,
     },
     {
       question: `What does solar installation cost in ${city.name}?`,
@@ -193,11 +193,11 @@ export function hubFaqs(city: City): Faq[] {
     },
     {
       question: `Who receives a ${city.name} quote request?`,
-      answer: `${site.authorFormal}. Leads go to ${site.leadsEmail}. ${site.disclosure}`,
+      answer: `${site.authorFormal}. Consult requests go to ${site.leadsEmail}.`,
     },
     {
       question: `Can ${city.name} homeowners go solar without a large loan?`,
-      answer: `Yes. A Team Contracting offers third-party ownership (TPO) so you can go solar with $0 down and without a huge loan. You can also request a standard purchase quote.`,
+      answer: `Yes. A consult can cover third-party ownership (TPO) so you can go solar with $0 down and without a huge loan. You can also request a standard purchase quote.`,
     },
     {
       question: `What utility serves ${city.name}?`,

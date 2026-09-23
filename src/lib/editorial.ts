@@ -45,7 +45,7 @@ export function homeFaqs(): Faq[] {
     {
       question: "Is SolarLists a solar company?",
       answer:
-        "SolarLists is an education site. It is not a utility, not a contractor marketplace, and not SunPower.com. Optional consults, when they happen, are with a professional solar consultant.",
+        "SolarLists publishes Ohio city guides for solar installation, TPO, and panels, plus education on how ownership works. It is not a utility, not a contractor marketplace, and not SunPower.com. Optional consults, when they happen, are with a professional solar consultant.",
     },
     {
       question: "Who writes this site?",
@@ -64,7 +64,7 @@ export function homeFaqs(): Faq[] {
     {
       question: "Is this A Team Contracting?",
       answer:
-        "No. A Team Contracting is a separate exterior-cleaning business and is not this site. SolarLists is education first.",
+        "No. A Team Contracting is a separate exterior-cleaning business and is not this site. SolarLists publishes the Ohio city guides and the education pages on this domain.",
     },
   ];
 }

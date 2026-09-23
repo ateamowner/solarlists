@@ -262,7 +262,7 @@ const replies: Record<string, Omit<ScriptedReply, "chips">> = {
   identity: {
     topicId: "identity",
     links: [{ href: "/about/", label: "About" }],
-    text: "SolarLists is an education site. It is not SunPower.com and not A Team Contracting. A Team is a separate exterior-cleaning business. Optional consults, when they happen, are with a professional solar consultant.\n\nWhat did you want to understand first — the bill, the roof, or a claim you already heard?",
+    text: "SolarLists publishes Ohio city guides and solar education. It is not SunPower.com and not A Team Contracting. A Team is a separate exterior-cleaning business. Optional consults, when they happen, are with a professional solar consultant.\n\nWhat did you want to understand first — the bill, the roof, or a claim you already heard?",
   },
 };
 
