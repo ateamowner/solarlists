@@ -7,8 +7,11 @@ import { FaqList } from "@/components/faq-list";
 import { HowToChoose } from "@/components/how-to-choose";
 import {
   NearbyCityLinks,
+  NearbyCityHubs,
+  RegionHubLinks,
   RelatedServiceLinks,
 } from "@/components/internal-links";
+import { LocalFactsBlock } from "@/components/local-facts";
 import { JsonLd } from "@/components/json-ld";
 import { EmptyListingsNote } from "@/components/empty-listings";
 import { TrustStrip } from "@/components/trust-strip";
@@ -139,9 +142,12 @@ export default async function ServicePage({
           <TrustStrip className="mt-8" />
           <HowToChoose content={choose} />
           <CostGuide content={cost} />
+          <LocalFactsBlock city={city} />
           <FaqList faqs={questions} />
           <RelatedServiceLinks city={city} current={service} />
           <NearbyCityLinks city={city} serviceSlug={service.slug} />
+          <NearbyCityHubs city={city} />
+          <RegionHubLinks city={city} />
         </div>
       </div>
     </article>

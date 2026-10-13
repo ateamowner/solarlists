@@ -1,7 +1,7 @@
+import { localFaqs } from "@/lib/local-facts";
 import {
   costGuide,
   getNearbyCities,
-  lockedH1,
   site,
   type City,
   type Service,
@@ -183,6 +183,10 @@ export function faqs(city: City, service: Service): Faq[] {
 }
 
 export function hubFaqs(city: City): Faq[] {
+  return [...localFaqs(city), ...baseHubFaqs(city)];
+}
+
+function baseHubFaqs(city: City): Faq[] {
   const nearby = getNearbyCities(city);
   const nearbyNames = nearby.map((item) => item.name);
 
@@ -217,7 +221,7 @@ export function hubFaqs(city: City): Faq[] {
 }
 
 export function metaDescription(city: City, service: Service): string {
-  return `${lockedH1(service, city)}. Residential solar quotes for ${site.operator} in ${city.name}. TPO / $0-down or purchase. Not a utility or marketplace.`;
+  return `Homeowner guide to ${service.name.toLowerCase()} in ${city.name}, ${city.stateAbbr}: roof, utility, and net-metering questions to ask first. TPO / $0-down or purchase consults. No rankings, not a utility.`;
 }
 
 function joinAnd(names: string[]): string {

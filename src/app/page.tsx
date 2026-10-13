@@ -12,6 +12,7 @@ import {
   servicePath,
   services,
   site,
+  guideLabel,
 } from "@/config/site";
 import { homeFaqs } from "@/lib/editorial";
 import { faqPageSchema, personSchema, webSiteSchema } from "@/lib/schema";
@@ -120,7 +121,7 @@ export default function HomePage() {
                           href={servicePath(city, service)}
                           className="font-medium underline underline-offset-2"
                         >
-                          Best {service.name} in {city.name} — {site.year}
+                          {guideLabel(service, city)}
                         </Link>
                       </li>
                     ))}

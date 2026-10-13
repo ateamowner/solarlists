@@ -1596,17 +1596,23 @@ export function servicePath(
   return `/${citySlug}/${serviceSlug}/`;
 }
 
+/** Honest guide wording: no rankings, no year-as-freshness. */
 export function lockedH1(service: Service, city: City): string {
-  return `Best ${service.name} in ${city.name} — ${site.year}`;
+  return `${service.name} in ${city.name}, ${city.stateAbbr}: Homeowner Guide`;
+}
+
+/** Short link label for cards and link lists. */
+export function guideLabel(service: Service, city: City): string {
+  return `${service.name} in ${city.name}: homeowner guide`;
 }
 
 /** Title tag matches the H1 when it fits in 60 characters. */
 export function pageTitle(service: Service, city: City): string {
   const locked = lockedH1(service, city);
   if (locked.length <= 60) return locked;
-  const withoutYear = `Best ${service.name} in ${city.name}`;
-  if (withoutYear.length <= 60) return withoutYear;
-  return `${service.name} in ${city.name} — ${site.year}`;
+  const shorter = `${service.name} in ${city.name}, ${city.stateAbbr}: Guide`;
+  if (shorter.length <= 60) return shorter;
+  return `${service.name} in ${city.name}, ${city.stateAbbr}`;
 }
 
 export const costGuide = {

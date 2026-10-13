@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { TopCityHubs } from "@/components/internal-links";
 import Link from "next/link";
 import { ConsultForm } from "@/components/consult-form";
 import { FaqList } from "@/components/faq-list";
@@ -191,6 +192,7 @@ export default function ConsultPage() {
           <FaqList faqs={questions} />
         </div>
       </div>
+      <div className="mx-auto max-w-6xl px-4 sm:px-6"><TopCityHubs /></div>
     </div>
   );
 }
