@@ -4,7 +4,8 @@ import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { ConsultForm } from "@/components/consult-form";
 import { FaqList } from "@/components/faq-list";
-import { NearbyCityLinks } from "@/components/internal-links";
+import { NearbyCityHubs, NearbyCityLinks, RegionHubLinks } from "@/components/internal-links";
+import { LocalFactsBlock } from "@/components/local-facts";
 import { JsonLd } from "@/components/json-ld";
 import { EmptyListingsNote } from "@/components/empty-listings";
 import { TrustStrip } from "@/components/trust-strip";
@@ -17,6 +18,7 @@ import {
   servicePath,
   services,
   site,
+  guideLabel,
 } from "@/config/site";
 import { hubFaqs, hubIntro } from "@/lib/content";
 import {
@@ -124,7 +126,7 @@ export default async function CityHubPage({
                   className="block rounded-lg border border-border bg-card px-4 py-3 hover:border-primary"
                 >
                   <span className="font-medium">
-                    Best {service.name} in {city.name} — {site.year}
+                    {guideLabel(service, city)}
                   </span>
                   <span className="mt-1 block text-sm text-muted-foreground">
                     {service.blurb}
@@ -134,11 +136,14 @@ export default async function CityHubPage({
             ))}
           </ul>
 
+          <LocalFactsBlock city={city} />
           <FaqList faqs={questions} />
+          <NearbyCityHubs city={city} />
           <NearbyCityLinks
             city={city}
             serviceSlug={tpo?.slug ?? "solar-installation"}
           />
+          <RegionHubLinks city={city} />
           <p className="mt-8 text-sm">
             <Link href="/#cities" className="underline underline-offset-2">
               All Ohio city guides

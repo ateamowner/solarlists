@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { TopCityHubs } from "@/components/internal-links";
 import Link from "next/link";
 import { FaqList } from "@/components/faq-list";
 import { JsonLd } from "@/components/json-ld";
@@ -181,6 +182,7 @@ export default function SourcesPage() {
           Book a consult
         </Link>
       </p>
+      <TopCityHubs />
     </article>
   );
 }
