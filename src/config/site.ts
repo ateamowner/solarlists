@@ -20,7 +20,7 @@ export const site = {
   phoneTel: "+19377779093",
   contactReady: true,
   /** Native HTML POST to Formsubmit. No fetch/XHR, no API key. */
-  formAction: "https://formsubmit.co/Anthony.Leonard.brs@sunpower.com",
+  formAction: "https://formsubmit.co/owner@ateamcontractings.com",
   formRedirect: "https://solarlists.com/request-sent/",
   tagline: "Ohio city guides and clear solar education for homeowners.",
   year: 2026,

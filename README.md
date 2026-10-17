@@ -81,7 +81,7 @@ Optional IPv6 (GitHub Pages AAAA), if you want them:
 Copy `.env.example`:
 
 - `NEXT_PUBLIC_SITE_URL=https://solarlists.com`
-- Consult inbox: `Anthony.Leonard.brs@sunpower.com`
+- Consult inbox: `owner@ateamcontractings.com`
 - Call/text: `(937) 777-9093` (`tel:+19377779093`)
 
 The consult form is a **native HTML POST** to Formsubmit at that inbox. Hidden `_next` redirects to `https://solarlists.com/request-sent/`. Submit is enabled for the listed IC markets only. The optional SMS checkbox is unchecked by default and is not required. Formsubmit always receives `sms_opt_in` as `Yes` or `No`. Do not point the form at an A Team inbox. Never use `treelist@agentmail.to`. Never invent a Web3Forms, Formspree, or other backend key.
