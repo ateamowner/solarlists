@@ -128,7 +128,7 @@ export default async function ServicePage({
 
         <aside className="md:col-start-2 md:row-span-2 md:sticky md:top-24 md:self-start">
           <h2 className="mb-3 font-heading text-lg font-semibold">
-            Consult for {service.name} in {city.name}
+            {`Consult for ${service.name} in ${city.name}`}
           </h2>
           <ConsultForm />
         </aside>
