@@ -1607,6 +1607,16 @@ export function guideLabel(service: Service, city: City): string {
 }
 
 /** Title tag matches the H1 when it fits in 60 characters. */
+/** City hub title: descriptive and keeps "Best" (Anthony 10/16). Falls back to shorter forms for long city names. */
+export function hubTitle(city: City): string {
+  const options = [
+    `Solar Companies in ${city.name}, ${city.stateAbbr}: 2026 Costs, Incentives & Guide`,
+    `Solar Companies in ${city.name}, ${city.stateAbbr}: 2026 Costs & Incentives`,
+    `Solar Companies in ${city.name}, ${city.stateAbbr}: Costs & Incentives`,
+  ];
+  return options.find((title) => title.length <= 65) ?? `Solar Companies in ${city.name}, ${city.stateAbbr}: Homeowner Guide`;
+}
+
 export function pageTitle(service: Service, city: City): string {
   const locked = lockedH1(service, city);
   if (locked.length <= 60) return locked;

@@ -13,12 +13,17 @@ import {
   consultIsIsnt,
 } from "@/lib/editorial";
 import { faqPageSchema } from "@/lib/schema";
+import { shareMeta } from "@/lib/share-meta";
+
+const title = `Request a Solar Consult in Ohio — ${site.name}`;
+const description =
+  "What a SolarLists consult is and is not: a conversation with a professional solar consultant, not three bids and not a ZIP wizard. What to have ready, how eligibility works, and what happens after you request.";
 
 export const metadata: Metadata = {
-  title: `Consult — ${site.name}`,
-  description:
-    "What a SolarLists consult is and is not: a conversation with a professional solar consultant, not three bids and not a ZIP wizard. What to have ready, how eligibility works, and what happens after you request.",
+  title,
+  description,
   alternates: { canonical: "/consult/" },
+  ...shareMeta(title, description, "/consult/"),
 };
 
 export default function ConsultPage() {
