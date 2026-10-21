@@ -4,7 +4,7 @@ import { PhoneLink } from "@/components/phone-link";
 import { site } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: `Request sent — ${site.name}`,
+  title: `Request sent, ${site.name}`,
   robots: { index: false, follow: false },
 };
 
@@ -16,7 +16,7 @@ export default function RequestSentPage() {
       </h1>
       <p className="mt-4 leading-7 text-muted-foreground">
         Your consult request went to {site.author} at {site.email}. Expect a
-        call, text, or email — not a utility callback and not a marketplace of
+        call, text, or email, not a utility callback and not a marketplace of
         other companies.
       </p>
       <p className="mt-6 leading-7">

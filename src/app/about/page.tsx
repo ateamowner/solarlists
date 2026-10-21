@@ -31,7 +31,7 @@ export default function AboutPage() {
         {site.name} publishes Ohio city guides for homeowners researching solar,
         plus the education pages on how ownership works. {site.authorFormal}{" "}
         writes it from {site.authorLocation}. The aim is a real page for each
-        city and cited facts — not a quote marketplace and not a product pitch
+        city and cited facts, not a quote marketplace and not a product pitch
         in the headline.
       </p>
 
@@ -46,7 +46,7 @@ export default function AboutPage() {
       <Disclosure className="mt-3" />
       <p className="type-prose mt-3">
         When a consult happens, it is with {site.author} in an independent
-        contractor capacity — a conversation about your situation, not a
+        contractor capacity, a conversation about your situation, not a
         SunPower.com storefront and not a claim that this site is the
         manufacturer.
       </p>

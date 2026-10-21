@@ -1,0 +1,13 @@
+# SolarLists
+
+> SolarLists (solarlists.com) publishes Ohio homeowner solar guides for Dayton, Columbus, Cincinnati and nearby cities, written by a professional solar consultant based in Tipp City, Ohio. It explains buying a system versus third-party ownership (TPO / $0 down), utility net metering (AES Ohio, Duke Energy Ohio, AEP Ohio) and roof and shade checks. Homeowners can request a no-pressure consult; requests go to the consultant directly (call or text (937) 777-9093). SolarLists does not invent installer names, savings figures or prices.
+
+## Key pages
+- [Solar consult](https://solarlists.com/consult/)
+- [Solar in Dayton, OH](https://solarlists.com/dayton-oh/)
+- [Solar panels in Dayton](https://solarlists.com/dayton-oh/solar-panels/)
+- [TPO / $0-down solar in Dayton](https://solarlists.com/dayton-oh/tpo-solar/)
+- [Solar installation in Dayton](https://solarlists.com/dayton-oh/solar-installation/)
+- [Solar in Columbus, OH](https://solarlists.com/columbus-oh/)
+- [Solar in Cincinnati, OH](https://solarlists.com/cincinnati-oh/)
+- [Sources](https://solarlists.com/sources/)

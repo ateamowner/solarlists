@@ -23,7 +23,7 @@ export function introParagraphs(city: City, service: Service): string[] {
 
 export function hubIntro(city: City): string[] {
   return [
-    `This is the ${city.name}, ${city.stateAbbr} hub on ${site.name}. From here you can open solar installation, TPO solar, and solar panel pages — each with its own quote form.`,
+    `This is the ${city.name}, ${city.stateAbbr} hub on ${site.name}. From here you can open solar installation, TPO solar, and solar panel pages, each with its own quote form.`,
     city.setting,
     `${city.housing} ${city.roofs} ${city.winter}`,
     `A consult leads with TPO / $0-down when a ${city.name} roof and ${city.utility} bill qualify, and still covers a purchase path if you want to own the system.`,
@@ -39,7 +39,7 @@ export function howToChoose(
   items: { title: string; body: string }[];
 } {
   return {
-    lead: `How to choose a ${service.name.toLowerCase()} path in ${city.name} — the same checks apply whether you want TPO or a purchase.`,
+    lead: `How to choose a ${service.name.toLowerCase()} path in ${city.name}, the same checks apply whether you want TPO or a purchase.`,
     items: [
       {
         title: "Roof condition",
@@ -102,7 +102,7 @@ export function faqs(city: City, service: Service): Faq[] {
       },
       {
         question: `Does TPO still need my ${city.utility} bill?`,
-        answer: `Yes. Interconnection and bill savings still run through the utility printed on your statement — ${city.utility} for most ${city.name} homes. TPO does not replace the utility.`,
+        answer: `Yes. Interconnection and bill savings still run through the utility printed on your statement, ${city.utility} for most ${city.name} homes. TPO does not replace the utility.`,
       },
       {
         question: `What does solar cost in ${city.name}?`,
@@ -125,7 +125,7 @@ export function faqs(city: City, service: Service): Faq[] {
     return [
       {
         question: `Which solar panels does ${site.name} recommend in ${city.name}?`,
-        answer: `We do not publish a brand ranking or invented product names. Panel choice follows roof type, shade, and warranty — ${city.roofs} Equipment is discussed on the consult, not in a fake shop page.`,
+        answer: `We do not publish a brand ranking or invented product names. Panel choice follows roof type, shade, and warranty, ${city.roofs} Equipment is discussed on the consult, not in a fake shop page.`,
       },
       {
         question: `Can ${city.name} roofs take panels through an Ohio winter?`,
@@ -146,7 +146,7 @@ export function faqs(city: City, service: Service): Faq[] {
             : `Which towns near ${city.name} have their own ${site.name} pages?`,
         answer:
           nearbyNames.length > 0
-            ? `Yes — ${joinAnd(nearbyNames)} each have their own ${site.name} URLs and forms.`
+            ? `Yes, ${joinAnd(nearbyNames)} each have their own ${site.name} URLs and forms.`
             : `Send the form with your ZIP if your town is not listed.`,
       },
     ];
@@ -167,7 +167,7 @@ export function faqs(city: City, service: Service): Faq[] {
     },
     {
       question: `Can I go solar in ${city.name} without a large loan?`,
-      answer: `Yes — ask for TPO. Third-party ownership is a first-class option on ${site.name}: $0 down, no huge loan, provider-owned system. You can also request a purchase quote on the same form.`,
+      answer: `Yes, ask for TPO. Third-party ownership is a first-class option on ${site.name}: $0 down, no huge loan, provider-owned system. You can also request a purchase quote on the same form.`,
     },
     {
       question:
@@ -176,7 +176,7 @@ export function faqs(city: City, service: Service): Faq[] {
           : `Which towns near ${city.name} have their own ${site.name} pages?`,
       answer:
         nearbyNames.length > 0
-          ? `Yes — we keep a separate URL for nearby cities so you can open a real page. From ${city.name} that includes ${joinAnd(nearbyNames)}. Each of those pages has its own quote form.`
+          ? `Yes, we keep a separate URL for nearby cities so you can open a real page. From ${city.name} that includes ${joinAnd(nearbyNames)}. Each of those pages has its own quote form.`
           : `We publish one URL per city. If you do not see your town, send the form with your ZIP.`,
     },
   ];
@@ -193,7 +193,7 @@ function baseHubFaqs(city: City): Faq[] {
   return [
     {
       question: `What is the ${city.name} ${site.name} hub?`,
-      answer: `This is the city index for residential solar pages — installation, TPO solar, and solar panels. It is not a utility site and not a national marketplace.`,
+      answer: `This is the city index for residential solar pages, installation, TPO solar, and solar panels. It is not a utility site and not a national marketplace.`,
     },
     {
       question: `Who receives a ${city.name} quote request?`,

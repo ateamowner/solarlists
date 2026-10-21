@@ -8,12 +8,12 @@ export type NepqItem = {
   why: string;
 };
 
-/** Problem-finder questions for the homepage. Educator first — not a ZIP wizard. */
+/** Problem-finder questions for the homepage. Educator first, not a ZIP wizard. */
 export const nepqItems: NepqItem[] = [
   {
     id: "bill",
     question:
-      "What is actually going on with your electric bill — and is that the real reason you started looking?",
+      "What is actually going on with your electric bill, and is that the real reason you started looking?",
     why: "A high month, a rate change, or a neighbor’s story can all send someone to solar. Those are different problems. Naming the one you have keeps the rest of the research honest.",
   },
   {
@@ -117,12 +117,12 @@ export const editorialRules = [
   {
     id: "homeowner-read",
     title: "What that means if you are reading this as a homeowner",
-    body: "If you see a figure here, we can show you where it was published. If you do not see a figure — a city price, a guaranteed savings line, a “before winter” install clock — it is because we would have to invent it. The only local price that matters is a written number from a walk of your own roof. Until then, this site would rather help you name the bill, the roof, and the claim you do not trust yet.",
+    body: "If you see a figure here, we can show you where it was published. If you do not see a figure, a city price, a guaranteed savings line, a “before winter” install clock, it is because we would have to invent it. The only local price that matters is a written number from a walk of your own roof. Until then, this site would rather help you name the bill, the roof, and the claim you do not trust yet.",
   },
   {
     id: "last-reviewed",
     title: "How we date-stamp a page",
-    body: `Education pages show a last-reviewed date in plain language. The date on this site is ${site.lastReviewedLabel}. That is when we last checked the visible copy against these rules — not a promise that the page is “updated daily,” and not a countdown. If a page is wrong, we correct it and move the stamp. We do not invent a freshness score or a traffic stat to dress the date up.`,
+    body: `Education pages show a last-reviewed date in plain language. The date on this site is ${site.lastReviewedLabel}. That is when we last checked the visible copy against these rules, not a promise that the page is “updated daily,” and not a countdown. If a page is wrong, we correct it and move the stamp. We do not invent a freshness score or a traffic stat to dress the date up.`,
   },
   {
     id: "markets",
@@ -132,12 +132,12 @@ export const editorialRules = [
   {
     id: "no-theater",
     title: "No urgency theater",
-    body: "We do not invent scarcity, countdown clocks, “spots left,” or award-style headlines. Those lines are a pitch, not a source. If a page needs a date, it gets a last-reviewed stamp. If a next step might help, we link quietly to a consult — after you have had room to think.",
+    body: "We do not invent scarcity, countdown clocks, “spots left,” or award-style headlines. Those lines are a pitch, not a source. If a page needs a date, it gets a last-reviewed stamp. If a next step might help, we link quietly to a consult, after you have had room to think.",
   },
   {
     id: "inherits",
     title: "Chat and consult inherit the same rules",
-    body: "Ask about solar is a scripted education chat, not a closer. When it does not have a sourced answer — especially a number — it sends you here instead of inventing one. A consult is a conversation about your situation. Neither surface gets to publish a savings claim, a city price, a warranty length, or an install timeline that this page would omit.",
+    body: "Ask about solar is a scripted education chat, not a closer. When it does not have a sourced answer, especially a number, it sends you here instead of inventing one. A consult is a conversation about your situation. Neither surface gets to publish a savings claim, a city price, a warranty length, or an install timeline that this page would omit.",
   },
 ] as const;
 
@@ -165,10 +165,10 @@ export const neverClaimItems = [
 ] as const;
 
 export const sourcesChatLead =
-  "Ask about solar — the chat on every education page — uses this page as the brake. It is there to help you name the bill, the roof, or a claim you already heard. It is not there to invent a figure the rest of the site would refuse to print.";
+  "Ask about solar, the chat on every education page, uses this page as the brake. It is there to help you name the bill, the roof, or a claim you already heard. It is not there to invent a figure the rest of the site would refuse to print.";
 
 export const sourcesChatBody =
-  "If you ask for a savings number, a city price, a warranty length, or an install clock, the chat points here instead of guessing. Soft-close to a consult only appears after a couple of understanding turns, and only as an optional conversation — never as three bids. Eligibility still lives on the consult form, not in the chat.";
+  "If you ask for a savings number, a city price, a warranty length, or an install clock, the chat points here instead of guessing. Soft-close to a consult only appears after a couple of understanding turns, and only as an optional conversation, never as three bids. Eligibility still lives on the consult form, not in the chat.";
 
 export function sourcesFaqs(): Faq[] {
   return [
@@ -179,7 +179,7 @@ export function sourcesFaqs(): Faq[] {
     },
     {
       question: "How do you know when a page was last checked?",
-      answer: `Each education page shows a last-reviewed date. The current stamp is ${site.lastReviewedLabel}. That is when we last read the copy against these rules — not a daily-update claim and not a countdown.`,
+      answer: `Each education page shows a last-reviewed date. The current stamp is ${site.lastReviewedLabel}. That is when we last read the copy against these rules, not a daily-update claim and not a countdown.`,
     },
     {
       question: "Why don’t you publish a price for my city?",
@@ -194,7 +194,7 @@ export function sourcesFaqs(): Faq[] {
     {
       question: "Who is a consult for?",
       answer:
-        "Homeowners in served markets who want a conversation — not three bids and not a ZIP wizard. Education stays available if you live elsewhere. The consult form checks ZIP when you submit.",
+        "Homeowners in served markets who want a conversation, not three bids and not a ZIP wizard. Education stays available if you live elsewhere. The consult form checks ZIP when you submit.",
     },
   ];
 }
@@ -202,7 +202,7 @@ export function sourcesFaqs(): Faq[] {
 export const consultIsIsnt = [
   {
     title: "Conversation",
-    body: "A talk with a professional solar consultant about the bill, the roof, and the questions you already distrust — not a product pitch in the first minute.",
+    body: "A talk with a professional solar consultant about the bill, the roof, and the questions you already distrust, not a product pitch in the first minute.",
   },
   {
     title: "Not 3 bids",
@@ -217,7 +217,7 @@ export const consultIsIsnt = [
 export const consultBringItems = [
   {
     title: "A recent electric bill",
-    body: "The statement, or a photo of the charges that still do not read like English. You do not need a perfect file — the confusing line is enough.",
+    body: "The statement, or a photo of the charges that still do not read like English. You do not need a perfect file, the confusing line is enough.",
   },
   {
     title: "Roof age and shade notes",
@@ -240,7 +240,7 @@ export const consultAfterSteps = [
   },
   {
     title: "If you are in a served market, someone replies",
-    body: "A professional solar consultant follows up by call, text, or email — not a utility callback and not a marketplace of other companies. We do not publish a clock for that reply.",
+    body: "A professional solar consultant follows up by call, text, or email, not a utility callback and not a marketplace of other companies. We do not publish a clock for that reply.",
   },
   {
     title: "Education stays either way",

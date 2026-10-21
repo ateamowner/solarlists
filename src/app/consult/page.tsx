@@ -15,7 +15,7 @@ import {
 import { faqPageSchema } from "@/lib/schema";
 import { shareMeta } from "@/lib/share-meta";
 
-const title = `Request a Solar Consult in Ohio — ${site.name}`;
+const title = `Request a Solar Consult in Ohio, ${site.name}`;
 const description =
   "What a SolarLists consult is and is not: a conversation with a professional solar consultant, not three bids and not a ZIP wizard. What to have ready, how eligibility works, and what happens after you request.";
 
@@ -38,7 +38,7 @@ export default function ConsultPage() {
           <p className="text-sm font-medium text-primary">Optional next step</p>
           <h1 className="type-h1 mt-2">Book a consult</h1>
           <p className="type-prose mt-4">
-            If you want a conversation — not three bids — {site.author} will
+            If you want a conversation, not three bids, {site.author} will
             talk through what you already know about the bill, the roof, and
             the questions you do not trust yet.
           </p>
@@ -58,7 +58,7 @@ export default function ConsultPage() {
             </a>
           </p>
 
-          <h2 className="type-h2 mt-10">What a consult is — and is not</h2>
+          <h2 className="type-h2 mt-10">What a consult is, and is not</h2>
           <p className="type-prose mt-3 text-muted-foreground">
             The form on this page is a request for a conversation. It is not a
             quote mill and not a directory of contractors.
@@ -133,7 +133,7 @@ export default function ConsultPage() {
             <ul className="columns-2 gap-x-6 border-t border-border px-4 py-4 text-sm leading-6 text-muted-foreground">
               {consultMarkets.map((market) => (
                 <li key={market.abbr} className="break-inside-avoid">
-                  {market.abbr} — {market.name}
+                  {market.abbr}, {market.name}
                 </li>
               ))}
             </ul>
@@ -148,7 +148,7 @@ export default function ConsultPage() {
           <section>
             <h2 className="type-h2">After you submit</h2>
             <p className="type-prose mt-3 text-muted-foreground">
-              A calm next step — not a clock we invented. The form is
+              A calm next step, not a clock we invented. The form is
               Situation, then Contact, then Timing. That order stays the same.
             </p>
             <ol className="mt-5 space-y-3">

@@ -181,7 +181,7 @@ export function ConsultForm({ compact }: { compact?: boolean }) {
         Request a consult
       </h2>
       <p className="mt-1 text-[16px] leading-[26px] text-muted-foreground">
-        A conversation — not three quotes and not a ZIP wizard.
+        A conversation, not three quotes and not a ZIP wizard.
       </p>
 
       <ol
@@ -253,7 +253,7 @@ export function ConsultForm({ compact }: { compact?: boolean }) {
         {gate === "ok" ? (
           <p className="mt-3">
             <span className="inline-flex rounded-full border border-border bg-accent/40 px-3 py-1 text-[13px] leading-5">
-              Served market — a conversation is available
+              Served market, a conversation is available
             </span>
           </p>
         ) : null}
@@ -306,7 +306,7 @@ export function ConsultForm({ compact }: { compact?: boolean }) {
               aria-describedby={contactError ? "contact-error" : "contact-hint"}
             />
             <p id="contact-hint" className="mt-1 text-[13px] leading-5 text-muted-foreground">
-              One field is enough — whichever you prefer.
+              One field is enough, whichever you prefer.
             </p>
             {contactError ? (
               <p id="contact-error" className="mt-1 text-[13px] leading-5 text-destructive">
@@ -320,7 +320,7 @@ export function ConsultForm({ compact }: { compact?: boolean }) {
       <fieldset className="mt-5 min-w-0 border-0 p-0">
         <legend className="type-label text-muted-foreground">Timing</legend>
         <p className="mt-1 text-[13px] leading-5 text-muted-foreground">
-          When you want to talk — not a closer.
+          When you want to talk, not a closer.
         </p>
         <div
           className="mt-3 flex flex-wrap gap-2"
@@ -364,7 +364,7 @@ export function ConsultForm({ compact }: { compact?: boolean }) {
         {draft.timing && draft.timing !== "researching" ? (
           <p className="mt-3">
             <span className="inline-flex rounded-full border border-border bg-muted/70 px-3 py-1 text-[13px] leading-5">
-              A conversation — not three quotes
+              A conversation, not three quotes
             </span>
           </p>
         ) : null}
@@ -381,7 +381,7 @@ export function ConsultForm({ compact }: { compact?: boolean }) {
           <span className="min-w-0 flex-1">
             <span className="type-label block">More details</span>
             <span className="type-small mt-0.5 block">
-              Optional — home, roof, bill, and a note. Skip anything you do not
+              Optional, home, roof, bill, and a note. Skip anything you do not
               know yet.
             </span>
           </span>

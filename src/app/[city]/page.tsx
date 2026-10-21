@@ -45,7 +45,7 @@ export async function generateMetadata({
   if (!city) return {};
 
   const title = hubTitle(city);
-  const description = `${site.name} hub for ${city.name}, ${city.stateAbbr}. Solar installation, TPO solar, and solar panels — each with its own page. Consults go to ${site.operator}.`;
+  const description = `${site.name} hub for ${city.name}, ${city.stateAbbr}. Solar installation, TPO solar, and solar panels, each with its own page. Consults go to ${site.operator}.`;
   return {
     title,
     description,

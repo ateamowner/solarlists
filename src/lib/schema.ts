@@ -54,11 +54,11 @@ export function faqPageSchema(faqs: Faq[]) {
   };
 }
 
-/** City pages. No street address — public contact only. */
+/** City pages. No street address, public contact only. */
 export function publisherLocalBusiness(city: City) {
   return {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "Organization",
     name: site.legalName,
     alternateName: site.name,
     description: `${site.name} publishes residential solar guides for ${city.name} and collects consult requests for ${site.operator}.`,

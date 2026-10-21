@@ -3,7 +3,7 @@ import { PhoneLink } from "@/components/phone-link";
 import { site } from "@/config/site";
 import { shareMeta } from "@/lib/share-meta";
 
-const title = `Privacy Policy — ${site.name}`;
+const title = `Privacy Policy, ${site.name}`;
 const description =
   `How ${site.name} handles consult-form data for ${site.author}.`;
 

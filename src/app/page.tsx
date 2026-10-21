@@ -158,7 +158,7 @@ export default function HomePage() {
         <h2 className="type-h2">A consult is optional</h2>
         <p className="type-prose mt-3 text-muted-foreground">
           If you live in a served market and want a conversation with{" "}
-          {site.author} — not a marketplace of bids — you can book a consult.
+          {site.author}, not a marketplace of bids, you can book a consult.
           The city guides stay on the site either way.
         </p>
         <p className="mt-4">
