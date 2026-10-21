@@ -11,6 +11,8 @@ export const dynamic = "force-static";
 
 /** Stable lastmod for the 2026-09-23 local-index restore. */
 const restored = new Date("2026-09-23T00:00:00.000Z");
+/** City and service pages were rewritten in #23 on 2026-10-13. */
+const localRefresh = new Date("2026-10-13T00:00:00.000Z");
 
 const educationPaths = [
   { path: "/", priority: 1, changeFrequency: "weekly" as const },
@@ -32,13 +34,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const cityRoutes = liveCities.flatMap((city) => [
     {
       url: canonicalUrl(cityPath(city)),
-      lastModified: restored,
+      lastModified: localRefresh,
       changeFrequency: "weekly" as const,
       priority: 0.8,
     },
     ...services.map((service) => ({
       url: canonicalUrl(servicePath(city, service)),
-      lastModified: restored,
+      lastModified: localRefresh,
       changeFrequency: "weekly" as const,
       priority:
         service.slug === "tpo-solar" || service.slug === "solar-installation"
