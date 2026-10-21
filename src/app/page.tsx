@@ -16,17 +16,17 @@ import {
 } from "@/config/site";
 import { homeFaqs } from "@/lib/editorial";
 import { faqPageSchema, personSchema, webSiteSchema } from "@/lib/schema";
+import { shareMeta } from "@/lib/share-meta";
+
+const title = `Ohio Solar Guide: Dayton, Columbus & Cincinnati | ${site.name}`;
+const description =
+  site.description;
 
 export const metadata: Metadata = {
-  title: `${site.name} — Dayton, Columbus, and Cincinnati solar`,
-  description: site.description,
+  title,
+  description,
   alternates: { canonical: "https://solarlists.com/" },
-  openGraph: {
-    description: site.description,
-  },
-  twitter: {
-    description: site.description,
-  },
+  ...shareMeta(title, description, "/"),
 };
 
 const anchors = [

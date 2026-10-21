@@ -5,11 +5,17 @@ import { Disclosure } from "@/components/disclosure";
 import { JsonLd } from "@/components/json-ld";
 import { consultMarketSentence, site } from "@/config/site";
 import { personSchema, webSiteSchema } from "@/lib/schema";
+import { shareMeta } from "@/lib/share-meta";
+
+const title = `About ${site.name}: Who Writes These Ohio Solar Guides`;
+const description =
+  `Who writes ${site.name}: ${site.author} in ${site.authorLocation}. Education first, with a quiet independent-contractor disclosure.`;
 
 export const metadata: Metadata = {
-  title: `About — ${site.name}`,
-  description: `Who writes ${site.name}: ${site.author} in ${site.authorLocation}. Education first, with a quiet independent-contractor disclosure.`,
+  title,
+  description,
   alternates: { canonical: "/about/" },
+  ...shareMeta(title, description, "/about/"),
 };
 
 export default function AboutPage() {

@@ -19,6 +19,7 @@ import {
   services,
   site,
   guideLabel,
+  hubTitle,
 } from "@/config/site";
 import { hubFaqs, hubIntro } from "@/lib/content";
 import {
@@ -26,6 +27,7 @@ import {
   hubBreadcrumbs,
   publisherLocalBusiness,
 } from "@/lib/schema";
+import { shareMeta } from "@/lib/share-meta";
 
 export const dynamicParams = false;
 
@@ -42,20 +44,14 @@ export async function generateMetadata({
   const city = getCity(citySlug);
   if (!city) return {};
 
-  const title = `Solar in ${city.name}, ${city.stateAbbr}`;
+  const title = hubTitle(city);
   const description = `${site.name} hub for ${city.name}, ${city.stateAbbr}. Solar installation, TPO solar, and solar panels — each with its own page. Consults go to ${site.operator}.`;
   return {
     title,
     description,
     robots: indexableRobots,
     alternates: { canonical: cityPath(city) },
-    openGraph: {
-      title,
-      description,
-      url: cityPath(city),
-      siteName: site.name,
-      type: "website",
-    },
+    ...shareMeta(title, description, cityPath(city)),
   };
 }
 
