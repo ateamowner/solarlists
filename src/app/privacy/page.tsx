@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
 import { PhoneLink } from "@/components/phone-link";
 import { site } from "@/config/site";
+import { shareMeta } from "@/lib/share-meta";
+
+const title = `Privacy Policy, ${site.name}`;
+const description =
+  `How ${site.name} handles consult-form data for ${site.author}.`;
 
 export const metadata: Metadata = {
-  title: `Privacy — ${site.name}`,
-  description: `How ${site.name} handles consult-form data for ${site.author}.`,
+  title,
+  description,
   alternates: { canonical: "/privacy/" },
+  ...shareMeta(title, description, "/privacy/"),
 };
 
 export default function PrivacyPage() {

@@ -199,7 +199,7 @@ export function SolarChat() {
               <h2 id={labelId} className="font-heading text-lg font-semibold leading-6">
                 Ask about solar
               </h2>
-              <p className="type-small mt-0.5">Find the gap first — not a quote closer.</p>
+              <p className="type-small mt-0.5">Find the gap first, not a quote closer.</p>
             </div>
             <div className="flex shrink-0 items-center gap-1">
               {userTurns > 0 ? (

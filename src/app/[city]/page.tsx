@@ -19,6 +19,7 @@ import {
   services,
   site,
   guideLabel,
+  hubTitle,
 } from "@/config/site";
 import { hubFaqs, hubIntro } from "@/lib/content";
 import {
@@ -26,6 +27,7 @@ import {
   hubBreadcrumbs,
   publisherLocalBusiness,
 } from "@/lib/schema";
+import { shareMeta } from "@/lib/share-meta";
 
 export const dynamicParams = false;
 
@@ -42,20 +44,14 @@ export async function generateMetadata({
   const city = getCity(citySlug);
   if (!city) return {};
 
-  const title = `Solar in ${city.name}, ${city.stateAbbr}`;
-  const description = `${site.name} hub for ${city.name}, ${city.stateAbbr}. Solar installation, TPO solar, and solar panels — each with its own page. Consults go to ${site.operator}.`;
+  const title = hubTitle(city);
+  const description = `${site.name} hub for ${city.name}, ${city.stateAbbr}. Solar installation, TPO solar, and solar panels, each with its own page. Consults go to ${site.operator}.`;
   return {
     title,
     description,
     robots: indexableRobots,
     alternates: { canonical: cityPath(city) },
-    openGraph: {
-      title,
-      description,
-      url: cityPath(city),
-      siteName: site.name,
-      type: "website",
-    },
+    ...shareMeta(title, description, cityPath(city)),
   };
 }
 
@@ -92,7 +88,7 @@ export default async function CityHubPage({
         <header className="md:col-start-1">
           <p className="text-sm font-medium text-primary">{city.state}</p>
           <h1 className="type-h1 mt-2">
-            Solar in {city.name}, {city.stateAbbr}
+            {`Solar in ${city.name}, ${city.stateAbbr}`}
           </h1>
           <p className="mt-4 rounded-md border border-accent bg-accent/40 px-3 py-2 text-sm leading-6">
             TPO / $0-down is a first-class option in {city.name}: go solar
@@ -103,7 +99,7 @@ export default async function CityHubPage({
         </header>
         <aside className="md:col-start-2 md:row-span-2 md:sticky md:top-24 md:self-start">
           <h2 className="mb-3 font-heading text-lg font-semibold">
-            Consult for {city.name}
+            {`Consult for ${city.name}`}
           </h2>
           <ConsultForm />
         </aside>
@@ -116,7 +112,7 @@ export default async function CityHubPage({
           <TrustStrip className="mt-6" />
 
           <h2 className="mt-8 font-heading text-xl font-semibold">
-            Services in {city.name}
+            {`Services in ${city.name}`}
           </h2>
           <ul className="mt-3 grid gap-3">
             {services.map((service) => (

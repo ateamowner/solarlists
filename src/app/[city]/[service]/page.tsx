@@ -39,6 +39,7 @@ import {
   publisherLocalBusiness,
   servicePageBreadcrumbs,
 } from "@/lib/schema";
+import { shareMeta } from "@/lib/share-meta";
 
 export const dynamicParams = false;
 
@@ -68,13 +69,7 @@ export async function generateMetadata({
     description,
     robots: indexableRobots,
     alternates: { canonical: servicePath(city, service) },
-    openGraph: {
-      title,
-      description,
-      url: servicePath(city, service),
-      siteName: site.name,
-      type: "website",
-    },
+    ...shareMeta(title, description, servicePath(city, service)),
   };
 }
 
@@ -128,7 +123,7 @@ export default async function ServicePage({
 
         <aside className="md:col-start-2 md:row-span-2 md:sticky md:top-24 md:self-start">
           <h2 className="mb-3 font-heading text-lg font-semibold">
-            Consult for {service.name} in {city.name}
+            {`Consult for ${service.name} in ${city.name}`}
           </h2>
           <ConsultForm />
         </aside>

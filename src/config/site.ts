@@ -1,9 +1,9 @@
 /**
- * SolarLists site config — brand, domain, inbox, cities, and services.
+ * SolarLists site config, brand, domain, inbox, cities, and services.
  * Theme tokens live here so a rebrand is one file.
  */
 // Live host is GitHub Pages only.
-// Vercel GitHub App uninstalled — no Vercel deploy status expected.
+// Vercel GitHub App uninstalled, no Vercel deploy status expected.
 
 export const site = {
   name: "SolarLists",
@@ -164,7 +164,7 @@ export const services: Service[] = [
     name: "Solar Panels",
     formValue: "not_sure",
     blurb:
-      "Panel layout for your roof: shade, pitch, remaining shingle life, and winter production — not a brand catalog.",
+      "Panel layout for your roof: shade, pitch, remaining shingle life, and winter production, not a brand catalog.",
   },
 ];
 
@@ -339,7 +339,7 @@ export const cities: City[] = [
       "Huber Heights is a northern Dayton suburb known for brick ranches on AES Ohio. Lots are often wider than inner-city Dayton.",
     utility: "AES Ohio",
     roofs:
-      "Low-pitch asphalt planes on brick ranches — lots of area, less steepness for snow shed.",
+      "Low-pitch asphalt planes on brick ranches, lots of area, less steepness for snow shed.",
     housing:
       "1950s–70s Huber brick ranches and later infill. Simple footprints compared with Centerville colonials.",
     winter:
@@ -471,7 +471,7 @@ export const cities: City[] = [
     roofs:
       "Aging asphalt is common; brick houses and some slate appear on older streets.",
     housing:
-      "Older city stock — brick, two-stories, and houses that have seen decades of ice seasons.",
+      "Older city stock, brick, two-stories, and houses that have seen decades of ice seasons.",
     winter:
       "Ice storms are a regular Miami Valley and Clark County story. Roof condition is the gate, not a slogan.",
     localNote:
@@ -523,7 +523,7 @@ export const cities: City[] = [
     roofs:
       "Asphalt is common on later replacements; early houses along Far Hills and Schantz still carry slate or a mixed covering that is not a standard rack.",
     housing:
-      "Tudor, colonial, and foursquare stock on shaded lots — older Dayton-adjacent housing, not a 1990s subdivision street.",
+      "Tudor, colonial, and foursquare stock on shaded lots, older Dayton-adjacent housing, not a 1990s subdivision street.",
     winter:
       "Mature shade holds ice on north planes; ice dams show up where attic ventilation is weak on those older roofs. Winter sun sits low behind street trees.",
     localNote:
@@ -601,7 +601,7 @@ export const cities: City[] = [
     roofs:
       "Later architectural shingles on subdivision streets; the older National Road core has aging asphalt and more flashing lines.",
     housing:
-      "1970s–2000s colonials and ranches plus a compact older core — not inner-city Dayton bungalow stock.",
+      "1970s–2000s colonials and ranches plus a compact older core, not inner-city Dayton bungalow stock.",
     winter:
       "I-70-corridor wind on open subdivision lots; ice still sits on lower-pitch ranches after a Miami Valley freeze.",
     localNote:
@@ -627,7 +627,7 @@ export const cities: City[] = [
     roofs:
       "A mix of older east-Dayton asphalt and later military-adjacent housing. Slate is uncommon; remaining shingle life varies block to block.",
     housing:
-      "East-side Dayton stock plus base-adjacent streets — tighter than Beavercreek subdivisions, newer on average than Fairborn’s downtown.",
+      "East-side Dayton stock plus base-adjacent streets, tighter than Beavercreek subdivisions, newer on average than Fairborn’s downtown.",
     winter:
       "Wind off more open base-adjacent corridors; ice-dam leaks still show up on older east-side attics. Winter sun sits low behind neighboring two-stories.",
     localNote:
@@ -653,7 +653,7 @@ export const cities: City[] = [
     roofs:
       "Aging asphalt on worker-era houses and later replacements. Slate leftovers are rarer than Oakwood; simple gables are common.",
     housing:
-      "Mid-century industrial-adjacent streets and later infill — older Dayton housing nearby, not a Springboro subdivision.",
+      "Mid-century industrial-adjacent streets and later infill, older Dayton housing nearby, not a Springboro subdivision.",
     winter:
       "I-75-corridor wind plus ice on older flashing. Snow sits on simpler gables the way it does on other low-to-moderate pitches.",
     localNote:
@@ -677,7 +677,7 @@ export const cities: City[] = [
       "Bellbrook is a Greene County city southeast of Dayton, with a compact historic Main Street and later housing toward Sugarcreek Township. AES Ohio is the usual electric utility.",
     utility: "AES Ohio",
     roofs:
-      "Older downtown pitches — some aged covering — plus later architectural shingles on wider township-edge lots.",
+      "Older downtown pitches, some aged covering, plus later architectural shingles on wider township-edge lots.",
     housing:
       "Small-town two-stories in the core and later colonials on the edges. Not a Huber brick-ranch grid.",
     winter:
@@ -731,7 +731,7 @@ export const cities: City[] = [
     roofs:
       "Brick and two-story stock around the square still show aging asphalt and some older covering; later edges are architectural shingle.",
     housing:
-      "County-seat downtown two-stories plus 1970s–2000s ranches and colonials — older housing than a Vandalia tri-level street.",
+      "County-seat downtown two-stories plus 1970s–2000s ranches and colonials, older housing than a Vandalia tri-level street.",
     winter:
       "Ice on downtown eaves and freeze–thaw at brick chimneys; open north-edge lots catch more wind than the square. Winter sun on a downtown two-story is not a ranch rectangle.",
     localNote:
@@ -757,7 +757,7 @@ export const cities: City[] = [
     roofs:
       "Asphalt on later houses and aging covering on older rural-edge buildings. Slate is uncommon; simple planes are typical.",
     housing:
-      "A mix of older farmhouse leftovers and later ranches — more open than Trotwood’s post-war grid, less subdivision than Englewood.",
+      "A mix of older farmhouse leftovers and later ranches, more open than Trotwood’s post-war grid, less subdivision than Englewood.",
     winter:
       "Open northwest lots take wind-driven snow; ice still backs under low-pitch eaves after a Miami Valley freeze.",
     localNote:
@@ -783,7 +783,7 @@ export const cities: City[] = [
     roofs:
       "Older in-town asphalt and some aged covering downtown; later edges are simpler architectural-shingle planes.",
     housing:
-      "Small-town two-stories in the core and later ranches on the edges — more rural-adjacent than Kettering.",
+      "Small-town two-stories in the core and later ranches on the edges, more rural-adjacent than Kettering.",
     winter:
       "West-side open lots catch wind; downtown ice sits on older flashing the way other Miami Valley cores do.",
     localNote:
@@ -809,7 +809,7 @@ export const cities: City[] = [
     roofs:
       "Older brick-house asphalt and some leftover older covering downtown; later edges are standard architectural shingle.",
     housing:
-      "Nineteenth-century and early 20th-century village stock — closer to older Dayton housing than to a Springboro subdivision.",
+      "Nineteenth-century and early 20th-century village stock, closer to older Dayton housing than to a Springboro subdivision.",
     winter:
       "Ice on brick-chimney flashing is a regular village-core story; later open edges shed snow faster. Shade from village trees changes winter sun.",
     localNote:
@@ -835,7 +835,7 @@ export const cities: City[] = [
     roofs:
       "Older mill-town pitches and aging asphalt downtown; later housing adds architectural shingle on simpler planes.",
     housing:
-      "Historic two-stories near the river plus later edges — older stock than Springboro’s HOA streets.",
+      "Historic two-stories near the river plus later edges, older stock than Springboro’s HOA streets.",
     winter:
       "River-adjacent ice and I-75-corridor wind. North planes on older downtown roofs hold freeze–thaw longer.",
     localNote:
@@ -887,7 +887,7 @@ export const cities: City[] = [
     roofs:
       "1990s–2010s architectural shingles dominate the subdivisions; the older Bridge Street / Historic Dublin core has aging asphalt and tighter access.",
     housing:
-      "Later two-stories and colonials on HOA lots, plus a small older core — not inner-city Columbus bungalow stock.",
+      "Later two-stories and colonials on HOA lots, plus a small older core, not inner-city Columbus bungalow stock.",
     winter:
       "Open subdivision lots shed snow faster on steeper planes but take more wind; ice still sits on older downtown flashing.",
     localNote:
@@ -908,7 +908,7 @@ export const cities: City[] = [
       "delaware-oh",
     ],
     setting:
-      "Westerville sits northeast of Columbus with an Uptown historic core and later housing toward Delaware County. Westerville Electric, the city utility, serves most addresses — confirm the name on your bill; some edges print AEP Ohio.",
+      "Westerville sits northeast of Columbus with an Uptown historic core and later housing toward Delaware County. Westerville Electric, the city utility, serves most addresses, confirm the name on your bill; some edges print AEP Ohio.",
     utility: "Westerville Electric or the utility printed on your bill",
     roofs:
       "Older Uptown pitches mixed with later architectural shingles on wider lots. Slate leftovers are uncommon; remaining shingle life varies block to block.",
@@ -917,7 +917,7 @@ export const cities: City[] = [
     winter:
       "North valleys on older Uptown roofs hold ice; later open lots catch more wind than the tree-lined core.",
     localNote:
-      "Do not assume an AEP Ohio bill in Westerville. Interconnection follows the utility printed on the statement — often the city electric division.",
+      "Do not assume an AEP Ohio bill in Westerville. Interconnection follows the utility printed on the statement, often the city electric division.",
   },
   {
     slug: "grove-city-oh",
@@ -939,7 +939,7 @@ export const cities: City[] = [
     roofs:
       "Later architectural shingles on subdivision streets; the older Broadway core has aging asphalt and more flashing lines.",
     housing:
-      "1970s–2010s colonials and ranches plus a small historic core — wider lots than inner-city Columbus.",
+      "1970s–2010s colonials and ranches plus a small historic core, wider lots than inner-city Columbus.",
     winter:
       "Open I-71-corridor lots catch more wind-driven snow than a tree-lined Clintonville street; low-pitch ranches still hold ice at the eaves.",
     localNote:
@@ -965,7 +965,7 @@ export const cities: City[] = [
     roofs:
       "Asphalt is common on later replacements; older houses still carry slate or a mixed covering that is not a standard rack.",
     housing:
-      "Tudor, colonial, and foursquare stock on shaded lots — older Columbus-adjacent housing, not a 1990s HOA street.",
+      "Tudor, colonial, and foursquare stock on shaded lots, older Columbus-adjacent housing, not a 1990s HOA street.",
     winter:
       "Mature shade holds ice on north planes; ice dams show up where attic ventilation is weak. Winter sun sits low behind street trees.",
     localNote:
@@ -991,7 +991,7 @@ export const cities: City[] = [
     roofs:
       "Later architectural shingles dominate; Old Hilliard still has aging asphalt and tighter access than a 2000s street.",
     housing:
-      "1990s–2010s two-stories and colonials plus a small older core — more HOA streets than Upper Arlington.",
+      "1990s–2010s two-stories and colonials plus a small older core, more HOA streets than Upper Arlington.",
     winter:
       "Open west-side lots take wind-driven ice; older Old Hilliard flashing still holds freeze–thaw after a Central Ohio storm.",
     localNote:
@@ -1017,7 +1017,7 @@ export const cities: City[] = [
     roofs:
       "Older in-town asphalt mixed with later architectural shingles. Slate is uncommon; remaining shingle life varies.",
     housing:
-      "Mid-century and later two-stories plus a compact older core near Creekside — not a Powell subdivision grid.",
+      "Mid-century and later two-stories plus a compact older core near Creekside, not a Powell subdivision grid.",
     winter:
       "Creek-adjacent ice and freeze–thaw on older flashing; later open lots catch more wind than the tree-lined core.",
     localNote:
@@ -1043,7 +1043,7 @@ export const cities: City[] = [
     roofs:
       "Ranch and colonial asphalt, often lower pitch on older streets. Historic slate is uncommon.",
     housing:
-      "1960s–90s ranches and two-stories plus later edges — simpler footprints than Upper Arlington.",
+      "1960s–90s ranches and two-stories plus later edges, simpler footprints than Upper Arlington.",
     winter:
       "I-70-corridor wind on more open lots; low-pitch ranches hold snow the way other east-side planes do.",
     localNote:
@@ -1073,7 +1073,7 @@ export const cities: City[] = [
     winter:
       "Open southeast lots catch more wind than a tree-lined Gahanna street; ice still sits on older downtown flashing.",
     localNote:
-      "Do not copy an AEP Ohio assumption onto every Pickerington bill. Interconnection follows South Central Power or AEP — whichever is printed on the statement.",
+      "Do not copy an AEP Ohio assumption onto every Pickerington bill. Interconnection follows South Central Power or AEP, whichever is printed on the statement.",
   },
   {
     slug: "powell-oh",
@@ -1095,7 +1095,7 @@ export const cities: City[] = [
     roofs:
       "Later architectural shingles dominate the subdivisions; downtown Powell still has aging asphalt and tighter staging.",
     housing:
-      "1990s–2010s colonials on HOA streets plus a small downtown core — newer on average than Worthington’s village stock.",
+      "1990s–2010s colonials on HOA streets plus a small downtown core, newer on average than Worthington’s village stock.",
     winter:
       "Open Delaware County lots shed snow faster on steeper planes but take more wind; downtown ice still sits on older flashing.",
     localNote:
@@ -1121,7 +1121,7 @@ export const cities: City[] = [
     roofs:
       "Brick and two-story stock around the square still show aging asphalt and some older covering; later edges are architectural shingle.",
     housing:
-      "County-seat downtown two-stories plus 1970s–2000s ranches and colonials — older housing than a Powell subdivision street.",
+      "County-seat downtown two-stories plus 1970s–2000s ranches and colonials, older housing than a Powell subdivision street.",
     winter:
       "Ice on downtown eaves and freeze–thaw at brick chimneys; open north-edge lots catch more wind than the square.",
     localNote:
@@ -1145,7 +1145,7 @@ export const cities: City[] = [
       "Worthington is a historic village north of Columbus along High Street / US-23, with a New England–style green and later housing toward the Olentangy. AEP Ohio is the usual electric utility.",
     utility: "AEP Ohio",
     roofs:
-      "Older village pitches — some aged covering — plus later architectural shingles on wider lots toward the river.",
+      "Older village pitches, some aged covering, plus later architectural shingles on wider lots toward the river.",
     housing:
       "Early village two-stories around the green and later colonials on the edges. Not a 2000s Dublin HOA grid.",
     winter:
@@ -1199,7 +1199,7 @@ export const cities: City[] = [
     roofs:
       "1990s–2010s architectural shingles dominate; the older downtown still has aging asphalt and tighter access.",
     housing:
-      "Later two-stories and colonials on HOA streets — closer to West Chester geometry than to a Cincinnati hillside Italianate.",
+      "Later two-stories and colonials on HOA streets, closer to West Chester geometry than to a Cincinnati hillside Italianate.",
     winter:
       "Open I-71-corridor lots shed snow faster on steeper planes but take more wind; downtown ice still sits on older flashing.",
     localNote:
@@ -1225,7 +1225,7 @@ export const cities: City[] = [
     roofs:
       "Later architectural shingles on subdivision streets. Historic slate is uncommon; HOA planes are typical.",
     housing:
-      "1980s–2010s two-stories and colonials on HOA lots — not Cincinnati hillside stock and not a Hamilton mill-town two-story.",
+      "1980s–2010s two-stories and colonials on HOA lots, not Cincinnati hillside stock and not a Hamilton mill-town two-story.",
     winter:
       "Open I-75-corridor lots catch more wind-driven ice than a tree-lined Hyde Park street; steeper planes shed snow faster.",
     localNote:
@@ -1246,12 +1246,12 @@ export const cities: City[] = [
       "mason-oh",
     ],
     setting:
-      "Hamilton is a Butler County mill town on the Great Miami River, with older industrial-era housing and later edges. The City of Hamilton owns the electric utility for most addresses — confirm the name on your bill; some edges print Duke Energy.",
+      "Hamilton is a Butler County mill town on the Great Miami River, with older industrial-era housing and later edges. The City of Hamilton owns the electric utility for most addresses, confirm the name on your bill; some edges print Duke Energy.",
     utility: "City of Hamilton electric or the utility printed on your bill",
     roofs:
       "Older mill-town pitches and aging asphalt downtown; later housing adds architectural shingle on simpler planes.",
     housing:
-      "Historic two-stories near the river plus later edges — older stock than a West Chester HOA street.",
+      "Historic two-stories near the river plus later edges, older stock than a West Chester HOA street.",
     winter:
       "River-adjacent ice and freeze–thaw on older flashing. North planes on downtown roofs hold ice longer.",
     localNote:
@@ -1277,7 +1277,7 @@ export const cities: City[] = [
     roofs:
       "Ranch and colonial asphalt, often lower pitch on older streets. Historic slate is uncommon.",
     housing:
-      "1960s–90s ranches and two-stories plus later edges — simpler footprints than a Cincinnati hillside Italianate.",
+      "1960s–90s ranches and two-stories plus later edges, simpler footprints than a Cincinnati hillside Italianate.",
     winter:
       "Open north-belt lots catch more wind than a tree-lined Hyde Park street; low-pitch ranches hold snow.",
     localNote:
@@ -1298,12 +1298,12 @@ export const cities: City[] = [
       "west-chester-oh",
     ],
     setting:
-      "Lebanon is the Warren County seat northeast of Cincinnati, with a historic downtown and later edges toward Mason and Springboro. Duke Energy Ohio is the usual electric utility. Springboro and Franklin stay on their existing Dayton-ring pages — we do not duplicate them here.",
+      "Lebanon is the Warren County seat northeast of Cincinnati, with a historic downtown and later edges toward Mason and Springboro. Duke Energy Ohio is the usual electric utility. Springboro and Franklin stay on their existing Dayton-ring pages, we do not duplicate them here.",
     utility: "Duke Energy Ohio",
     roofs:
       "Older downtown pitches and aging asphalt; later edges are architectural shingle on simpler planes.",
     housing:
-      "County-seat two-stories around the square plus later colonials — older stock than a Mason HOA street.",
+      "County-seat two-stories around the square plus later colonials, older stock than a Mason HOA street.",
     winter:
       "Ice on downtown eaves; open later lots catch more wind than the square. Winter production is lower on both.",
     localNote:
@@ -1329,7 +1329,7 @@ export const cities: City[] = [
     roofs:
       "Steeper hillside pitches and older downtown asphalt; later edges add architectural shingle.",
     housing:
-      "Historic downtown two-stories plus later hillside and subdivision houses — tighter than a Mason HOA street.",
+      "Historic downtown two-stories plus later hillside and subdivision houses, tighter than a Mason HOA street.",
     winter:
       "North slopes hold ice; river-adjacent freeze–thaw wears flashing. Hillside access in a freeze changes staging, not a city price.",
     localNote:
@@ -1355,7 +1355,7 @@ export const cities: City[] = [
     roofs:
       "Mid-century asphalt and later architectural shingles. Slate leftovers are rarer than Cincinnati’s historic hillsides.",
     housing:
-      "1960s–90s two-stories and ranches plus later infill — newer on average than Norwood, tighter than Mason.",
+      "1960s–90s two-stories and ranches plus later infill, newer on average than Norwood, tighter than Mason.",
     winter:
       "I-71-corridor wind plus ice on older flashing. Snow sits on simpler gables the way it does on other moderate pitches.",
     localNote:
@@ -1381,7 +1381,7 @@ export const cities: City[] = [
     roofs:
       "Older downtown pitches mixed with later architectural shingles. Complex colonials add more flashing lines than a Blue Ash ranch.",
     housing:
-      "Historic-core two-stories plus later colonials — more HOA streets than Norwood, older downtown than Mason.",
+      "Historic-core two-stories plus later colonials, more HOA streets than Norwood, older downtown than Mason.",
     winter:
       "North valleys on older downtown roofs hold ice; later open lots catch more wind than the tree-lined core.",
     localNote:
@@ -1407,7 +1407,7 @@ export const cities: City[] = [
     roofs:
       "Older downtown asphalt and some aged covering; later edges are simpler architectural-shingle planes.",
     housing:
-      "Small-town two-stories in the core and later ranches on the edges — more river-town than a West Chester HOA grid.",
+      "Small-town two-stories in the core and later ranches on the edges, more river-town than a West Chester HOA grid.",
     winter:
       "River-adjacent ice and freeze–thaw on older flashing; later open lots shed snow faster.",
     localNote:
@@ -1433,7 +1433,7 @@ export const cities: City[] = [
     roofs:
       "Aging asphalt on worker-era houses and later replacements. Slate leftovers appear on some older blocks; simple gables are common.",
     housing:
-      "Early 20th-century two-stories and mid-century infill — older Cincinnati-adjacent stock, not a Mason subdivision.",
+      "Early 20th-century two-stories and mid-century infill, older Cincinnati-adjacent stock, not a Mason subdivision.",
     winter:
       "Tight lots and neighboring two-stories change winter sun; ice-dam leaks still show up on older attics.",
     localNote:
@@ -1459,7 +1459,7 @@ export const cities: City[] = [
     roofs:
       "Mid-century asphalt on ranches and two-stories; later replacements are architectural shingle. Historic slate is uncommon.",
     housing:
-      "1960s–80s planned-community stock plus later infill — more open than Norwood, older than a West Chester HOA street.",
+      "1960s–80s planned-community stock plus later infill, more open than Norwood, older than a West Chester HOA street.",
     winter:
       "I-275-corridor wind on more open lots; low-pitch ranches still hold melt at the eaves after a southwest Ohio freeze.",
     localNote:
@@ -1485,12 +1485,12 @@ export const cityRegionHeadings: Record<
   columbus: {
     heading: "Columbus-area cities",
     intro:
-      "Central Ohio hubs on AEP Ohio for most addresses — Westerville often uses the city electric division, and Pickerington is often South Central Power. Confirm the name on the bill.",
+      "Central Ohio hubs on AEP Ohio for most addresses, Westerville often uses the city electric division, and Pickerington is often South Central Power. Confirm the name on the bill.",
   },
   cincinnati: {
     heading: "Cincinnati-area cities",
     intro:
-      "Southwest Ohio hubs on Duke Energy Ohio for most addresses — Hamilton often uses the city electric utility. Springboro and Franklin stay on their Dayton-ring pages.",
+      "Southwest Ohio hubs on Duke Energy Ohio for most addresses, Hamilton often uses the city electric utility. Springboro and Franklin stay on their Dayton-ring pages.",
   },
 };
 
@@ -1607,6 +1607,16 @@ export function guideLabel(service: Service, city: City): string {
 }
 
 /** Title tag matches the H1 when it fits in 60 characters. */
+/** City hub title: descriptive and keeps "Best" (Anthony 10/16). Falls back to shorter forms for long city names. */
+export function hubTitle(city: City): string {
+  const options = [
+    `Solar Companies in ${city.name}, ${city.stateAbbr}: 2026 Costs, Incentives & Guide`,
+    `Solar Companies in ${city.name}, ${city.stateAbbr}: 2026 Costs & Incentives`,
+    `Solar Companies in ${city.name}, ${city.stateAbbr}: Costs & Incentives`,
+  ];
+  return options.find((title) => title.length <= 65) ?? `Solar Companies in ${city.name}, ${city.stateAbbr}: Homeowner Guide`;
+}
+
 export function pageTitle(service: Service, city: City): string {
   const locked = lockedH1(service, city);
   if (locked.length <= 60) return locked;

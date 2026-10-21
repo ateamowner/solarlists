@@ -6,6 +6,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SolarChat } from "@/components/solar-chat";
 import { site } from "@/config/site";
 import "./globals.css";
+import { shareImage } from "@/lib/share-meta";
 
 const sans = Inter({
   subsets: ["latin"],
@@ -22,11 +23,21 @@ const serif = Source_Serif_4({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — Dayton, Columbus, and Cincinnati solar`,
+    default: `Ohio Solar Guide: Dayton, Columbus & Cincinnati | ${site.name}`,
     template: `%s`,
   },
   description: site.description,
   applicationName: site.name,
+  openGraph: {
+    siteName: site.name,
+    type: "website",
+    locale: "en_US",
+    images: [shareImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [shareImage.url],
+  },
 };
 
 const themeVars = Object.entries({
@@ -67,7 +78,7 @@ export default function RootLayout({
           aria-hidden="true"
           dangerouslySetInnerHTML={{
             __html:
-              "<!-- Webmaster verification — do not invent codes. Bing Webmaster Tools (msvalidate.01): add solarlists.com in Bing Webmaster Tools and paste the real <meta name=\"msvalidate.01\" content=\"…\" /> here. Google site verification: HTML file is already at /googled3ae2edf58b5b2f8.html. Meta alternative: <meta name=\"google-site-verification\" content=\"…\" /> -->",
+              "<!-- Webmaster verification, do not invent codes. Bing Webmaster Tools (msvalidate.01): add solarlists.com in Bing Webmaster Tools and paste the real <meta name=\"msvalidate.01\" content=\"…\" /> here. Google site verification: HTML file is already at /googled3ae2edf58b5b2f8.html. Meta alternative: <meta name=\"google-site-verification\" content=\"…\" /> -->",
           }}
         />
         <style>{`:root { ${themeVars}; }`}</style>

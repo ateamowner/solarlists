@@ -13,12 +13,17 @@ import {
   sourcesFaqs,
 } from "@/lib/editorial";
 import { faqPageSchema } from "@/lib/schema";
+import { shareMeta } from "@/lib/share-meta";
+
+const title = `Sources and editorial policy, ${site.name}`;
+const description =
+  "How SolarLists treats numbers for homeowners: cite or omit, last-reviewed dates, what we will never publish, and how Ask about solar inherits the same rules. No invented city prices.";
 
 export const metadata: Metadata = {
-  title: `Sources and editorial policy — ${site.name}`,
-  description:
-    "How SolarLists treats numbers for homeowners: cite or omit, last-reviewed dates, what we will never publish, and how Ask about solar inherits the same rules. No invented city prices.",
+  title,
+  description,
   alternates: { canonical: "/sources/" },
+  ...shareMeta(title, description, "/sources/"),
 };
 
 export default function SourcesPage() {
@@ -32,7 +37,7 @@ export default function SourcesPage() {
       <h1 className="type-h1 mt-2">Sources and editorial policy</h1>
       <p className="type-prose mt-6">
         {site.name} would rather leave a blank than invent a figure. This page
-        is the rule set for every other URL on the site — the articles, the
+        is the rule set for every other URL on the site, the articles, the
         chat, and the consult form.
       </p>
       <p className="type-prose mt-3 text-muted-foreground">
@@ -87,7 +92,7 @@ export default function SourcesPage() {
 
       <h2 className="type-h2 mt-12">What we will never claim</h2>
       <p className="type-prose mt-3 text-muted-foreground">
-        A short red-flag list — not a scare page. If you see one of these
+        A short red-flag list, not a scare page. If you see one of these
         somewhere else, treat it as a pitch until someone can show the source.
       </p>
       <ul className="mt-6 space-y-3">
@@ -106,7 +111,7 @@ export default function SourcesPage() {
 
       <h2 className="type-h2 mt-12">Named source bookmarks</h2>
       <p className="type-prose mt-3 text-muted-foreground">
-        These are bookmarks for later articles — not numbers on this page. We
+        These are bookmarks for later articles, not numbers on this page. We
         name the source and what we will not quote from it yet.
       </p>
       <ul className="mt-6 grid gap-4 sm:grid-cols-2">
@@ -154,7 +159,7 @@ export default function SourcesPage() {
         <Link href="/consult/" className="underline underline-offset-2">
           consult form
         </Link>
-        — not by a wizard that invents a price.
+       , not by a wizard that invents a price.
       </p>
 
       <h2 className="type-h2 mt-12">Corrections</h2>
