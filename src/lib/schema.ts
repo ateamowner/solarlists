@@ -1,10 +1,8 @@
 import {
   canonicalUrl,
   cityPath,
-  servicePath,
   site,
   type City,
-  type Service,
 } from "@/config/site";
 import type { Faq } from "@/lib/editorial";
 
@@ -77,12 +75,40 @@ export function publisherLocalBusiness(city: City) {
   };
 }
 
-export function servicePageBreadcrumbs(city: City, service: Service) {
-  return breadcrumbSchema([
-    { name: "Home", path: "/" },
-    { name: `${city.name}, ${city.stateAbbr}`, path: cityPath(city) },
-    { name: service.name, path: servicePath(city, service) },
-  ]);
+/** City guide page: one page per city covering buy, TPO and panels (merged 2026-10-23). */
+export function cityGuideWebPage(
+  city: City,
+  opts: { title: string; description: string; dateModified?: Date; sections: { id: string; heading: string }[] }
+) {
+  const url = canonicalUrl(cityPath(city));
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${url}#webpage`,
+    url,
+    name: opts.title,
+    description: opts.description,
+    inLanguage: "en-US",
+    isPartOf: { "@id": "https://solarlists.com/#website" },
+    author: { "@id": "https://solarlists.com/#author" },
+    ...(opts.dateModified ? { dateModified: opts.dateModified.toISOString() } : {}),
+    about: [
+      { "@type": "Thing", name: "Residential solar installation" },
+      { "@type": "Thing", name: "Third-party-owned (TPO) solar" },
+      { "@type": "Thing", name: "Solar panels" },
+      { "@type": "Thing", name: "Net metering" },
+    ],
+    spatialCoverage: {
+      "@type": "City",
+      name: city.name,
+      containedInPlace: { "@type": "State", name: city.state },
+    },
+    hasPart: opts.sections.map((section) => ({
+      "@type": "WebPageElement",
+      name: section.heading,
+      url: `${url}#${section.id}`,
+    })),
+  };
 }
 
 export function hubBreadcrumbs(city: City) {

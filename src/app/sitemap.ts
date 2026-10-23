@@ -3,14 +3,12 @@ import {
   canonicalUrl,
   cities,
   cityPath,
-  servicePath,
   services,
 } from "@/config/site";
 
 import {
   cityPageLastmod,
   homePageLastmod,
-  servicePageLastmod,
   staticPageLastmod,
 } from "@/lib/lastmod";
 
@@ -36,6 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const liveCities = cities.filter((city) => city.status === "live");
+  // One guide per city. /<city>/<service>/ URLs are redirect stubs (2026-10-23) and stay out of the sitemap.
   const cityRoutes = liveCities.flatMap((city) => [
     {
       url: canonicalUrl(cityPath(city)),
@@ -44,17 +43,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
         services.map((service) => service.slug)
       ),
       changeFrequency: "weekly" as const,
-      priority: 0.8,
+      priority: 0.9,
     },
-    ...services.map((service) => ({
-      url: canonicalUrl(servicePath(city, service)),
-      lastModified: servicePageLastmod(city.slug, service.slug),
-      changeFrequency: "weekly" as const,
-      priority:
-        service.slug === "tpo-solar" || service.slug === "solar-installation"
-          ? 0.9
-          : 0.7,
-    })),
   ]);
 
   return [...education, ...cityRoutes];

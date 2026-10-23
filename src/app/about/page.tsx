@@ -52,8 +52,8 @@ export default function AboutPage() {
       </p>
       <p className="type-prose mt-3">
         A Team Contracting is a separate exterior-cleaning business. It is not
-        this site. Ohio city hubs and city × service pages are published again
-        so they can be crawled and indexed. Start from the{" "}
+        this site. Each Ohio city has one guide page (buying, TPO and panels)
+        with sourced local facts. Start from the{" "}
         <Link href="/#cities" className="underline underline-offset-2">
           city guides on the homepage
         </Link>

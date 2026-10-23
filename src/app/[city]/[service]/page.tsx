@@ -1,46 +1,21 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Breadcrumbs } from "@/components/breadcrumbs";
-import { ConsultForm } from "@/components/consult-form";
-import { CostGuide } from "@/components/cost-guide";
-import { FaqList } from "@/components/faq-list";
-import { HowToChoose } from "@/components/how-to-choose";
 import {
-  NearbyCityLinks,
-  NearbyCityHubs,
-  RegionHubLinks,
-  RelatedServiceLinks,
-} from "@/components/internal-links";
-import { LocalFactsBlock } from "@/components/local-facts";
-import { JsonLd } from "@/components/json-ld";
-import { EmptyListingsNote } from "@/components/empty-listings";
-import { TrustStrip } from "@/components/trust-strip";
-import {
+  canonicalUrl,
   cities,
   cityPath,
   getCity,
   getService,
-  indexableRobots,
-  lockedH1,
-  pageTitle,
-  servicePath,
   services,
-  site,
 } from "@/config/site";
-import {
-  costGuideCopy,
-  faqs,
-  howToChoose,
-  introParagraphs,
-  metaDescription,
-} from "@/lib/content";
-import {
-  faqPageSchema,
-  publisherLocalBusiness,
-  servicePageBreadcrumbs,
-} from "@/lib/schema";
-import { shareMeta } from "@/lib/share-meta";
 
+/**
+ * Retired 2026-10-23: /<city>/<service>/ pages were near-duplicates of the city
+ * guide (audit item f). Static export cannot send a 301, so each old URL is a
+ * redirect stub: instant meta refresh + rel=canonical to the city guide, with
+ * the matching section anchor. Stubs are not in the sitemap.
+ */
 export const dynamicParams = false;
 
 export function generateStaticParams() {
@@ -61,19 +36,13 @@ export async function generateMetadata({
   const city = getCity(citySlug);
   const service = getService(serviceSlug);
   if (!city || !service) return {};
-
-  const title = pageTitle(service, city);
-  const description = metaDescription(city, service);
   return {
-    title,
-    description,
-    robots: indexableRobots,
-    alternates: { canonical: servicePath(city, service) },
-    ...shareMeta(title, description, servicePath(city, service)),
+    title: `Moved: ${service.name} in ${city.name}, ${city.stateAbbr}`,
+    alternates: { canonical: cityPath(city) },
   };
 }
 
-export default async function ServicePage({
+export default async function RetiredServicePage({
   params,
 }: {
   params: Promise<{ city: string; service: string }>;
@@ -83,68 +52,25 @@ export default async function ServicePage({
   const service = getService(serviceSlug);
   if (!city || !service) notFound();
 
-  const heading = lockedH1(service, city);
-  const intro = introParagraphs(city, service);
-  const choose = howToChoose(city, service);
-  const cost = costGuideCopy(city);
-  const questions = faqs(city, service);
+  const target = `${cityPath(city)}#${service.slug}`;
+  const absolute = `${canonicalUrl(cityPath(city))}#${service.slug}`;
 
   return (
-    <article className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-10">
-      <JsonLd
-        data={[
-          publisherLocalBusiness(city),
-          faqPageSchema(questions),
-          servicePageBreadcrumbs(city, service),
-        ]}
+    <article className="mx-auto w-full max-w-3xl px-4 py-10 sm:px-6">
+      <meta httpEquiv="refresh" content={`0; url=${absolute}`} />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `window.location.replace(${JSON.stringify(target)});`,
+        }}
       />
-
-      <Breadcrumbs
-        items={[
-          { href: "/", label: "Home" },
-          { href: cityPath(city), label: `${city.name}, ${city.stateAbbr}` },
-          { href: servicePath(city, service), label: service.name },
-        ]}
-      />
-
-      <div className="mt-4 grid gap-8 md:grid-cols-[minmax(0,1fr)_minmax(20rem,26rem)] md:grid-rows-[auto_1fr]">
-        <header className="md:col-start-1">
-          <p className="text-sm font-medium text-primary">
-            {city.name}, {city.stateAbbr}
-          </p>
-          <h1 className="type-h1 mt-2">{heading}</h1>
-          <p className="mt-3 rounded-md border border-accent bg-accent/40 px-3 py-2 text-sm">
-            {service.slug === "tpo-solar"
-              ? `TPO / $0-down: go solar in ${city.name} without a huge loan. The TPO provider owns the system.`
-              : `TPO / $0-down is available on this ${city.name} consult, plus a standard purchase path.`}
-          </p>
-          <EmptyListingsNote className="mt-4" city={city} service={service} />
-        </header>
-
-        <aside className="md:col-start-2 md:row-span-2 md:sticky md:top-24 md:self-start">
-          <h2 className="mb-3 font-heading text-lg font-semibold">
-            {`Consult for ${service.name} in ${city.name}`}
-          </h2>
-          <ConsultForm />
-        </aside>
-
-        <div className="md:col-start-1">
-          {intro.map((paragraph) => (
-            <p key={paragraph} className="mt-4 text-base leading-7 first:mt-0">
-              {paragraph}
-            </p>
-          ))}
-          <TrustStrip className="mt-8" />
-          <HowToChoose content={choose} />
-          <CostGuide content={cost} />
-          <LocalFactsBlock city={city} />
-          <FaqList faqs={questions} />
-          <RelatedServiceLinks city={city} current={service} />
-          <NearbyCityLinks city={city} serviceSlug={service.slug} />
-          <NearbyCityHubs city={city} />
-          <RegionHubLinks city={city} />
-        </div>
-      </div>
+      <h1 className="type-h1">This guide moved</h1>
+      <p className="mt-4 text-base leading-7">
+        {`${service.name} in ${city.name} is now part of the full ${city.name} solar guide.`}{" "}
+        <Link href={target} className="underline underline-offset-2">
+          {`Open the ${city.name}, ${city.stateAbbr} solar guide`}
+        </Link>
+        .
+      </p>
     </article>
   );
 }

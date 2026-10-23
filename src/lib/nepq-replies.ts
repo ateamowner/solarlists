@@ -201,7 +201,7 @@ const replies: Record<string, Omit<ScriptedReply, "chips">> = {
   "tax-credit": {
     topicId: "tax-credit",
     links: [irsLink, sourcesLink],
-    text: "There is a federal residential clean energy credit published by the IRS. I will not quote a percentage, a dollar amount, or whether your household qualifies, that depends on the IRS rules, your tax situation, and who owns the system. I also will not treat a rebate as a promise. Read the IRS page, then Sources for how this site handles numbers.\n\nHave you already been told a credit figure you do not fully trust?",
+    text: "The IRS says the residential clean energy credit is not allowed for expenditures made after December 31, 2025, and an expenditure counts as made when installation is completed. So a system you buy and finish in 2026 does not get it. On TPO, the provider owns the system and any business credit, not you. I will not quote a dollar amount or tell you how your return works; read the IRS page, then Sources for how this site handles numbers.\n\nHave you already been told a credit figure you do not fully trust?",
   },
   "roof-shade": {
     topicId: "roof-shade",

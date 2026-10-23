@@ -9,10 +9,7 @@ import {
   cityPath,
   cityRegionHeadings,
   cityRegionOrder,
-  servicePath,
-  services,
   site,
-  guideLabel,
 } from "@/config/site";
 import { homeFaqs } from "@/lib/editorial";
 import { faqPageSchema, personSchema, webSiteSchema } from "@/lib/schema";
@@ -114,24 +111,12 @@ export default function HomePage() {
                   <p className="mt-2 line-clamp-3 flex-1 text-sm leading-6 text-muted-foreground">
                     {city.setting}
                   </p>
-                  <ul className="mt-4 space-y-2 text-sm">
-                    {services.map((service) => (
-                      <li key={service.slug}>
-                        <Link
-                          href={servicePath(city, service)}
-                          className="font-medium underline underline-offset-2"
-                        >
-                          {guideLabel(service, city)}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
                   <p className="mt-3">
                     <Link
                       href={cityPath(city)}
                       className="text-sm hover:underline"
                     >
-                      All {city.name} solar pages
+                      {`${city.name} solar guide: buy, TPO and panels`}
                     </Link>
                   </p>
                 </li>
