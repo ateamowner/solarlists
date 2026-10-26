@@ -78,7 +78,13 @@ export function publisherLocalBusiness(city: City) {
 /** City guide page: one page per city covering buy, TPO and panels (merged 2026-10-23). */
 export function cityGuideWebPage(
   city: City,
-  opts: { title: string; description: string; dateModified?: Date; sections: { id: string; heading: string }[] }
+  opts: {
+    title: string;
+    description: string;
+    dateModified?: Date;
+    sections: { id: string; heading: string }[];
+    citations?: { label: string; url: string }[];
+  }
 ) {
   const url = canonicalUrl(cityPath(city));
   return {
@@ -108,6 +114,15 @@ export function cityGuideWebPage(
       name: section.heading,
       url: `${url}#${section.id}`,
     })),
+    ...(opts.citations && opts.citations.length > 0
+      ? {
+          citation: opts.citations.map((c) => ({
+            "@type": "WebPage",
+            name: c.label,
+            url: c.url,
+          })),
+        }
+      : {}),
   };
 }
 
