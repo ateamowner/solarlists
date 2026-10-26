@@ -1,4 +1,4 @@
-import { localFaqs } from "@/lib/local-facts";
+import { localFacts, localFaqs } from "@/lib/local-facts";
 import {
   costGuide,
   getNearbyCities,
@@ -12,7 +12,7 @@ import type { Faq } from "@/lib/editorial";
 export type { Faq };
 
 export function quickAnswer(city: City): string {
-  return `Short answer: ${city.name} homeowners can buy a solar system or go third-party ownership (TPO, $0 down), and both run through ${city.utility} interconnection and Ohio net metering. A federal credit for systems you buy ended with 2025 installs. Start with roof age, shade, and a recent bill, then get every number in writing.`;
+  return `Short answer: ${city.name} homeowners can buy a solar system or go third-party ownership (TPO, $0 down), and both run through ${city.utility} interconnection and ${localFacts(city)?.metering ? "that utility’s own solar credit rule" : "Ohio net metering"}. A federal credit for systems you buy ended with 2025 installs. Start with roof age, shade, and a recent bill, then get every number in writing.`;
 }
 
 export function hubIntro(city: City): string[] {

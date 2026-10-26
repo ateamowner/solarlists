@@ -466,8 +466,8 @@ export const cities: City[] = [
       "xenia-oh",
     ],
     setting:
-      "Springfield is a Clark County city northeast of Dayton with older industrial-era housing. Confirm AES Ohio or the utility printed on your bill before interconnection talk.",
-    utility: "AES Ohio or the utility printed on your bill",
+      "Springfield is a Clark County city northeast of Dayton with older industrial-era housing. The city’s electrical permit form asks for an Ohio Edison (FirstEnergy) account number; confirm the utility printed on your bill before interconnection talk.",
+    utility: "Ohio Edison (FirstEnergy) or the utility printed on your bill",
     roofs:
       "Aging asphalt is common; brick houses and some slate appear on older streets.",
     housing:
@@ -492,8 +492,8 @@ export const cities: City[] = [
       "clayton-oh",
     ],
     setting:
-      "Tipp City sits in Miami County north of Dayton along the I-75 corridor, with a compact historic downtown and later subdivisions. AES Ohio is the usual electric utility.",
-    utility: "AES Ohio",
+      "Tipp City sits in Miami County north of Dayton along the I-75 corridor, with a compact historic downtown and later subdivisions. The city runs its own electric utility, Tipp City Electric.",
+    utility: "Tipp City Electric (city-owned) or the utility printed on your bill",
     roofs:
       "Older downtown pitches mixed with later subdivision architectural shingles; asphalt is common, and a few Main Street buildings still show aged covering.",
     housing:
@@ -501,7 +501,7 @@ export const cities: City[] = [
     winter:
       "Ice and freeze–thaw hit older flashing downtown; open subdivision lots catch more wind-driven snow than a tree-lined Dayton street.",
     localNote:
-      "A Main Street two-story is a different design problem than a later Tipp subdivision ranch, even when both sit on AES Ohio.",
+      "A Main Street two-story is a different design problem than a later Tipp subdivision ranch, even when both sit on the same city electric system.",
   },
   {
     slug: "oakwood-oh",
@@ -700,8 +700,8 @@ export const cities: City[] = [
       "germantown-oh",
     ],
     setting:
-      "Springboro sits in Warren County on the I-75 corridor south of Centerville and Miamisburg, with a historic downtown and large later subdivisions. Confirm AES Ohio or the utility printed on your bill.",
-    utility: "AES Ohio or the utility printed on your bill",
+      "Springboro sits in Warren County on the I-75 corridor south of Centerville and Miamisburg, with a historic downtown and large later subdivisions. The city lists two electric utilities by address, AES Ohio (formerly Dayton Power and Light) or Duke Energy Ohio, so confirm the one printed on your bill.",
+    utility: "AES Ohio or Duke Energy Ohio (check your bill)",
     roofs:
       "1990s–2010s architectural shingles dominate the subdivisions; the older downtown still has aging asphalt and tighter access.",
     housing:
@@ -830,8 +830,8 @@ export const cities: City[] = [
       "centerville-oh",
     ],
     setting:
-      "Franklin is a Warren County mill town on the Great Miami River and I-75, south of Miamisburg and Springboro toward the Middletown side of the valley. Confirm AES Ohio or the utility printed on your bill.",
-    utility: "AES Ohio or the utility printed on your bill",
+      "Franklin is a Warren County mill town on the Great Miami River and I-75, south of Miamisburg and Springboro toward the Middletown side of the valley. Duke Energy Ohio delivers power to most homes; confirm the utility printed on your bill.",
+    utility: "Duke Energy Ohio or the utility printed on your bill",
     roofs:
       "Older mill-town pitches and aging asphalt downtown; later housing adds architectural shingle on simpler planes.",
     housing:
@@ -1298,8 +1298,8 @@ export const cities: City[] = [
       "west-chester-oh",
     ],
     setting:
-      "Lebanon is the Warren County seat northeast of Cincinnati, with a historic downtown and later edges toward Mason and Springboro. Duke Energy Ohio is the usual electric utility. Springboro and Franklin stay on their existing Dayton-ring pages, we do not duplicate them here.",
-    utility: "Duke Energy Ohio",
+      "Lebanon is the Warren County seat northeast of Cincinnati, with a historic downtown and later edges toward Mason and Springboro. The city owns its electric utility (City of Lebanon Electric); confirm the name on your bill. Springboro and Franklin stay on their existing Dayton-ring pages, we do not duplicate them here.",
+    utility: "City of Lebanon Electric or the utility printed on your bill",
     roofs:
       "Older downtown pitches and aging asphalt; later edges are architectural shingle on simpler planes.",
     housing:

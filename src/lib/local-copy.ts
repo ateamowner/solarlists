@@ -65,16 +65,16 @@ const copy: Record<string, string> = {
     "Airport-adjacent wind does not change national panel pricing. It does change how we talk about racking and ice on those low-pitch planes compared with a steep Miamisburg hillside.",
 
   "springfield-oh:solar-installation":
-    "Springfield’s older brick and two-story stock, plus aging asphalt and some slate, makes roof condition the gate for a purchase install. Confirm AES Ohio or the utility printed on your bill. We will not invent a Springfield survey price.",
+    "Springfield’s older brick and two-story stock, plus aging asphalt and some slate, makes roof condition the gate for a purchase install. Confirm Ohio Edison (FirstEnergy) or the utility printed on your bill. We will not invent a Springfield survey price.",
   "springfield-oh:tpo-solar":
     "Older Springfield housing is exactly where a no-huge-loan TPO path matters. You may not want to finance panels on a roof that still has a decade of life questions. TPO keeps ownership with the provider if the roof and utility path qualify.",
   "springfield-oh:solar-panels":
     "Slate or very old asphalt in Springfield is a reason to pause module selection until the roof plan is honest. National published cost ranges are the only dollar figures we cite.",
 
   "tipp-city-oh:solar-installation":
-    "Tipp City purchase jobs split between the historic downtown and later Miami County subdivisions north of Dayton. A written install still starts with remaining roof life, shade, and AES Ohio interconnection. We do not publish a Tipp-only price.",
+    "Tipp City purchase jobs split between the historic downtown and later Miami County subdivisions north of Dayton. A written install still starts with remaining roof life, shade, and Tipp City Electric interconnection. We do not publish a Tipp-only price.",
   "tipp-city-oh:tpo-solar":
-    "Tipp City owners who want bill relief without a large loan can ask for TPO first. $0-down still needs a sound deck and the utility path on an AES Ohio bill. The TPO provider owns the system; A consult still starts with the roof.",
+    "Tipp City owners who want bill relief without a large loan can ask for TPO first. $0-down still needs a sound deck and the interconnection path with Tipp City Electric. The TPO provider owns the system; a consult still starts with the roof.",
   "tipp-city-oh:solar-panels":
     "Downtown Tipp lots can fight tighter setbacks and older planes; later subdivision roofs are often simpler rectangles. Panel layout follows shade, pitch, and winter sun, not a brand ranking we invented for Miami County.",
 
@@ -128,9 +128,9 @@ const copy: Record<string, string> = {
     "More facets on a township-edge colonial mean we talk which planes are worth a string or microinverter layout. A north valley that holds ice on Main Street is not a panel plane just because the house is in Greene County.",
 
   "springboro-oh:solar-installation":
-    "Springboro subdivisions usually have larger, less-shaded roofs than Dayton city lots. A purchase install still runs through roof age, HOA rules, architectural shingles, and interconnection on AES Ohio or the utility printed on your bill. Wider Warren County lots do not create a local price list.",
+    "Springboro subdivisions usually have larger, less-shaded roofs than Dayton city lots. A purchase install still runs through roof age, HOA rules, architectural shingles, and interconnection on AES Ohio or Duke Energy Ohio, whichever is printed on your bill. Wider Warren County lots do not create a local price list.",
   "springboro-oh:tpo-solar":
-    "Newer Springboro roofs are often closer to TPO-ready because the shingles are younger. $0-down still requires a sound deck and a utility path on the bill. We quote TPO first when the owner does not want a large loan. Confirm AES Ohio or whoever is printed on the statement.",
+    "Newer Springboro roofs are often closer to TPO-ready because the shingles are younger. $0-down still requires a sound deck and a utility path on the bill. We quote TPO first when the owner does not want a large loan. Confirm AES Ohio or Duke Energy Ohio on the statement.",
   "springboro-oh:solar-panels":
     "Open HOA streets tend to fight fewer street trees than Oakwood or Oregon District Dayton. Panel layout here is usually orientation, inverter type, and whether an HOA limits visible planes, not alley shade. Downtown Springboro is a tighter, older walk.",
 
@@ -151,7 +151,7 @@ const copy: Record<string, string> = {
   "brookville-oh:solar-installation":
     "Brookville purchase jobs split between a compact downtown pitch and later west-edge ranches along the US-35 / I-70 side. A written install still starts with remaining roof life, shade, and AES Ohio interconnection. We do not publish a Brookville-only price.",
   "brookville-oh:tpo-solar":
-    "Brookville owners who want bill relief without a large loan can ask for TPO first. $0-down still needs a sound deck and the utility path on an AES Ohio bill. The TPO provider owns the system; A consult still starts with the roof.",
+    "Brookville owners who want bill relief without a large loan can ask for TPO first. $0-down still needs a sound deck and the interconnection path with Tipp City Electric. The TPO provider owns the system; a consult still starts with the roof.",
   "brookville-oh:solar-panels":
     "Downtown Brookville lots can fight tighter setbacks and older planes; later west-edge roofs are often simpler rectangles. Panel layout follows shade, pitch, and winter sun, not a brand ranking we invented for west Montgomery County.",
 
@@ -163,7 +163,7 @@ const copy: Record<string, string> = {
     "Village trees and brick two-stories change shade and winter sun more than a Springboro subdivision rectangle. Slate or very old asphalt downtown is a reason to pause module selection until the roof plan is honest. National published cost ranges are the only dollar figures we cite.",
 
   "franklin-oh:solar-installation":
-    "Franklin purchase jobs sit on mill-town two-stories along the river or later I-75-edge housing. Confirm AES Ohio or the utility printed on your bill before interconnection talk. We will not invent a Franklin-only dollar figure to fill this page.",
+    "Franklin purchase jobs sit on mill-town two-stories along the river or later I-75-edge housing. Confirm Duke Energy Ohio or the utility printed on your bill before interconnection talk. We will not invent a Franklin-only dollar figure to fill this page.",
   "franklin-oh:tpo-solar":
     "A Franklin owner who wants solar without a large loan can use TPO on a sound roof. $0-down does not skip a river-lot access check or an ice-season flashing review. The TPO provider owns the equipment. Confirm the utility on the statement, Warren County bills are not all the same.",
   "franklin-oh:solar-panels":
@@ -289,9 +289,9 @@ const copy: Record<string, string> = {
     "Shade in Fairfield is less about Cincinnati street trees and more about open north-belt lots and neighboring additions. Low-pitch asphalt sheds snow differently than a steep hillside Italianate. Panel spacing follows that geometry, not a brand catalog.",
 
   "lebanon-oh:solar-installation":
-    "Lebanon purchase jobs split between a historic downtown pitch and later Warren County edges toward Mason. Duke Energy Ohio interconnection is part of the written scope. Springboro and Franklin stay on their existing Dayton-ring pages, we do not duplicate them. We do not publish a Lebanon-only price.",
+    "Lebanon purchase jobs split between a historic downtown pitch and later Warren County edges toward Mason. City of Lebanon Electric interconnection is part of the written scope. Springboro and Franklin stay on their existing Dayton-ring pages, we do not duplicate them. We do not publish a Lebanon-only price.",
   "lebanon-oh:tpo-solar":
-    "Older Lebanon downtown housing is exactly where a no-huge-loan TPO path matters. You may not want to finance panels on a roof that still has a decade of life questions. TPO keeps ownership with the provider if the roof and Duke Energy path qualify.",
+    "Older Lebanon downtown housing is exactly where a no-huge-loan TPO path matters. You may not want to finance panels on a roof that still has a decade of life questions. TPO keeps ownership with the provider if the roof and the city electric interconnection path qualify.",
   "lebanon-oh:solar-panels":
     "Square-adjacent lots can fight tighter setbacks and older planes; later edge roofs are often simpler rectangles. Panel layout follows shade, pitch, and winter sun, not a brand ranking we invented for Warren County.",
 
@@ -326,7 +326,7 @@ const copy: Record<string, string> = {
   "norwood-oh:solar-installation":
     "Norwood’s older industrial-era asphalt and tight lots inside the Cincinnati line make roof age the first filter. Some blocks need replacement before any purchase install. Duke Energy Ohio serves the city; we confirm that on the bill, not from a map guess.",
   "norwood-oh:tpo-solar":
-    "Older Norwood housing is exactly where a no-huge-loan TPO path matters. You may not want to finance panels on a roof that still has life questions. TPO keeps ownership with the provider if the roof and Duke Energy path qualify.",
+    "Older Norwood housing is exactly where a no-huge-loan TPO path matters. You may not want to finance panels on a roof that still has life questions. TPO keeps ownership with the provider if the roof and the city electric interconnection path qualify.",
   "norwood-oh:solar-panels":
     "Shade in Norwood is less about suburban street trees and more about neighboring two-stories, additions, and winter sun angles on a landlocked block. We will not pick a panel brand to pretend we have a local ranking.",
 

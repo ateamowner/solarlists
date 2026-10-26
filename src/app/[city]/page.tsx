@@ -9,6 +9,7 @@ import { FederalCreditBlock } from "@/components/federal-credit";
 import { HowToChoose } from "@/components/how-to-choose";
 import { NearbyCityHubs, RegionHubLinks } from "@/components/internal-links";
 import { LocalFactsBlock } from "@/components/local-facts";
+import { localFacts } from "@/lib/local-facts";
 import { JsonLd } from "@/components/json-ld";
 import { EmptyListingsNote } from "@/components/empty-listings";
 import { TrustStrip } from "@/components/trust-strip";
@@ -79,12 +80,25 @@ export default async function CityGuidePage({
   const sections = hubSections(city);
   const choose = howToChoose(city);
   const cost = costGuideCopy(city);
+  const facts = localFacts(city);
+  const updated = cityPageLastmod(
+    city.slug,
+    services.map((service) => service.slug)
+  );
+  const citations = facts
+    ? [
+        ...facts.utilityLinks,
+        ...(facts.metering?.links ?? []),
+        ...facts.permitLinks,
+        ...(facts.costLinks ?? []),
+      ].filter((link, i, all) => all.findIndex((l) => l.url === link.url) === i)
+    : [];
   const toc = [
     ...sections.map((s) => ({ id: s.id, label: s.heading })),
     { id: "tax-credit", label: "Federal tax credit status in 2026" },
     { id: "how-to-choose", label: "How to choose a solar company" },
     { id: "cost", label: "Cost guide" },
-    { id: "local-basics", label: `${city.name} utility, net metering and permits` },
+    { id: "local-basics", label: `${city.name} utility, net metering, permits and local costs` },
     { id: "faq", label: "Frequently asked questions" },
   ];
 
@@ -96,11 +110,14 @@ export default async function CityGuidePage({
           cityGuideWebPage(city, {
             title: hubTitle(city),
             description: hubMetaDescription(city),
-            dateModified: cityPageLastmod(
-              city.slug,
-              services.map((service) => service.slug)
-            ),
-            sections: sections.map((s) => ({ id: s.id, heading: s.heading })),
+            dateModified: updated,
+            sections: [
+              ...sections.map((s) => ({ id: s.id, heading: s.heading })),
+              ...(facts
+                ? [{ id: "local-basics", heading: `${city.name} solar basics: utility, net metering, permits, local costs` }]
+                : []),
+            ],
+            citations,
           }),
           faqPageSchema(questions),
           hubBreadcrumbs(city),
@@ -119,6 +136,19 @@ export default async function CityGuidePage({
           <h1 className="type-h1 mt-2">
             {`Solar in ${city.name}, ${city.stateAbbr}: Buy, TPO and Panel Guide`}
           </h1>
+          {updated ? (
+            <p className="mt-2 text-sm text-muted-foreground">
+              Last updated{" "}
+              <time dateTime={updated.toISOString().slice(0, 10)}>
+                {updated.toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                  timeZone: "America/New_York",
+                })}
+              </time>
+            </p>
+          ) : null}
           <p className="mt-4 rounded-md border border-accent bg-accent/40 px-3 py-2 text-sm leading-6">
             {quickAnswer(city)}
           </p>
