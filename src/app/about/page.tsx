@@ -60,6 +60,13 @@ export default function AboutPage() {
         .
       </p>
 
+      <h2 className="type-h2 mt-10">Not the same site as SolarList.io</h2>
+      <p className="type-prose mt-3">
+        SolarLists.com (plural, with an &ldquo;s&rdquo;) is a separate,
+        Ohio-only solar education site. It is not SolarList.io and is not
+        affiliated with SolarList.io or any solar quote or lead marketplace.
+      </p>
+
       <h2 className="type-h2 mt-10">Editorial standards</h2>
       <p className="type-prose mt-3">
         Cite or omit. No invented savings, dollar-per-watt figures, splits,
