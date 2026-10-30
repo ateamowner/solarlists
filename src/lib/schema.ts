@@ -31,6 +31,8 @@ export function webSiteSchema() {
     name: site.name,
     url: canonicalUrl("/"),
     description: site.description,
+    disambiguatingDescription:
+      "SolarLists.com is an Ohio-only solar education site. It is not SolarList.io and is not affiliated with any solar quote or lead marketplace.",
     author: {
       "@id": "https://solarlists.com/#author",
     },
@@ -59,6 +61,8 @@ export function publisherLocalBusiness(city: City) {
     "@type": "Organization",
     name: site.legalName,
     alternateName: site.name,
+    disambiguatingDescription:
+      "SolarLists.com is an Ohio-only solar education site. It is not SolarList.io and is not affiliated with any solar quote or lead marketplace.",
     description: `${site.name} publishes residential solar guides for ${city.name} and collects consult requests for ${site.operator}.`,
     url: canonicalUrl("/"),
     email: site.email,
