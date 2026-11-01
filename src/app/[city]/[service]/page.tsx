@@ -40,6 +40,7 @@ import {
   servicePageBreadcrumbs,
 } from "@/lib/schema";
 import { shareMeta } from "@/lib/share-meta";
+import { SeasonalSection, seasonalFaqs } from "@/seasonal";
 
 export const dynamicParams = false;
 
@@ -87,7 +88,7 @@ export default async function ServicePage({
   const intro = introParagraphs(city, service);
   const choose = howToChoose(city, service);
   const cost = costGuideCopy(city);
-  const questions = faqs(city, service);
+  const questions = seasonalFaqs(city, service, faqs(city, service));
 
   return (
     <article className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-10">
@@ -137,6 +138,7 @@ export default async function ServicePage({
           <TrustStrip className="mt-8" />
           <HowToChoose content={choose} />
           <CostGuide content={cost} />
+          <SeasonalSection city={city} service={service} />
           <LocalFactsBlock city={city} />
           <FaqList faqs={questions} />
           <RelatedServiceLinks city={city} current={service} />
