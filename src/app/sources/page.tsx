@@ -26,6 +26,30 @@ export const metadata: Metadata = {
   ...shareMeta(title, description, "/sources/"),
 };
 
+/** Federal credit sources added 2026-11-01 (seasonal refresh, SEO & AEO Desk). */
+const federalCreditSources = [
+  {
+    name: "IRS, Residential Clean Energy Credit",
+    href: "https://www.irs.gov/credits-deductions/residential-clean-energy-credit",
+  },
+  {
+    name: "IRS Notice 2025-42 (sections 45Y and 48E beginning of construction)",
+    href: "https://www.irs.gov/pub/irs-drop/n-25-42.pdf",
+  },
+  {
+    name: "26 U.S.C. § 48E",
+    href: "https://uscode.house.gov/us/usc/119-136/t26/s48E/",
+  },
+  {
+    name: "SEIA, OBBB fact sheet (July 2025)",
+    href: "https://seia.org/media/12216/obbb-fact-sheet_july-2025.pdf/",
+  },
+  {
+    name: "SEIA, Guide for Residential Solar Installers (Jan 2026)",
+    href: "https://seia.org/media/13667/guide-for-residential-solar-installers_jan-2026.pdf/",
+  },
+];
+
 export default function SourcesPage() {
   const questions = sourcesFaqs();
 
@@ -131,6 +155,35 @@ export default function SourcesPage() {
             <p className="mt-2 text-sm leading-6 text-muted-foreground">
               {source.usedFor}
             </p>
+          </li>
+        ))}
+      </ul>
+
+      <h2 className="type-h2 mt-12">Federal tax credit sources</h2>
+      <p className="type-prose mt-3 text-muted-foreground">
+        Cited in the federal solar tax credit section on{" "}
+        <Link
+          href="/dayton-oh/solar-installation/#federal-tax-credit"
+          className="underline underline-offset-2"
+        >
+          Dayton solar installation
+        </Link>
+        . Checked November 1, 2026. SolarLists is not a tax advisor.
+      </p>
+      <ul className="mt-6 grid gap-4 sm:grid-cols-2">
+        {federalCreditSources.map((source) => (
+          <li
+            key={source.href}
+            className="rounded-[16px] border border-border bg-card p-5 shadow-[0_8px_24px_rgba(26,29,24,0.06)]"
+          >
+            <a
+              href={source.href}
+              className="font-medium underline underline-offset-2"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              {source.name}
+            </a>
           </li>
         ))}
       </ul>
