@@ -2,44 +2,77 @@ import { localFaqs } from "@/lib/local-facts";
 import {
   costGuide,
   getNearbyCities,
+  services,
   site,
   type City,
-  type Service,
 } from "@/config/site";
 import { uniqueLocalCopy } from "@/lib/local-copy";
 import type { Faq } from "@/lib/editorial";
 
 export type { Faq };
 
-export function introParagraphs(city: City, service: Service): string[] {
-  const disclosure = `Consult requests on this page go to ${site.operator} at ${site.leadsEmail}.`;
-  const tpoLead =
-    service.slug === "tpo-solar"
-      ? `${city.name} homeowners can ask for third-party ownership first: $0 down, no huge loan, and a written explanation of who owns the system.`
-      : `A consult can cover third-party ownership (TPO) so ${city.name} homeowners can go solar without a large loan, plus a standard purchase quote if you would rather own the array.`;
-
-  return [uniqueLocalCopy(city, service), tpoLead, city.setting, disclosure];
+export function quickAnswer(city: City): string {
+  return `Short answer: ${city.name} homeowners can buy a solar system or go third-party ownership (TPO, $0 down), and both run through ${city.utility} interconnection and Ohio net metering. A federal credit for systems you buy ended with 2025 installs. Start with roof age, shade, and a recent bill, then get every number in writing.`;
 }
 
 export function hubIntro(city: City): string[] {
   return [
-    `This is the ${city.name}, ${city.stateAbbr} hub on ${site.name}. From here you can open solar installation, TPO solar, and solar panel pages, each with its own quote form.`,
+    `This is the one ${site.name} guide for ${city.name}, ${city.stateAbbr}. It covers buying a system, TPO / $0-down solar, and panel layout on ${city.name} roofs, plus the local utility, permit office, and federal credit status, each with a link to the official source.`,
     city.setting,
     `${city.housing} ${city.roofs} ${city.winter}`,
-    `A consult leads with TPO / $0-down when a ${city.name} roof and ${city.utility} bill qualify, and still covers a purchase path if you want to own the system.`,
-    `Consult requests go to ${site.operator} at ${site.leadsEmail}.`,
+    city.localNote,
+    `Consult requests go to ${site.operator} at ${site.leadsEmail}, or call or text ${site.phone}.`,
   ];
 }
 
-export function howToChoose(
-  city: City,
-  service: Service
-): {
+export type HubSection = {
+  id: string;
+  heading: string;
+  paragraphs: string[];
+};
+
+/** One section per former service URL. Redirect stubs point at these anchors. */
+export function hubSections(city: City): HubSection[] {
+  return services.map((service) => {
+    const local = uniqueLocalCopy(city, service);
+    if (service.slug === "tpo-solar") {
+      return {
+        id: service.slug,
+        heading: `TPO / $0-down solar in ${city.name}`,
+        paragraphs: [
+          local,
+          `Third-party ownership means a provider owns the array on your roof. You do not buy it, so you can go solar without a large loan. Interconnection and bill credits still run through ${city.utility}; TPO does not replace the utility.`,
+          `Ask what happens if you sell the house, what the monthly or per-kWh price does over the term, and who handles roof work under the array. Get each answer in the contract.`,
+        ],
+      };
+    }
+    if (service.slug === "solar-panels") {
+      return {
+        id: service.slug,
+        heading: `Solar panels on ${city.name} roofs`,
+        paragraphs: [
+          local,
+          `${site.name} does not publish a brand ranking or invented product names. Panel choice follows roof type, shade, and warranty. ${city.winter} Lower winter output is normal; ice around penetrations is why flashing and workmanship warranties matter more than a brochure photo.`,
+        ],
+      };
+    }
+    return {
+      id: service.slug,
+      heading: `Buying a solar system (installation) in ${city.name}`,
+      paragraphs: [
+        local,
+        `A purchase means you own the system once the job is complete and paid. Ask for a written scope that names the roof planes, the inverter type, how roof penetrations are flashed, and who files the ${city.utility} interconnection application.`,
+      ],
+    };
+  });
+}
+
+export function howToChoose(city: City): {
   lead: string;
   items: { title: string; body: string }[];
 } {
   return {
-    lead: `How to choose a ${service.name.toLowerCase()} path in ${city.name}, the same checks apply whether you want TPO or a purchase.`,
+    lead: `How to choose a solar path in ${city.name}. The same checks apply whether you want TPO or a purchase.`,
     items: [
       {
         title: "Roof condition",
@@ -47,7 +80,7 @@ export function howToChoose(
       },
       {
         title: "Shading",
-        body: `Walk the south and west planes after you know where winter sun sits. ${city.housing} A February photo can hide May shade. If a plane is a tree tunnel, say so on the form.`,
+        body: `Walk the south and west planes after you know where winter sun sits. A February photo can hide May shade. If a plane is a tree tunnel, say so on the form.`,
       },
       {
         title: "The bill",
@@ -55,11 +88,15 @@ export function howToChoose(
       },
       {
         title: "TPO vs buy",
-        body: `${service.slug === "tpo-solar" ? "This page is the TPO path: $0 down, no huge loan, provider-owned equipment." : "Decide whether you want to own the system or use TPO."} Purchase can make sense if you want the asset. TPO can make sense if you want solar without a large loan. Ask for both numbers in writing.`,
+        body: `Purchase can make sense if you want to own the asset. TPO can make sense if you want solar without a large loan. Since the homeowner federal credit ended with 2025 installs, ask for both numbers in writing and compare them side by side.`,
       },
       {
         title: "Who owns the system",
-        body: `On TPO, a third party owns the array; you are not buying it. On a purchase, you own it after the job is complete and paid. If you sell the ${city.name} house, the contract should say what transfers. Do not accept a shrug.`,
+        body: `On TPO, a third party owns the array; you are not buying it. On a purchase, you own it after the job is complete and paid. If you sell the ${city.name} house, the contract should say what transfers.`,
+      },
+      {
+        title: "Licensing and permits",
+        body: `Ask who pulls the building and electrical permits and which office issues them (see the local basics below). Ohio electrical contractors are licensed by the state (Ohio Construction Industry Licensing Board); ask for the license number and check it.`,
       },
       {
         title: "Warranty",
@@ -85,123 +122,40 @@ export function costGuideCopy(city: City): {
   };
 }
 
-export function faqs(city: City, service: Service): Faq[] {
+export function hubFaqs(city: City): Faq[] {
   const nearby = getNearbyCities(city);
   const nearbyNames = nearby.map((item) => item.name);
   const costAnswer = `${site.name} does not publish a ${city.name}-specific price. The only dollar range we cite is national: marketplace quotes have recently clustered around about $2.50 per watt before incentives (${costGuide.sourceName}). Broader cash-purchase studies report higher medians. Your job may sit outside that range.`;
 
-  if (service.slug === "tpo-solar") {
-    return [
-      {
-        question: `What is TPO solar in ${city.name}?`,
-        answer: `Third-party ownership. A provider owns the system on your ${city.name} roof. You can go solar with $0 down and without a large loan. That path is what a ${site.name} consult can cover. We are not a utility.`,
-      },
-      {
-        question: `Who owns the solar system if I choose TPO?`,
-        answer: `The TPO provider owns the equipment. You do not. That is the point of TPO versus a purchase. Ask what happens if you sell the house, and get it in the contract.`,
-      },
-      {
-        question: `Does TPO still need my ${city.utility} bill?`,
-        answer: `Yes. Interconnection and bill savings still run through the utility printed on your statement, ${city.utility} for most ${city.name} homes. TPO does not replace the utility.`,
-      },
-      {
-        question: `What does solar cost in ${city.name}?`,
-        answer: costAnswer,
-      },
-      {
-        question:
-          nearbyNames.length > 0
-            ? `Do you quote TPO in ${nearbyNames[0]} and other towns near ${city.name}?`
-            : `Which towns near ${city.name} have their own ${site.name} pages?`,
-        answer:
-          nearbyNames.length > 0
-            ? `Yes. We keep a separate URL so you open a real page instead of a comma list. From ${city.name} that includes ${joinAnd(nearbyNames)}. Each page has its own form.`
-            : `We publish one URL per city. If you do not see your town, send the form with your ZIP.`,
-      },
-    ];
-  }
-
-  if (service.slug === "solar-panels") {
-    return [
-      {
-        question: `Which solar panels does ${site.name} recommend in ${city.name}?`,
-        answer: `We do not publish a brand ranking or invented product names. Panel choice follows roof type, shade, and warranty, ${city.roofs} Equipment is discussed on the consult, not in a fake shop page.`,
-      },
-      {
-        question: `Can ${city.name} roofs take panels through an Ohio winter?`,
-        answer: `${city.winter} Winter production is lower. That is normal. Ice around penetrations is why roof condition and flashing warranty matter more than a brochure photo.`,
-      },
-      {
-        question: `What do solar panels cost in ${city.name}?`,
-        answer: costAnswer,
-      },
-      {
-        question: `Is this a marketplace of installers?`,
-        answer: `No. This page is a ${city.name} guide with a consult form. It is not a utility site and not a marketplace of other solar companies.`,
-      },
-      {
-        question:
-          nearbyNames.length > 0
-            ? `Are there panel pages for ${nearbyNames[0]} and towns near ${city.name}?`
-            : `Which towns near ${city.name} have their own ${site.name} pages?`,
-        answer:
-          nearbyNames.length > 0
-            ? `Yes, ${joinAnd(nearbyNames)} each have their own ${site.name} URLs and forms.`
-            : `Send the form with your ZIP if your town is not listed.`,
-      },
-    ];
-  }
-
   return [
+    ...localFaqs(city),
     {
-      question: `Is ${site.name} a solar installer in ${city.name}?`,
-      answer: `This site collects consult requests for ${site.operator}. We are not a utility and not a national marketplace. ${site.authorFormal} follows up on ${city.name} requests sent through this form.`,
-    },
-    {
-      question: `What does solar installation cost in ${city.name}?`,
+      question: `What does solar cost in ${city.name}?`,
       answer: costAnswer,
     },
     {
-      question: `How do ice and older houses change a ${city.name} install?`,
-      answer: `${city.housing} ${city.winter} Those facts change design and roof readiness. They are not a license to invent a local price.`,
+      question: `Can I still get the federal solar tax credit in ${city.name} in 2026?`,
+      answer: `Not on a system you buy and finish installing in 2026. The IRS says the residential clean energy credit (section 25D) is not allowed for expenditures made after December 31, 2025, and an expenditure counts as made when installation is completed. On TPO the provider, not you, owns the system and any business credit. This is not tax advice.`,
     },
     {
-      question: `Can I go solar in ${city.name} without a large loan?`,
-      answer: `Yes, ask for TPO. Third-party ownership is a first-class option on ${site.name}: $0 down, no huge loan, provider-owned system. You can also request a purchase quote on the same form.`,
+      question: `What is TPO solar in ${city.name}?`,
+      answer: `Third-party ownership. A provider owns the system on your ${city.name} roof, so you can go solar with $0 down and without a large loan. You still interconnect through ${city.utility}. TPO does not replace the utility.`,
     },
     {
-      question:
-        nearbyNames.length > 0
-          ? `Do you cover ${nearbyNames[0]} and other towns near ${city.name}?`
-          : `Which towns near ${city.name} have their own ${site.name} pages?`,
-      answer:
-        nearbyNames.length > 0
-          ? `Yes, we keep a separate URL for nearby cities so you can open a real page. From ${city.name} that includes ${joinAnd(nearbyNames)}. Each of those pages has its own quote form.`
-          : `We publish one URL per city. If you do not see your town, send the form with your ZIP.`,
-    },
-  ];
-}
-
-export function hubFaqs(city: City): Faq[] {
-  return [...localFaqs(city), ...baseHubFaqs(city)];
-}
-
-function baseHubFaqs(city: City): Faq[] {
-  const nearby = getNearbyCities(city);
-  const nearbyNames = nearby.map((item) => item.name);
-
-  return [
-    {
-      question: `What is the ${city.name} ${site.name} hub?`,
-      answer: `This is the city index for residential solar pages, installation, TPO solar, and solar panels. It is not a utility site and not a national marketplace.`,
+      question: `Who owns the solar system if I choose TPO?`,
+      answer: `The TPO provider owns the equipment. You do not. Ask what happens if you sell the house, and get it in the contract.`,
     },
     {
-      question: `Who receives a ${city.name} quote request?`,
-      answer: `${site.authorFormal}. Consult requests go to ${site.leadsEmail}.`,
+      question: `Can ${city.name} roofs take panels through an Ohio winter?`,
+      answer: `${city.winter} Winter production is lower. That is normal. Ice around penetrations is why roof condition and flashing warranty matter more than a brochure photo.`,
     },
     {
-      question: `Can ${city.name} homeowners go solar without a large loan?`,
-      answer: `Yes. A consult can cover third-party ownership (TPO) so you can go solar with $0 down and without a huge loan. You can also request a standard purchase quote.`,
+      question: `Which solar panels or companies does ${site.name} recommend in ${city.name}?`,
+      answer: `We do not publish a brand ranking, invented installer names, or fake reviews. ${site.name} is a homeowner guide with a consult form, not a marketplace. Use the how-to-choose checklist on this page to compare any company you are talking to.`,
+    },
+    {
+      question: `Who receives a ${city.name} consult request?`,
+      answer: `${site.authorFormal}. Requests go to ${site.leadsEmail}, or call or text ${site.phone}.`,
     },
     {
       question: `What utility serves ${city.name}?`,
@@ -210,18 +164,18 @@ function baseHubFaqs(city: City): Faq[] {
     {
       question:
         nearbyNames.length > 0
-          ? `Which nearby cities have their own ${site.name} pages?`
+          ? `Which nearby cities have their own ${site.name} guides?`
           : `What if my town is not listed?`,
       answer:
         nearbyNames.length > 0
-          ? `${city.name} links to ${joinAnd(nearbyNames)}. Each URL is a real page with a form so internal links do not 404.`
+          ? `From ${city.name}: ${joinAnd(nearbyNames)}. Each has one guide page with its own consult form.`
           : `Send the form with your ZIP and we will still take the request.`,
     },
   ];
 }
 
-export function metaDescription(city: City, service: Service): string {
-  return `Homeowner guide to ${service.name.toLowerCase()} in ${city.name}, ${city.stateAbbr}: roof, utility, and net-metering questions to ask first. TPO / $0-down or purchase consults. No rankings, not a utility.`;
+export function hubMetaDescription(city: City): string {
+  return `${city.name}, ${city.stateAbbr} solar guide: buy vs TPO / $0-down, panel layout, ${city.utility} net metering, permits, and 2026 federal credit status, with sources. Free consult.`;
 }
 
 function joinAnd(names: string[]): string {

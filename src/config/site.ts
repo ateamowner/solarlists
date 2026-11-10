@@ -105,7 +105,7 @@ export function consultMarketSentence(): string {
   return `${names.slice(0, -1).join(", ")}, and ${names[names.length - 1]}`;
 }
 
-/** City hubs and city × service pages are the local index. Thank-you stays noindex. */
+/** City guide pages are the local index (city × service URLs are redirect stubs since 2026-10-23). Thank-you stays noindex. */
 export const indexableRobots = {
   index: true,
   follow: true,

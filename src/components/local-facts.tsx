@@ -21,7 +21,7 @@ export function LocalFactsBlock({ city }: { city: City }) {
   const facts = localFacts(city);
   if (!facts) return null;
   return (
-    <section className="mt-10 rounded-lg border border-border bg-card p-5">
+    <section id="local-basics" className="mt-10 rounded-lg border border-border bg-card p-5">
       <h2 className="type-h2">{`${city.name} solar basics: utility, net metering, permits`}</h2>
       <h3 className="mt-4 font-heading text-lg font-semibold">Electric utility: {facts.utility}</h3>
       <p className="mt-1 text-sm leading-6">{facts.utilityNote}</p>

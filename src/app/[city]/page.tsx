@@ -3,8 +3,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { ConsultForm } from "@/components/consult-form";
+import { CostGuide } from "@/components/cost-guide";
 import { FaqList } from "@/components/faq-list";
-import { NearbyCityHubs, NearbyCityLinks, RegionHubLinks } from "@/components/internal-links";
+import { FederalCreditBlock } from "@/components/federal-credit";
+import { HowToChoose } from "@/components/how-to-choose";
+import { NearbyCityHubs, RegionHubLinks } from "@/components/internal-links";
 import { LocalFactsBlock } from "@/components/local-facts";
 import { JsonLd } from "@/components/json-ld";
 import { EmptyListingsNote } from "@/components/empty-listings";
@@ -13,16 +16,23 @@ import {
   cities,
   cityPath,
   getCity,
-  getService,
   indexableRobots,
-  servicePath,
   services,
   site,
-  guideLabel,
   hubTitle,
 } from "@/config/site";
-import { hubFaqs, hubIntro } from "@/lib/content";
 import {
+  costGuideCopy,
+  howToChoose,
+  hubFaqs,
+  hubIntro,
+  hubMetaDescription,
+  hubSections,
+  quickAnswer,
+} from "@/lib/content";
+import { cityPageLastmod } from "@/lib/lastmod";
+import {
+  cityGuideWebPage,
   faqPageSchema,
   hubBreadcrumbs,
   publisherLocalBusiness,
@@ -45,7 +55,7 @@ export async function generateMetadata({
   if (!city) return {};
 
   const title = hubTitle(city);
-  const description = `${site.name} hub for ${city.name}, ${city.stateAbbr}. Solar installation, TPO solar, and solar panels, each with its own page. Consults go to ${site.operator}.`;
+  const description = hubMetaDescription(city);
   return {
     title,
     description,
@@ -55,7 +65,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function CityHubPage({
+export default async function CityGuidePage({
   params,
 }: {
   params: Promise<{ city: string }>;
@@ -64,15 +74,34 @@ export default async function CityHubPage({
   const city = getCity(citySlug);
   if (!city) notFound();
 
-  const tpo = getService("tpo-solar");
   const questions = hubFaqs(city);
   const intro = hubIntro(city);
+  const sections = hubSections(city);
+  const choose = howToChoose(city);
+  const cost = costGuideCopy(city);
+  const toc = [
+    ...sections.map((s) => ({ id: s.id, label: s.heading })),
+    { id: "tax-credit", label: "Federal tax credit status in 2026" },
+    { id: "how-to-choose", label: "How to choose a solar company" },
+    { id: "cost", label: "Cost guide" },
+    { id: "local-basics", label: `${city.name} utility, net metering and permits` },
+    { id: "faq", label: "Frequently asked questions" },
+  ];
 
   return (
     <article className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-10">
       <JsonLd
         data={[
           publisherLocalBusiness(city),
+          cityGuideWebPage(city, {
+            title: hubTitle(city),
+            description: hubMetaDescription(city),
+            dateModified: cityPageLastmod(
+              city.slug,
+              services.map((service) => service.slug)
+            ),
+            sections: sections.map((s) => ({ id: s.id, heading: s.heading })),
+          }),
           faqPageSchema(questions),
           hubBreadcrumbs(city),
         ]}
@@ -88,12 +117,10 @@ export default async function CityHubPage({
         <header className="md:col-start-1">
           <p className="text-sm font-medium text-primary">{city.state}</p>
           <h1 className="type-h1 mt-2">
-            {`Solar in ${city.name}, ${city.stateAbbr}`}
+            {`Solar in ${city.name}, ${city.stateAbbr}: Buy, TPO and Panel Guide`}
           </h1>
           <p className="mt-4 rounded-md border border-accent bg-accent/40 px-3 py-2 text-sm leading-6">
-            TPO / $0-down is a first-class option in {city.name}: go solar
-            without a huge loan. Ask for a purchase quote on the same form if
-            you want to own the system.
+            {quickAnswer(city)}
           </p>
           <EmptyListingsNote className="mt-4" city={city} />
         </header>
@@ -111,36 +138,46 @@ export default async function CityHubPage({
           ))}
           <TrustStrip className="mt-6" />
 
-          <h2 className="mt-8 font-heading text-xl font-semibold">
-            {`Services in ${city.name}`}
-          </h2>
-          <ul className="mt-3 grid gap-3">
-            {services.map((service) => (
-              <li key={service.slug}>
-                <Link
-                  href={servicePath(city, service)}
-                  className="block rounded-lg border border-border bg-card px-4 py-3 hover:border-primary"
-                >
-                  <span className="font-medium">
-                    {guideLabel(service, city)}
-                  </span>
-                  <span className="mt-1 block text-sm text-muted-foreground">
-                    {service.blurb}
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <nav aria-label="On this page" className="mt-8 rounded-lg border border-border bg-card p-4">
+            <h2 className="font-heading text-lg font-semibold">On this page</h2>
+            <ol className="mt-2 grid gap-1 text-sm sm:grid-cols-2">
+              {toc.map((item) => (
+                <li key={item.id}>
+                  <a href={`#${item.id}`} className="underline underline-offset-2">
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </nav>
 
+          {sections.map((section) => (
+            <section key={section.id} id={section.id} className="mt-10 scroll-mt-24">
+              <h2 className="type-h2">{section.heading}</h2>
+              {section.paragraphs.map((paragraph) => (
+                <p key={paragraph} className="mt-3 text-base leading-7">
+                  {paragraph}
+                </p>
+              ))}
+            </section>
+          ))}
+
+          <FederalCreditBlock cityName={city.name} />
+          <HowToChoose content={choose} />
+          <CostGuide content={cost} />
           <LocalFactsBlock city={city} />
           <FaqList faqs={questions} />
           <NearbyCityHubs city={city} />
-          <NearbyCityLinks
-            city={city}
-            serviceSlug={tpo?.slug ?? "solar-installation"}
-          />
           <RegionHubLinks city={city} />
           <p className="mt-8 text-sm">
+            <Link href="/consult/" className="underline underline-offset-2">
+              {`Request a ${site.name} consult`}
+            </Link>
+            {" · "}
+            <Link href="/sources/" className="underline underline-offset-2">
+              How we source facts
+            </Link>
+            {" · "}
             <Link href="/#cities" className="underline underline-offset-2">
               All Ohio city guides
             </Link>
