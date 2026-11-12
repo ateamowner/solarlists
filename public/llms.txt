@@ -11,3 +11,7 @@
 - [Solar in Columbus, OH](https://solarlists.com/columbus-oh/)
 - [Solar in Cincinnati, OH](https://solarlists.com/cincinnati-oh/)
 - [Sources](https://solarlists.com/sources/)
+- [How SolarLists works](https://solarlists.com/how-we-list/)
+
+## How it works
+- Full method: https://solarlists.com/how-we-list/
