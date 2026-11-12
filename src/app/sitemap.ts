@@ -19,6 +19,7 @@ export const dynamic = "force-static";
 const educationPaths = [
   { path: "/", priority: 1, changeFrequency: "weekly" as const },
   { path: "/about/", priority: 0.5, changeFrequency: "monthly" as const },
+  { path: "/how-we-list/", priority: 0.5, changeFrequency: "monthly" as const },
   { path: "/sources/", priority: 0.5, changeFrequency: "monthly" as const },
   { path: "/consult/", priority: 0.6, changeFrequency: "monthly" as const },
   { path: "/privacy/", priority: 0.4, changeFrequency: "yearly" as const },
