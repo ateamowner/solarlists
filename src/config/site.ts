@@ -65,6 +65,7 @@ export const primaryNav = [
 export const footerNav = [
   { href: "/#cities", label: "Ohio cities" },
   { href: "/about/", label: "About" },
+  { href: "/how-we-list/", label: "How SolarLists works" },
   { href: "/sources/", label: "Sources" },
   { href: "/consult/", label: "Consult" },
   { href: "/privacy/", label: "Privacy" },
