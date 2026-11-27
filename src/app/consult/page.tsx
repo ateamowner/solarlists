@@ -17,7 +17,7 @@ import { shareMeta } from "@/lib/share-meta";
 
 const title = `Request a Solar Consult in Ohio, ${site.name}`;
 const description =
-  "What a SolarLists consult is and is not: a conversation with a professional solar consultant, not three bids and not a ZIP wizard. What to have ready, how eligibility works, and what happens after you request.";
+  "A SolarLists consult is a conversation with a professional solar consultant, not three bids or a ZIP wizard. What to have ready and what happens next.";
 
 export const metadata: Metadata = {
   title,

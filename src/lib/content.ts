@@ -221,7 +221,7 @@ function baseHubFaqs(city: City): Faq[] {
 }
 
 export function metaDescription(city: City, service: Service): string {
-  return `Homeowner guide to ${service.name.toLowerCase()} in ${city.name}, ${city.stateAbbr}: roof, utility, and net-metering questions to ask first. TPO / $0-down or purchase consults. No rankings, not a utility.`;
+  return `Homeowner guide to ${service.name.toLowerCase()} in ${city.name}, ${city.stateAbbr}: roof, bill, and net-metering questions to ask first. TPO or purchase consults. Not a utility.`;
 }
 
 function joinAnd(names: string[]): string {

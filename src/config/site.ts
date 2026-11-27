@@ -27,7 +27,7 @@ export const site = {
   lastReviewed: "2026-09-23",
   lastReviewedLabel: "September 23, 2026",
   description:
-    "SolarLists publishes city guides for Dayton, Columbus, Cincinnati, and nearby Ohio cities, plus education for homeowners researching solar. Open a city hub or request a consult.",
+    "SolarLists publishes city guides for Dayton, Columbus, Cincinnati, and nearby Ohio cities. Open a city hub or request a consult.",
   /** Quiet IC line for About + footer only. Never use this as an H1. */
   disclosure:
     "Consults are with a professional solar consultant who is a SunPower independent contractor. SolarLists is not SunPower.com. A Team Contracting is a separate exterior-cleaning business.",
@@ -1614,8 +1614,9 @@ export function hubTitle(city: City): string {
     `Solar Companies in ${city.name}, ${city.stateAbbr}: 2026 Costs, Incentives & Guide`,
     `Solar Companies in ${city.name}, ${city.stateAbbr}: 2026 Costs & Incentives`,
     `Solar Companies in ${city.name}, ${city.stateAbbr}: Costs & Incentives`,
+    `Solar Companies in ${city.name}, ${city.stateAbbr}: 2026 Guide`,
   ];
-  return options.find((title) => title.length <= 65) ?? `Solar Companies in ${city.name}, ${city.stateAbbr}: Homeowner Guide`;
+  return options.find((title) => title.length <= 60) ?? `Solar Companies in ${city.name}, ${city.stateAbbr}`;
 }
 
 export function pageTitle(service: Service, city: City): string {

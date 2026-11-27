@@ -10,7 +10,7 @@ import { shareMeta } from "@/lib/share-meta";
 const PATH = "/how-we-list/";
 const title = `How ${site.name} Works`;
 const description =
-  `${site.name} publishes Ohio homeowner solar guides for Dayton, Columbus, Cincinnati and nearby cities. Consult requests go to the consultant directly and are not sold to installers.`;
+  `${site.name} publishes Ohio solar guides for Dayton, Columbus, Cincinnati and nearby cities. Consult requests go to the consultant and are not sold to installers.`;
 
 export const metadata: Metadata = {
   title,
