@@ -17,7 +17,7 @@ import { shareMeta } from "@/lib/share-meta";
 
 const title = `Sources and editorial policy, ${site.name}`;
 const description =
-  "How SolarLists treats numbers for homeowners: cite or omit, last-reviewed dates, what we will never publish, and how Ask about solar inherits the same rules. No invented city prices.";
+  "How SolarLists treats numbers: cite or omit, last-reviewed dates, what we will never publish, and the same rules for Ask about solar. No invented city prices.";
 
 export const metadata: Metadata = {
   title,
